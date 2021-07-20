@@ -14,12 +14,12 @@ function App() {
   const classes = useAppGridStyle();
   return (
     <TripProvider>
-      <Grid container spacing={3} style={{ height: "100%" }}>
+      <Grid container style={{ height: "100%" }} direction="column">
         <Grid item xs={12} className={classes.header}>
           <Header></Header>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.main}>
           <Main>
             <Switch>
               <Route path="/tripsingleday/:day">
@@ -34,6 +34,7 @@ function App() {
             </Switch>
           </Main>
         </Grid>
+
         <Grid item xs={12} className={classes.footer}>
           <Footer></Footer>
         </Grid>

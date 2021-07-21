@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
+import StepIcon from "@material-ui/core/StepIcon";
+import Star from "@material-ui/icons/Star";
 
 import { useParams, useHistory, useLocation } from "react-router-dom";
 
@@ -104,7 +106,7 @@ export default function NavStepper() {
   // };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="stepNavigation">
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((page, index) => (
           <Step
@@ -112,6 +114,7 @@ export default function NavStepper() {
             completed={false}
             onClick={(e) => handleStepClick(e, index, page.pageIndex)}
           >
+            {/* StepIconComponent={Star} to customize step icon */}
             <StepLabel>{page.pageLabel}</StepLabel>
           </Step>
         ))}

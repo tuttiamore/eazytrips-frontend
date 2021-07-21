@@ -14,7 +14,12 @@ function App() {
   const classes = useAppGridStyle();
   return (
     <TripProvider>
-      <Grid container style={{ height: "100%" }} direction="column">
+      <Grid
+        container
+        style={{ height: "100%" }}
+        direction="column"
+        className="MuiGrid-wrap-xs-nowrap"
+      >
         <Grid item xs={12} className={classes.header}>
           <Header></Header>
         </Grid>

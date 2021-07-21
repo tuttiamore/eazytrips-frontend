@@ -1,6 +1,10 @@
 import React from "react";
-import { useTripContext } from "../context/TripContext";
+import NavStepper from "../components/Stepper";
 
 export default function TripSummary() {
-  return <div>trip summary</div>;
+  return (
+    <div>
+      <NavStepper></NavStepper>
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTripContext } from "../context/TripContext";
 
-export default function Main() {
+export default function Main({ children }) {
   const { tripData } = useTripContext();
-  return <div>{tripData}</div>;
+  return <main>{children}</main>;
 }

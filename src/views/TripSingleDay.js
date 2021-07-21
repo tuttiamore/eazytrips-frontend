@@ -1,5 +1,10 @@
 import React from "react";
+import NavStepper from "../components/Stepper";
 
 export default function TripSingleDay() {
-  return <div>trip single day</div>;
+  return (
+    <div>
+      <NavStepper></NavStepper>
+    </div>
+  );
 }

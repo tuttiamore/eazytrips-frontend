@@ -28,7 +28,7 @@ function App() {
               <Route path="/tripsummary">
                 <TripSummary />
               </Route>
-              <Route path="/">
+              <Route path="/" exact>
                 <LandingPage />
               </Route>
             </Switch>

@@ -4,7 +4,7 @@ const TripContext = createContext();
 const useTripContext = () => useContext(TripContext);
 
 const TripProvider = ({ children }) => {
-  const [tripData, setTripData] = useState("context data from TripProvider");
+  const [tripData, setTripData] = useState("Getting Started");
 
   return (
     <TripContext.Provider value={{ tripData, setTripData }}>

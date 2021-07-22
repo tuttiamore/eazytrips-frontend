@@ -22,7 +22,7 @@ import Divider from "@material-ui/core/Divider";
 
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
 import { useTripContext } from "../context/TripContext";
-
+import List from "@material-ui/core/List";
 export default function TripSummary() {
   const classes = useTripSummaryStyle();
   const { tripData } = useTripContext();
@@ -124,4 +124,12 @@ export default function TripSummary() {
       </Box>
     </>
   );
+}
+
+{
+  /* <List style={{ height: "100%", overflow: "auto" }}>
+  {tripData.trip.map((element) => (
+    <Card key={element.day} type="TripSummary" data={element} />
+  ))}
+</List>; */
 }

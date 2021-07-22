@@ -2,16 +2,19 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useAppGridStyle = makeStyles((theme) => ({
   header: {
-    // alignSelf: "flex-start",
-    flex: 1,
+    alignSelf: "flex-start",
+    //flex: 1,
+    height: "10%",
   },
   main: {
-    // alignSelf: "stretch",
-    flex: 5,
+    alignSelf: "flex-start",
+    height: "80%",
+    maxHeight: "100%",
   },
   footer: {
-    // alignSelf: "flex-end",
-    flex: 1,
+    alignSelf: "flex-end",
+    //flex: 1,
+    height: "10%",
   },
 }));
 

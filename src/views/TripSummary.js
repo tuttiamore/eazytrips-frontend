@@ -41,7 +41,7 @@ export default function TripSummary() {
         <Timeline>
           <TimelineItem classes={{ root: "removeLeftSpace" }}>
             <TimelineSeparator>
-              <TimelineDot color="secondary" variant="outlined">
+              <TimelineDot color="primary">
                 <Star fontSize="large" color="secondary"></Star>
               </TimelineDot>
               <TimelineConnector color="secondary" />

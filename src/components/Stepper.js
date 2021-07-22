@@ -5,27 +5,12 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepIcon from "@material-ui/core/StepIcon";
-import Star from "@material-ui/icons/Star";
+import Box from "@material-ui/core/Box";
+import Grain from "@material-ui/icons/Grain";
+import TripOrigin from "@material-ui/icons/TripOrigin";
 
 import { useParams, useHistory, useLocation } from "react-router-dom";
-
 import { useTripContext } from "../context/TripContext";
-
-// import Button from "@material-ui/core/Button";
-// import Typography from "@material-ui/core/Typography";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-  },
-  backButton: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-}));
 
 const useGetSteps = () => {
   let { day } = useParams();
@@ -60,13 +45,28 @@ const useGetSteps = () => {
     },
     [{ pageIndex: 0, pageLabel: "Summary" }]
   );
-  console.log(labels);
-  console.log(trip);
   return labels;
 };
 
+const IconComponent = (props) => {
+  const { active, completed, icon } = props;
+  console.log(icon);
+  // alternative icons for summary: flair,
+  const icons = {
+    1: <Grain />,
+    2: <TripOrigin />,
+    3: <TripOrigin />,
+    4: <TripOrigin />,
+  };
+
+  return (
+    <Box color={active ? "primary.main" : "text.secondary"}>
+      {icons[String(icon)]}
+    </Box>
+  );
+};
+
 export default function NavStepper() {
-  const classes = useStyles();
   const steps = useGetSteps();
   const history = useHistory();
   const { day } = useParams();
@@ -106,20 +106,25 @@ export default function NavStepper() {
   // };
 
   return (
-    <div className={classes.root} id="stepNavigation">
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((page, index) => (
-          <Step
-            key={page.pageIndex}
-            completed={false}
-            onClick={(e) => handleStepClick(e, index, page.pageIndex)}
-          >
-            {/* StepIconComponent={Star} to customize step icon */}
-            <StepLabel>{page.pageLabel}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-      {/* <div>
+    <Stepper activeStep={activeStep} alternativeLabel>
+      {steps.map((page, index) => (
+        <Step
+          key={page.pageIndex}
+          completed={false}
+          onClick={(e) => handleStepClick(e, index, page.pageIndex)}
+        >
+          {/* StepIconComponent={Star} to customize step icon */}
+          <StepLabel StepIconComponent={IconComponent}>
+            {page.pageLabel}
+          </StepLabel>
+        </Step>
+      ))}
+    </Stepper>
+  );
+}
+
+{
+  /* <div>
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>
@@ -146,9 +151,7 @@ export default function NavStepper() {
             </div>
           </div>
         )}
-      </div> */}
-    </div>
-  );
+      </div> */
 }
 
 // function getStepContent(stepIndex) {

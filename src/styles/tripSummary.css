@@ -1,0 +1,3 @@
+.MuiTimelineItem-missingOppositeContent.removeLeftSpace::before {
+  content: none;
+}

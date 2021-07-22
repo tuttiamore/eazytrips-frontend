@@ -5,7 +5,7 @@ import { DateTime } from "luxon";
 import { sizing, palette, spacing } from "@material-ui/system";
 
 // Material UI ICONS
-import { Star, DirectionsWalk } from "@material-ui/icons";
+import { Star, DirectionsWalk, Commute } from "@material-ui/icons";
 
 // Material UI LAB components
 import {
@@ -76,13 +76,15 @@ export default function TripSummary() {
           </Box>
         )}
         {tripData.transportation.public && (
-          <Chip
-            icon={<DirectionsWalk></DirectionsWalk>}
-            label="Walking"
-            // onClick={handleClick}
-            onDelete={handleDelete}
-            variant="outlined"
-          />
+          <Box boxSizing="border-box" marginRight={1} display="inline">
+            <Chip
+              icon={<Commute></Commute>}
+              label="Public/Car"
+              // onClick={handleClick}
+              onDelete={handleDelete}
+              variant="outlined"
+            />
+          </Box>
         )}
       </>
     );

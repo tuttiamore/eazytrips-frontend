@@ -4,11 +4,11 @@ const useAppGridStyle = makeStyles((theme) => ({
   header: {
     alignSelf: "flex-start",
     //flex: 1,
-    height: "5%",
+    height: "8%",
   },
   main: {
     alignSelf: "flex-start",
-    height: "85%",
+    height: "82%",
     maxHeight: "100%",
     overflow: "auto",
   },

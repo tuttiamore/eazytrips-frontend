@@ -84,8 +84,6 @@ export default function NavStepper() {
     }, 0);
   }
 
-  console.log(activeStep);
-
   const handleStepClick = (e, index, pageIndex) => {
     if (index === 0) {
       return history.push(`/tripsummary`);
@@ -113,7 +111,6 @@ export default function NavStepper() {
           completed={false}
           onClick={(e) => handleStepClick(e, index, page.pageIndex)}
         >
-          {/* StepIconComponent={Star} to customize step icon */}
           <StepLabel StepIconComponent={IconComponent}>
             {page.pageLabel}
           </StepLabel>

@@ -5,6 +5,8 @@
   "tripEnds": "2021-07-27T15:00:00.000Z",
   "destination": "Berlin",
   "createdAt": "2021-07-19T20:25:57.534Z",
+  "accommodation": "Spandauer Alle 123, 0134 Berlin",
+  "transportation": { "walking": true, "public": true },
   "trip": [
     {
       "day": 1,

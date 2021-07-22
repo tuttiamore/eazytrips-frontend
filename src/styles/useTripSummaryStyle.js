@@ -13,6 +13,10 @@ const useTripSummaryStyle = makeStyles((theme) => ({
     margin: 0,
     boxSizing: "border-box",
   },
+  customTimelineIcon: {
+    backgroundColor: "white",
+    color: "black",
+  },
 }));
 
 export default useTripSummaryStyle;

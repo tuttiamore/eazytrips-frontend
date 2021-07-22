@@ -15,7 +15,7 @@
           "period": "morning",
           "arrivalTime": "2021-07-24T07:30:00.000Z",
           "departureTime": "2021-07-24T08:30:00.000Z",
-          "travelTo": 5000,
+          "travelTo": 1,
           "travelFrom": 5000,
           "place_id": "ChIJjRbDOf1RqEcRNoyAtT2-8P0"
         },
@@ -24,7 +24,7 @@
           "period": "morning",
           "arrivalTime": "2021-07-24T08:45:00.000Z",
           "departureTime": "2021-07-24T10:00:00.000Z",
-          "travelTo": 5000,
+          "travelTo": 2,
           "travelFrom": 5000,
           "place_id": "ChIJNRqweCpOqEcR9Wab9cvf6lc"
         },
@@ -33,7 +33,7 @@
           "period": "afternoon",
           "arrivalTime": "2021-07-24T11:30:00.000Z",
           "departureTime": "2021-07-24T13:30:00.000Z",
-          "travelTo": 5000,
+          "travelTo": 3,
           "travelFrom": 5000,
           "place_id": "ChIJS4MKBSBOqEcRMVSPqUYFOJ0"
         },
@@ -42,7 +42,7 @@
           "period": "afternoon",
           "arrivalTime": "2021-07-24T11:30:00.000Z",
           "departureTime": "2021-07-24T13:30:00.000Z",
-          "travelTo": 5000,
+          "travelTo": 4,
           "travelFrom": 5000,
           "place_id": "ChIJjRbDOf1RqEcRNoyAtT2-8P0"
         }

@@ -1,6 +1,8 @@
 import React from "react";
 import NavStepper from "../components/Stepper";
 import CardPlaceholder from "../components/CardPlaceholder";
+import HighlightCard from "../components/Card";
+
 import Box from "@material-ui/core/Box";
 import Star from "@material-ui/icons/Star";
 import Typography from "@material-ui/core/Typography";
@@ -88,7 +90,10 @@ export default function TripSummary() {
               <TimelineConnector color="primary" />
             </TimelineSeparator>
             <TimelineContent>
-              <CardPlaceholder></CardPlaceholder>
+              <HighlightCard
+                type="TripSummary"
+                data={tripData.trip[0]}
+              ></HighlightCard>
             </TimelineContent>
           </TimelineItem>
           <TimelineItem classes={{ root: "removeLeftSpace" }}>

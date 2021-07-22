@@ -2,9 +2,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useCardStyle = makeStyles((theme) => ({
   root: {
-    maxWidth: "75%",
+    maxWidth: "100%",
 
-    margin: " 16px auto",
+    // margin: " 16px auto",
   },
   media: {
     height: 0,

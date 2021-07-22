@@ -10,6 +10,7 @@ const useAppGridStyle = makeStyles((theme) => ({
     alignSelf: "flex-start",
     height: "80%",
     maxHeight: "100%",
+    overflow: "auto",
   },
   footer: {
     alignSelf: "flex-end",

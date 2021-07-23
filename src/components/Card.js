@@ -110,4 +110,25 @@ export default function RecipeReviewCard({ type, data }) {
       </Card>
     );
   }
+  if (type === "UpcomingTrip") {
+    const tripName = data ? data : mockData.trip[0];
+
+    return (
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar
+              variant="rounded"
+              aria-label="default"
+              className={classes.avatar}
+              src={avatarImage && avatarImage}
+            >
+              <LandscapeIcon />
+            </Avatar>
+          }
+          title={tripName}
+        />
+      </Card>
+    );
+  }
 }

@@ -5,6 +5,7 @@ import { useTheme } from "@material-ui/core/styles";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import CardTravelIcon from "@material-ui/icons/CardTravel";
 import Grid from "@material-ui/core/Grid";
+import Card from "../components/Card";
 import { useHistory } from "react-router-dom";
 
 export default function LandingPage() {
@@ -53,9 +54,7 @@ export default function LandingPage() {
           Saved trips
         </Fab>
       </Grid>
+      <Card type="UpcomingTrip" data={"Berlin"} />
     </Grid>
   );
-}
-{
-  /* <Card type="UpcomingTrip" data={tripData.tripName} />; */
 }

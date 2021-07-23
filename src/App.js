@@ -30,10 +30,10 @@ function App() {
                 <Route path="/tripsummary">
                   <TripSummary />
                 </Route>
+                <Route path="/" exact>
+                  <LandingPage />
+                </Route>
               </PaginationProvider>
-              <Route path="/" exact>
-                <LandingPage />
-              </Route>
             </Switch>
           </Main>
         </Grid>

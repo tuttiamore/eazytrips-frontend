@@ -1,5 +1,4 @@
 import { useContext, createContext, useState } from "react";
-// Franz' injection of data, can be deleted after proper fetch has been implemented
 
 const PaginationContext = createContext();
 const usePaginationContext = () => useContext(PaginationContext);

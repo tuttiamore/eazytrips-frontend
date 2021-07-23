@@ -31,9 +31,12 @@ export default function RecipeReviewCard({ type, data }) {
     // scroll.scrollMore(5000);
   };
   let history = useHistory();
-  const handleRedirectClick = (chosenDay) => {
+  const handleDaySelectClick = (chosenDay) => {
     console.log(chosenDay);
     history.push(`/tripsingleday/${chosenDay}`);
+  };
+  const handleUpomingTripSelectClick = () => {
+    history.push(`/tripSummary`);
   };
   const convertTime = (time) => {
     return DateTime.fromISO(time).toLocaleString(DateTime.TIME_SIMPLE);
@@ -49,7 +52,7 @@ export default function RecipeReviewCard({ type, data }) {
     return (
       <Card
         className={classes.root}
-        onClick={() => handleRedirectClick(tripInfo.day)}
+        onClick={() => handleDaySelectClick(tripInfo.day)}
       >
         <CardHeader
           avatar={
@@ -122,7 +125,10 @@ export default function RecipeReviewCard({ type, data }) {
     const tripName = data ? data : mockData.trip[0];
 
     return (
-      <Card className={classes.root}>
+      <Card
+        className={classes.root}
+        onClick={() => handleUpomingTripSelectClick()}
+      >
         <CardHeader
           avatar={
             <Avatar

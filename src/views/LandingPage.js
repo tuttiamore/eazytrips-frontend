@@ -56,3 +56,6 @@ export default function LandingPage() {
     </Grid>
   );
 }
+{
+  /* <Card type="UpcomingTrip" data={tripData.tripName} />; */
+}

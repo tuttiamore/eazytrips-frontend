@@ -70,13 +70,14 @@ export default function RecipeReviewCard({ type, data }) {
 
     //console.log(tripInfo.arrivalTime);
     return (
-      <Card className={classes.root}>
+      <Card className={classes.outer}>
         <CardHeader
+          className={classes.root}
           avatar={
             <Avatar
               variant="rounded"
               aria-label="default"
-              className={classes.avatar}
+              className={classes.large}
               src={avatarImage && avatarImage}
             >
               <LandscapeIcon />
@@ -88,7 +89,7 @@ export default function RecipeReviewCard({ type, data }) {
           )}`}
         />
 
-        <CardActions disableSpacing>
+        <CardActions className={classes.tick} disableSpacing>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
@@ -97,6 +98,7 @@ export default function RecipeReviewCard({ type, data }) {
             aria-expanded={expanded}
             aria-label="show more"
           >
+            {" "}
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>

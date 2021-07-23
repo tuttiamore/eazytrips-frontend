@@ -8,6 +8,7 @@ import LandingPage from "../src/views/LandingPage";
 import TripSummary from "../src/views/TripSummary";
 import TripSingleDay from "../src/views/TripSingleDay";
 import useAppGridStyle from "../src/styles/useAppGridStyle";
+import { PaginationProvider } from "./context/PaginationContext";
 import "./App.css";
 
 function App() {
@@ -22,15 +23,17 @@ function App() {
         <Grid item xs={12} className={classes.main}>
           <Main>
             <Switch>
-              <Route path="/tripsingleday/:day">
-                <TripSingleDay />
-              </Route>
-              <Route path="/tripsummary">
-                <TripSummary />
-              </Route>
-              <Route path="/" exact>
-                <LandingPage />
-              </Route>
+              <PaginationProvider>
+                <Route path="/tripsingleday/:day">
+                  <TripSingleDay />
+                </Route>
+                <Route path="/tripsummary">
+                  <TripSummary />
+                </Route>
+                <Route path="/" exact>
+                  <LandingPage />
+                </Route>
+              </PaginationProvider>
             </Switch>
           </Main>
         </Grid>

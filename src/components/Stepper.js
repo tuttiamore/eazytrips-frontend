@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
@@ -11,13 +11,11 @@ import TripOrigin from "@material-ui/icons/TripOrigin";
 
 import { useParams, useHistory, useLocation } from "react-router-dom";
 import { useTripContext } from "../context/TripContext";
+import { usePaginationContext } from "../context/PaginationContext";
 
 const useGetSteps = () => {
-  let { day } = useParams();
-  day = Number(day);
+  const { page, setPage } = usePaginationContext();
 
-  const { pathname } = useLocation();
-  // console.log(location.pathname);
   const {
     tripData: { trip },
   } = useTripContext();
@@ -27,17 +25,17 @@ const useGetSteps = () => {
   labels = trip.reduce(
     (acc, curr, index) => {
       // Edge case: First day of trip or summary page
-      if ((day === 1 || pathname === "/tripsummary") && curr.day <= 3) {
+      if ((page === 0 || page === 1) && curr.day <= 3) {
         return [...acc, { pageIndex: curr.day, pageLabel: `Day ${curr.day}` }];
         // return acc.push(`Day ${curr.day}`);
       }
       // Edge case: last day of trip
-      if (day === trip.length && curr.day >= trip.length - 2) {
+      if (page === trip.length && curr.day >= trip.length - 2) {
         return [...acc, { pageIndex: curr.day, pageLabel: `Day ${curr.day}` }];
       }
 
       // Remaining days
-      if (curr.day >= day - 1 && curr.day <= day + 1) {
+      if (curr.day >= page - 1 && curr.day <= page + 1) {
         return [...acc, { pageIndex: curr.day, pageLabel: `Day ${curr.day}` }];
       }
 
@@ -50,7 +48,7 @@ const useGetSteps = () => {
 
 const IconComponent = (props) => {
   const { active, completed, icon } = props;
-  console.log(icon);
+
   // alternative icons for summary: flair,
   const icons = {
     1: <Grain />,
@@ -69,28 +67,27 @@ const IconComponent = (props) => {
 export default function NavStepper() {
   const steps = useGetSteps();
   const history = useHistory();
-  const { day } = useParams();
-  const location = useLocation();
-  let activeStep;
+  const { page, setPage } = usePaginationContext();
 
-  if (location.pathname === "/tripsummary") {
-    activeStep = 0;
-  } else {
-    activeStep = steps.reduce((acc, curr, index) => {
-      if (curr.pageIndex === Number(day)) {
-        return acc + index;
-      }
-      return acc;
-    }, 0);
-  }
+  const activeStep = steps.findIndex((label) => page === label.pageIndex);
 
-  console.log(activeStep);
+  // if (location.pathname === "/tripsummary") {
+  //   activeStep = 0;
+  // } else {
+  //   activeStep = steps.reduce((acc, curr, index) => {
+  //     if (curr.pageIndex === Number(day)) {
+  //       return acc + index;
+  //     }
+  //     return acc;
+  //   }, 0);
+  // }
 
-  const handleStepClick = (e, index, pageIndex) => {
-    if (index === 0) {
+  const handleStepClick = (e, targetPage) => {
+    setPage(targetPage);
+    if (targetPage === 0) {
       return history.push(`/tripsummary`);
     }
-    history.push(`/tripsingleday/${pageIndex}`);
+    history.push(`/tripsingleday/${targetPage}`);
   };
 
   // const handleNext = () => {
@@ -111,9 +108,8 @@ export default function NavStepper() {
         <Step
           key={page.pageIndex}
           completed={false}
-          onClick={(e) => handleStepClick(e, index, page.pageIndex)}
+          onClick={(e) => handleStepClick(e, page.pageIndex)}
         >
-          {/* StepIconComponent={Star} to customize step icon */}
           <StepLabel StepIconComponent={IconComponent}>
             {page.pageLabel}
           </StepLabel>

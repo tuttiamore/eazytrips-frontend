@@ -3,19 +3,26 @@ import React from "react";
 
 const useTripSummaryStyle = makeStyles((theme) => ({
   headingContainer: {
-    // alignSelf: "flex-start",
-    width: "100%",
-    backgroundImage: `url(${process.env.PUBLIC_URL + "citySkyline.jpg"})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    height: `calc(${theme.typography.h1.fontSize} * 1.5)`,
-    padding: theme.spacing(2),
-    margin: 0,
-    boxSizing: "border-box",
+    // backgroundImage: `url(${process.env.PUBLIC_URL + "citySkyline.jpg"})`,
+    height: `calc(${theme.typography.h2.fontSize} + ${theme.typography.h5.fontSize}  )`,
+    // padding: `0 ${theme.spacing(2)}px`,
+    // margin: 0,
+    overflow: "hidden",
   },
   customTimelineIcon: {
     backgroundColor: "white",
     color: "black",
+  },
+  cityHeading: {
+    color: theme.palette.primary.contrastText,
+  },
+  timelineSeperator: {
+    width: "4px",
+    backgroundColor: theme.palette.secondary.main,
+  },
+  textAlignRight: {
+    textAlign: "right",
+    textDecoration: "underline",
   },
 }));
 

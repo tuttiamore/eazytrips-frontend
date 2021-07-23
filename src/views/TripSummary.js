@@ -1,33 +1,95 @@
 import React from "react";
+import { DateTime } from "luxon";
+
+// Material UI helper functions
+import { sizing, palette, spacing } from "@material-ui/system";
+
+// Material UI ICONS
+import { Star, DirectionsWalk, Commute } from "@material-ui/icons";
+
+// Material UI LAB components
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+} from "@material-ui/lab";
+
+// Material UI CORE components
+import {
+  Box,
+  Typography,
+  Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+} from "@material-ui/core";
+
+// Customn components and helper functions
 import NavStepper from "../components/Stepper";
-import CardPlaceholder from "../components/CardPlaceholder";
 import HighlightCard from "../components/Card";
-
-import Box from "@material-ui/core/Box";
-import Star from "@material-ui/icons/Star";
-import Typography from "@material-ui/core/Typography";
 import "../styles/tripSummary.css";
-import { sizing } from "@material-ui/system";
-
-import Timeline from "@material-ui/lab/Timeline";
-import TimelineItem from "@material-ui/lab/TimelineItem";
-import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
-import TimelineConnector from "@material-ui/lab/TimelineConnector";
-import TimelineContent from "@material-ui/lab/TimelineContent";
-import TimelineDot from "@material-ui/lab/TimelineDot";
-
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
 
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
 import { useTripContext } from "../context/TripContext";
 
+//////////////////////
+// Define TripSummary
+//////////////////////
+
 export default function TripSummary() {
   const classes = useTripSummaryStyle();
   const { tripData } = useTripContext();
+
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
+  };
+
+  const datesSecondary = (
+    <>
+      {DateTime.fromISO(tripData.tripStarts).toLocaleString(
+        DateTime.DATETIME_SHORT
+      )}{" "}
+      -<br></br>
+      {DateTime.fromISO(tripData.tripEnds).toLocaleString(
+        DateTime.DATETIME_SHORT
+      )}
+    </>
+  );
+
+  const transportationSecondary = () => {
+    return (
+      <>
+        {tripData.transportation.walking && (
+          <Box boxSizing="border-box" marginRight={1} display="inline">
+            <Chip
+              icon={<DirectionsWalk></DirectionsWalk>}
+              label="Walking"
+              // onClick={handleClick}
+              onDelete={handleDelete}
+              variant="outlined"
+            />
+          </Box>
+        )}
+        {tripData.transportation.public && (
+          <Box boxSizing="border-box" marginRight={1} display="inline">
+            <Chip
+              icon={<Commute></Commute>}
+              label="Public/Car"
+              // onClick={handleClick}
+              onDelete={handleDelete}
+              variant="outlined"
+            />
+          </Box>
+        )}
+      </>
+    );
+  };
+
   return (
     <>
       <Box id="stepper-nav" component="section">
@@ -38,33 +100,50 @@ export default function TripSummary() {
         className={classes.headingContainer}
         id="heading-container"
         component="section"
+        bgcolor="primary.main"
+        width="100%"
+        px={2}
+        py={0}
+        boxSizing="border-box"
+        mb={3}
       >
         <Typography variant="h5" component="p" color="textSecondary">
           Welcome to
         </Typography>
-        <Typography variant="h2" component="p" color="textPrimary">
-          Barcelona
+        <Typography variant="h2" component="p" className={classes.cityHeading}>
+          Berlin
         </Typography>
       </Box>
 
       <Box width="100%" boxSizing="border-box" padding={2} component="section">
         <Typography variant="h5" component="p" align="center">
-          Trip overview
+          Trip summary
         </Typography>
         <List component="ul">
           <ListItem>
             <ListItemText
-              primary="Trip dates"
-              secondary={tripData.tripStarts}
+              primary="Dates"
+              secondary={datesSecondary}
               primaryTypographyProps={{ variant: "h6" }}
               secondaryTypographyProps={{ color: "textPrimary" }}
             />
+            <ListItemText primary="Edit" className={classes.textAlignRight} />
           </ListItem>
           <Divider />
           <ListItem>
             <ListItemText
-              primary="Trip dates"
-              secondary="12th June - 24th June"
+              primary="Accomodation"
+              secondary={tripData.accommodation}
+              primaryTypographyProps={{ variant: "h6" }}
+              secondaryTypographyProps={{ color: "textPrimary" }}
+            />
+            <ListItemText primary="Edit" className={classes.textAlignRight} />
+          </ListItem>
+          <Divider />
+          <ListItem>
+            <ListItemText
+              primary="Transportation"
+              secondary={transportationSecondary()}
               primaryTypographyProps={{ variant: "h6" }}
               secondaryTypographyProps={{ color: "textPrimary" }}
             />
@@ -73,68 +152,37 @@ export default function TripSummary() {
       </Box>
 
       <Box padding={1} id="highlights-container">
+        <Typography variant="h5" component="p" align="center">
+          Highlights
+        </Typography>
         <Timeline>
-          <TimelineItem classes={{ root: "removeLeftSpace" }}>
-            <TimelineSeparator>
-              <TimelineDot
-                color="grey"
-                variant="default"
-                classes={{ root: classes.customTimelineIcon }}
-              >
-                <Star
-                  fontSize="large"
-                  color="secondary"
-                  variant="outline"
-                ></Star>
-              </TimelineDot>
-              <TimelineConnector color="primary" />
-            </TimelineSeparator>
-            <TimelineContent>
-              <HighlightCard
-                type="TripSummary"
-                data={tripData.trip[0]}
-              ></HighlightCard>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem classes={{ root: "removeLeftSpace" }}>
-            <TimelineSeparator>
-              <TimelineDot
-                color="grey"
-                variant="default"
-                classes={{ root: classes.customTimelineIcon }}
-              >
-                <Star fontSize="large" color="secondary"></Star>
-              </TimelineDot>
-              <TimelineConnector color="secondary" />
-            </TimelineSeparator>
-            <TimelineContent classes={{ root: "removeLeftSpace" }}>
-              <CardPlaceholder></CardPlaceholder>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem classes={{ root: "removeLeftSpace" }}>
-            <TimelineSeparator>
-              <TimelineDot
-                color="grey"
-                variant="default"
-                classes={{ root: classes.customTimelineIcon }}
-              >
-                <Star fontSize="large" color="secondary"></Star>
-              </TimelineDot>
-            </TimelineSeparator>
-            <TimelineContent classes={{ root: "removeLeftSpace" }}>
-              <CardPlaceholder></CardPlaceholder>
-            </TimelineContent>
-          </TimelineItem>
+          {tripData.trip.map((day) => {
+            return (
+              <TimelineItem classes={{ root: "removeLeftSpace" }}>
+                <TimelineSeparator>
+                  <TimelineDot
+                    color="grey"
+                    variant="default"
+                    classes={{ defaultGrey: classes.customTimelineIcon }}
+                  >
+                    <Star
+                      fontSize="medium"
+                      color="secondary"
+                      variant="outline"
+                    ></Star>
+                  </TimelineDot>
+                  {day.day < tripData.trip.length && (
+                    <TimelineConnector className={classes.timelineSeperator} />
+                  )}
+                </TimelineSeparator>
+                <TimelineContent>
+                  <HighlightCard type="TripSummary" data={day}></HighlightCard>
+                </TimelineContent>
+              </TimelineItem>
+            );
+          })}
         </Timeline>
       </Box>
     </>
   );
-}
-
-{
-  /* <List style={{ height: "100%", overflow: "auto" }}>
-  {tripData.trip.map((element) => (
-    <Card key={element.day} type="TripSummary" data={element} />
-  ))}
-</List>; */
 }

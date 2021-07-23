@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 
 import examplePicture from "../media/sampleCardPic.jpg";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+import { useHistory } from "react-router";
 import useCardStyle from "../styles/useCardStyle";
 import LandscapeIcon from "@material-ui/icons/Landscape";
 import mockData from "../mock.json";
@@ -30,6 +30,11 @@ export default function RecipeReviewCard({ type, data }) {
     // scroll.scrollToBottom();
     // scroll.scrollMore(5000);
   };
+  let history = useHistory();
+  const handleRedirectClick = (chosenDay) => {
+    console.log(chosenDay);
+    history.push(`/tripsingleday/${chosenDay}`);
+  };
   const convertTime = (time) => {
     return DateTime.fromISO(time).toLocaleString(DateTime.TIME_SIMPLE);
   };
@@ -42,7 +47,10 @@ export default function RecipeReviewCard({ type, data }) {
     const tripInfo = data ? data : mockData.trip[0];
 
     return (
-      <Card className={classes.root}>
+      <Card
+        className={classes.root}
+        onClick={() => handleRedirectClick(tripInfo.day)}
+      >
         <CardHeader
           avatar={
             <Avatar

@@ -132,7 +132,7 @@ export default function RecipeReviewCard({ type, data }) {
 
     return (
       <Card
-        className={classes.root}
+        className={classes.landing}
         onClick={() => handleUpomingTripSelectClick()}
       >
         <CardHeader

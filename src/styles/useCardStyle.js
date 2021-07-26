@@ -55,6 +55,10 @@ const useCardStyle = makeStyles((theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
+  landing: {
+    width: "80%",
+    alignSelf: "center",
+  },
 }));
 
 export default useCardStyle;

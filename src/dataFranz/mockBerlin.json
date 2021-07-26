@@ -52,7 +52,8 @@
       ]
     },
     {
-      "day": 2,
+      "dayIndex": 2,
+      "date": "2021-07-24T07:30:00.000Z",
       "highlights": { "place_id": "ChIJS4MKBSBOqEcRMVSPqUYFOJ0" },
       "locations": [
         {
@@ -94,7 +95,8 @@
       ]
     },
     {
-      "day": 3,
+      "dayIndex": 3,
+      "date": "2021-07-24T07:30:00.000Z",
       "highlights": { "place_id": "ChIJS4MKBSBOqEcRMVSPqUYFOJ0" },
       "locations": [
         {
@@ -136,7 +138,8 @@
       ]
     },
     {
-      "day": 4,
+      "dayIndex": 4,
+      "date": "2021-07-24T07:30:00.000Z",
       "highlights": { "place_id": "ChIJjRbDOf1RqEcRNoyAtT2-8P0" },
       "locations": [
         {

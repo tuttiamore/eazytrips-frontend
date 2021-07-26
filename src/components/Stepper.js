@@ -1,20 +1,16 @@
-import { useState } from "react";
-
-import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-import StepIcon from "@material-ui/core/StepIcon";
 import Box from "@material-ui/core/Box";
 import Grain from "@material-ui/icons/Grain";
 import TripOrigin from "@material-ui/icons/TripOrigin";
 
-import { useParams, useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useTripContext } from "../context/TripContext";
 import { usePaginationContext } from "../context/PaginationContext";
 
 const useGetSteps = () => {
-  const { page, setPage } = usePaginationContext();
+  const { page } = usePaginationContext();
 
   const {
     tripData: { trip },
@@ -47,7 +43,7 @@ const useGetSteps = () => {
 };
 
 const IconComponent = (props) => {
-  const { active, completed, icon } = props;
+  const { active, icon } = props;
 
   // alternative icons for summary: flair,
   const icons = {
@@ -70,17 +66,6 @@ export default function NavStepper() {
   const { page, setPage } = usePaginationContext();
 
   const activeStep = steps.findIndex((label) => page === label.pageIndex);
-
-  // if (location.pathname === "/tripsummary") {
-  //   activeStep = 0;
-  // } else {
-  //   activeStep = steps.reduce((acc, curr, index) => {
-  //     if (curr.pageIndex === Number(day)) {
-  //       return acc + index;
-  //     }
-  //     return acc;
-  //   }, 0);
-  // }
 
   const handleStepClick = (e, targetPage) => {
     setPage(targetPage);
@@ -118,47 +103,3 @@ export default function NavStepper() {
     </Stepper>
   );
 }
-
-{
-  /* <div>
-        {activeStep === steps.length ? (
-          <div>
-            <Typography className={classes.instructions}>
-              All steps completed
-            </Typography>
-            <Button onClick={handleReset}>Reset</Button>
-          </div>
-        ) : (
-          <div>
-            <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
-            </Typography>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.backButton}
-              >
-                Back
-              </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? "Finish" : "Next"}
-              </Button>
-            </div>
-          </div>
-        )}
-      </div> */
-}
-
-// function getStepContent(stepIndex) {
-//   switch (stepIndex) {
-//     case 0:
-//       return "Select campaign settings...";
-//     case 1:
-//       return "What is an ad group anyways?";
-//     case 2:
-//       return "This is the bit I really care about!";
-//     default:
-//       return "Unknown stepIndex";
-//   }
-// }

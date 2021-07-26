@@ -3,7 +3,7 @@ import React from "react";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
+
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
@@ -17,6 +17,7 @@ import { useHistory } from "react-router";
 import useCardStyle from "../styles/useCardStyle";
 import LandscapeIcon from "@material-ui/icons/Landscape";
 import mockData from "../mock.json";
+import { useTripContext } from "../context/TripContext";
 
 export default function RecipeReviewCard({ type, data }) {
   //console.log(mockData);
@@ -41,10 +42,15 @@ export default function RecipeReviewCard({ type, data }) {
   const convertTime = (time) => {
     return DateTime.fromISO(time).toLocaleString(DateTime.TIME_SIMPLE);
   };
+  const convertDate = (date) => {
+    return DateTime.fromISO(date).toLocaleString(
+      DateTime.DateTimeFormatOptions
+    );
+  };
   const avatarImage = examplePicture;
-
+  const { tripData } = useTripContext();
   if (type === "TripSummary") {
-    const place = mockData.rawDataPlaces.find(
+    const place = tripData.rawDataPlaces.find(
       (item) => item.place_id === data.highlights.place_id
     );
     const tripInfo = data ? data : mockData.trip[0];
@@ -52,7 +58,7 @@ export default function RecipeReviewCard({ type, data }) {
     return (
       <Card
         className={classes.root}
-        onClick={() => handleDaySelectClick(tripInfo.day)}
+        onClick={() => handleDaySelectClick(tripInfo.dayIndex)}
       >
         <CardHeader
           avatar={
@@ -66,13 +72,13 @@ export default function RecipeReviewCard({ type, data }) {
             </Avatar>
           }
           title={place.name}
-          subheader={`Date: ${tripInfo.day}`}
+          subheader={convertDate(tripInfo.date)}
         />
       </Card>
     );
   }
   if (type === "TripSingleDay") {
-    const place = mockData.rawDataPlaces.find(
+    const place = tripData.rawDataPlaces.find(
       (item) => item.place_id === data.place_id
     );
     const tripInfo = data ? data : mockData.trip[0];

@@ -1,17 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { List, ListItem } from "@material-ui/core/";
+import { List } from "@material-ui/core/";
 import Card from "../components/Card";
-import mockData from "../mock.json";
+import mockData from "../dataFranz/mockBerlin.json";
 import NavStepper from "../components/Stepper";
 import useCardStyle from "../styles/useCardStyle";
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
 import Typography from "@material-ui/core/Typography";
+import { useTripContext } from "../context/TripContext";
 
 export default function TripSingleDay() {
-  const tripData = mockData;
+  const { tripData } = useTripContext();
+  // const tripData = mockData;
   const { day } = useParams();
-  console.log(day);
+  console.log(tripData);
   const classes = useCardStyle();
   return (
     <>

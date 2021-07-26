@@ -7,16 +7,6 @@ import { DateTime } from "luxon";
 // Material UI ICONS
 import { Star, DirectionsWalk, Commute } from "@material-ui/icons";
 
-// Material UI LAB components
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-} from "@material-ui/lab";
-
 // Material UI CORE components
 import {
   Box,
@@ -24,7 +14,6 @@ import {
   Chip,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Divider,
 } from "@material-ui/core";
@@ -142,46 +131,32 @@ export default function TripSummary() {
           <Divider />
           <ListItem>
             <ListItemText
+              component="div"
               primary="Transportation"
               secondary={transportationSecondary()}
               primaryTypographyProps={{ variant: "h6" }}
-              secondaryTypographyProps={{ color: "textPrimary" }}
+              secondaryTypographyProps={{
+                color: "textPrimary",
+                component: "div",
+              }}
             />
           </ListItem>
         </List>
       </Box>
 
-      <Box padding={1} id="highlights-container">
-        <Typography variant="h5" component="p" align="center">
+      <Box padding={2} id="highlights-container">
+        <Typography variant="h5" component="p" align="center" gutterBottom>
           Highlights
         </Typography>
-        <Timeline>
-          {tripData.trip.map((day) => {
-            return (
-              <TimelineItem classes={{ root: "removeLeftSpace" }}>
-                <TimelineSeparator>
-                  <TimelineDot
-                    color="grey"
-                    variant="default"
-                    classes={{ defaultGrey: classes.customTimelineIcon }}
-                  >
-                    <Star
-                      fontSize="medium"
-                      color="secondary"
-                      variant="outline"
-                    ></Star>
-                  </TimelineDot>
-                  {day.day < tripData.trip.length && (
-                    <TimelineConnector className={classes.timelineSeperator} />
-                  )}
-                </TimelineSeparator>
-                <TimelineContent>
-                  <HighlightCard type="TripSummary" data={day}></HighlightCard>
-                </TimelineContent>
-              </TimelineItem>
-            );
-          })}
-        </Timeline>
+        {tripData.trip.map((day) => {
+          return (
+            <HighlightCard
+              type="TripSummary"
+              data={day}
+              key={day.dateIndex}
+            ></HighlightCard>
+          );
+        })}
       </Box>
     </>
   );

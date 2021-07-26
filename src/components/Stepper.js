@@ -19,20 +19,29 @@ const useGetSteps = () => {
 
   // if trip duration >3 days: only display -1/+1 day;
   labels = trip.reduce(
-    (acc, curr, index) => {
+    (acc, curr) => {
       // Edge case: First day of trip or summary page
-      if ((page === 0 || page === 1) && curr.day <= 3) {
-        return [...acc, { pageIndex: curr.day, pageLabel: `Day ${curr.day}` }];
-        // return acc.push(`Day ${curr.day}`);
+      if ((page === 0 || page === 1) && curr.dayIndex <= 3) {
+        return [
+          ...acc,
+          { pageIndex: curr.dayIndex, pageLabel: `Day ${curr.dayIndex}` },
+        ];
+        // return acc.push(`Day ${curr.dayIndex}`);
       }
-      // Edge case: last day of trip
-      if (page === trip.length && curr.day >= trip.length - 2) {
-        return [...acc, { pageIndex: curr.day, pageLabel: `Day ${curr.day}` }];
+      // Edge case: last dayIndex of trip
+      if (page === trip.length && curr.dayIndex >= trip.length - 2) {
+        return [
+          ...acc,
+          { pageIndex: curr.dayIndex, pageLabel: `Day ${curr.dayIndex}` },
+        ];
       }
 
-      // Remaining days
-      if (curr.day >= page - 1 && curr.day <= page + 1) {
-        return [...acc, { pageIndex: curr.day, pageLabel: `Day ${curr.day}` }];
+      // Remaining dayIndexs
+      if (curr.dayIndex >= page - 1 && curr.dayIndex <= page + 1) {
+        return [
+          ...acc,
+          { pageIndex: curr.dayIndex, pageLabel: `Day ${curr.dayIndex}` },
+        ];
       }
 
       return acc;

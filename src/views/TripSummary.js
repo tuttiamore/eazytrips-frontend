@@ -5,7 +5,7 @@ import { DateTime } from "luxon";
 // import { sizing, palette, spacing } from "@material-ui/system";
 
 // Material UI ICONS
-import { Star, DirectionsWalk, Commute } from "@material-ui/icons";
+import { DirectionsWalk, Commute } from "@material-ui/icons";
 
 // Material UI CORE components
 import {

@@ -15,9 +15,19 @@ import examplePicture from "../media/sampleCardPic.jpg";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useHistory } from "react-router";
 import useCardStyle from "../styles/useCardStyle";
-import LandscapeIcon from "@material-ui/icons/Landscape";
+
 import mockData from "../mock.json";
 import { useTripContext } from "../context/TripContext";
+import MuseumIcon from "@material-ui/icons/Museum";
+import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
+import BeachAccessIcon from "@material-ui/icons/BeachAccess";
+import DirectionsIcon from "@material-ui/icons/Directions";
+import LandscapeIcon from "@material-ui/icons/Landscape";
+import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
+import NaturePeopleIcon from "@material-ui/icons/NaturePeople";
+import WavesIcon from "@material-ui/icons/Waves";
+
+import LocationCityIcon from "@material-ui/icons/LocationCity";
 
 export default function RecipeReviewCard({ type, data }) {
   //console.log(mockData);
@@ -47,6 +57,13 @@ export default function RecipeReviewCard({ type, data }) {
       DateTime.DateTimeFormatOptions
     );
   };
+  const getAvatarImage = (placeType) => {
+    if (placeType.includes("museum")) return <MuseumIcon />;
+    if (placeType.includes("aquarium")) return <WavesIcon />;
+    if (placeType.includes("place_of_worship")) return "⛪";
+    if (placeType.includes("park")) return <NaturePeopleIcon />;
+    if (placeType.includes("city_hall")) return <MuseumIcon />;
+  };
   const avatarImage = examplePicture;
   const { tripData } = useTripContext();
   if (type === "TripSummary") {
@@ -54,7 +71,7 @@ export default function RecipeReviewCard({ type, data }) {
       (item) => item.place_id === data.highlights.place_id
     );
     const tripInfo = data ? data : mockData.trip[0];
-
+    console.log(place);
     return (
       <Card
         className={classes.root}
@@ -68,7 +85,7 @@ export default function RecipeReviewCard({ type, data }) {
               className={classes.avatar}
               src={avatarImage && avatarImage}
             >
-              <LandscapeIcon />
+              {getAvatarImage(place.types)}
             </Avatar>
           }
           title={place.name}
@@ -95,9 +112,9 @@ export default function RecipeReviewCard({ type, data }) {
               variant="rounded"
               aria-label="default"
               className={classes.large}
-              src={avatarImage && avatarImage}
+              src={!avatarImage && avatarImage}
             >
-              <LandscapeIcon />
+              {getAvatarImage(place.types)}
             </Avatar>
           }
           title={place.name}
@@ -107,6 +124,9 @@ export default function RecipeReviewCard({ type, data }) {
         />
 
         <CardActions className={classes.tick} disableSpacing>
+          <Typography variant="caption" className={classes.expand}>
+            {!expanded && "show more"}
+          </Typography>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
@@ -121,7 +141,9 @@ export default function RecipeReviewCard({ type, data }) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Address: {place.vicinity}</Typography>
+            <Typography variant="caption" className={classes.address}>
+              Address: {place.vicinity}
+            </Typography>
           </CardContent>
         </Collapse>
       </Card>

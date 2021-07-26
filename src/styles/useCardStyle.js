@@ -54,11 +54,14 @@ const useCardStyle = makeStyles((theme) => ({
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
+    color: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.dark,
   },
   landing: {
     width: "80%",
     alignSelf: "center",
   },
+  address: {},
 }));
 
 export default useCardStyle;

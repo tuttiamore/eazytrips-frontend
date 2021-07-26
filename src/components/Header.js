@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -12,10 +12,10 @@ const options = ["Home", "TripSummary", "tripsingleday"];
 const ITEM_HEIGHT = 48;
 
 export default function Header() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const history = useHistory();
+  let history = useHistory();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -27,15 +27,18 @@ export default function Header() {
     setAnchorEl(null);
   };
 
-  const handleLinks = (e) => {
+  const handleLinks = (option) => {
+    console.log(option);
     setAnchorEl(null);
-    e === "Home"
-      ? history.push("/")
-      : e === "TripSummary"
-      ? history.push("/tripsummary")
-      : history.push("/tripsingleday/1");
-    console.log(e);
-    history.push();
+    if (option === "Home") return history.push("/");
+    if (option === "TripSummary") return history.push("/tripsummary");
+    if (option === "tripsingleday") return history.push("/tripsingleday/1");
+
+    // e === "Home"
+    //   ? history.push("/")
+    //   : e === "TripSummary"
+    //   ? history.push("/tripsummary")
+    //   : history.push("/tripsingleday/1");
   };
 
   return (
@@ -69,11 +72,7 @@ export default function Header() {
           }}
         >
           {options.map((option) => (
-            <MenuItem
-              key={option}
-              selected={option === { option }}
-              onClick={() => handleLinks(option)}
-            >
+            <MenuItem key={option} onClick={() => handleLinks(option)}>
               {option}
             </MenuItem>
           ))}

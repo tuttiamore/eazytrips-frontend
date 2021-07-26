@@ -23,7 +23,13 @@ export default function LandingPage() {
   };
 
   return (
-    <Grid container direction="column" justifyContent="center" spacing={3}>
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      spacing={3}
+      className={classes.container}
+    >
       <Grid item align="left">
         <Typography variant="h5" component="p" color="textSecondary">
           Getting Started

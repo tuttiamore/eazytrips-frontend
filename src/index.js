@@ -26,21 +26,19 @@ const theme = createTheme({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <ThemeProvider theme={theme}>
-        <Container
-          maxWidth="md"
-          disableGutters={true}
-          style={{
-            height: "100vh",
-          }}
-        >
-          <App />
-        </Container>
-      </ThemeProvider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <ThemeProvider theme={theme}>
+      <Container
+        maxWidth="md"
+        disableGutters={true}
+        style={{
+          height: "100vh",
+        }}
+      >
+        <App />
+      </Container>
+    </ThemeProvider>
+  </Router>,
   document.getElementById("root")
 );
 

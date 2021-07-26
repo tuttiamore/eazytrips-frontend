@@ -8,8 +8,8 @@ import Grid from "@material-ui/core/Grid";
 import Card from "../components/Card";
 import { useHistory } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import Box from '@material-ui/core/Box';
-import { sizing } from '@material-ui/system';
+import Box from "@material-ui/core/Box";
+import { sizing } from "@material-ui/system";
 
 export default function LandingPage() {
   const theme = useTheme();
@@ -23,12 +23,7 @@ export default function LandingPage() {
   };
 
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      spacing={3}
-    >
+    <Grid container direction="column" justifyContent="center" spacing={3}>
       <Grid item align="left">
         <Typography variant="h5" component="p" color="textSecondary">
           Getting Started
@@ -69,9 +64,7 @@ export default function LandingPage() {
         </Typography>
       </Grid>
 
-      <Grid item xs={8} align="center">
-        <Card type="UpcomingTrip" data={"Berlin"} />
-      </Grid>
+      <Card type="UpcomingTrip" data={"Berlin"} />
     </Grid>
   );
 }

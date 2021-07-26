@@ -4,6 +4,7 @@ const useCardStyle = makeStyles((theme) => ({
   root: {
     maxWidth: "100%",
     padding: "8px",
+
     // margin: " 16px auto",
   },
   media: {

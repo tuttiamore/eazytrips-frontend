@@ -149,11 +149,12 @@ export default function TripSummary() {
           Highlights
         </Typography>
         {tripData.trip.map((day) => {
+          console.log(day.dayIndex);
           return (
             <HighlightCard
               type="TripSummary"
               data={day}
-              key={day.dateIndex}
+              key={day.dayIndex}
             ></HighlightCard>
           );
         })}

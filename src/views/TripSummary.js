@@ -2,7 +2,7 @@ import React from "react";
 import { DateTime } from "luxon";
 
 // Material UI helper functions
-import { sizing, palette, spacing } from "@material-ui/system";
+// import { sizing, palette, spacing } from "@material-ui/system";
 
 // Material UI ICONS
 import { Star, DirectionsWalk, Commute } from "@material-ui/icons";

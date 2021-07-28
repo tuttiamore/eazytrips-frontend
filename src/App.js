@@ -9,6 +9,7 @@ import SuggestedPlaces from "../src/views/SuggestedPlaces";
 import TripSummary from "../src/views/TripSummary";
 import TripSingleDay from "../src/views/TripSingleDay";
 import useAppGridStyle from "../src/styles/useAppGridStyle";
+import EnterDestinationPage from "../src/views/EnterDestinationPage";
 import { PaginationProvider } from "./context/PaginationContext";
 import "./App.css";
 
@@ -33,6 +34,9 @@ function App() {
                 </Route>
                 <Route path="/suggestedPlaces">
                   <SuggestedPlaces />
+                </Route>
+                <Route path="/Plan-a-trip">
+                  <EnterDestinationPage />
                 </Route>
                 <Route path="/" exact>
                   <LandingPage />

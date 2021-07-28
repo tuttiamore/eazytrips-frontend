@@ -17,9 +17,9 @@ export default function LandingPage() {
 
   const history = useHistory();
 
-  const handleClick = (e, ev) => {
-    console.log(e);
-    history.push(e);
+  const handleClick = (path) => {
+    console.log(path);
+    history.push(path);
   };
 
   return (
@@ -43,7 +43,7 @@ export default function LandingPage() {
           color="primary"
           aria-label="add"
           className={classes.margin}
-          onClick={() => handleClick("/Plan-a-trip")}
+          onClick={() => handleClick("/plantrip")}
         >
           <CardTravelIcon className={classes.extendedIcon} />
           Plan a trip

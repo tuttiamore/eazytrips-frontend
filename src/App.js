@@ -31,7 +31,7 @@ function App() {
                 <Route path="/tripsummary">
                   <TripSummary />
                 </Route>
-                <Route path="/Plan-a-trip">
+                <Route path="/plantrip">
                   <EnterDestinationPage />
                 </Route>
                 <Route path="/" exact>

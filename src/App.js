@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import LandingPage from "../src/views/LandingPage";
+import SuggestedPlaces from "../src/views/SuggestedPlaces";
 import TripSummary from "../src/views/TripSummary";
 import TripSingleDay from "../src/views/TripSingleDay";
 import useAppGridStyle from "../src/styles/useAppGridStyle";
@@ -29,6 +30,9 @@ function App() {
                 </Route>
                 <Route path="/tripsummary">
                   <TripSummary />
+                </Route>
+                <Route path="/suggestedPlaces">
+                  <SuggestedPlaces />
                 </Route>
                 <Route path="/" exact>
                   <LandingPage />

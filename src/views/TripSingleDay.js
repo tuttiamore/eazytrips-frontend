@@ -2,23 +2,24 @@ import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { List } from "@material-ui/core/";
 import Card from "../components/Card";
-import mockData from "../dataFranz/mockBerlin.json";
+import mockData from "../dataFranz/mockBackend.json";
 import NavStepper from "../components/Stepper";
 import useCardStyle from "../styles/useCardStyle";
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
+import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import Typography from "@material-ui/core/Typography";
 import { useTripContext } from "../context/TripContext";
 import Map from "../components/Map";
 
 export default function TripSingleDay() {
   const { tripData } = useTripContext();
+
   const { day } = useParams();
   const classes = useCardStyle();
 
   return (
     <>
       <NavStepper></NavStepper>
-
       <List
         style={{
           height: "100%",
@@ -28,22 +29,28 @@ export default function TripSingleDay() {
           margin: "auto",
         }}
       >
+        <Card type={"Accommodation"} data={"Hotel"} />
         {tripData.trip[day - 1].locations.map((element, index) => (
           <Fragment key={index}>
-            <Card type="TripSingleDay" data={element} />
-            {tripData.trip[day - 1].locations[index + 1] && (
-              <div className={classes.div}>
-                <span className={classes.span} />
-                <Typography className={classes.distance} variant="body1">
-                  {tripData.trip[day - 1].locations[index].travelTo} min
-                </Typography>
+            <div className={classes.div}>
+              <span className={classes.span} />
+              <Typography className={classes.distance} variant="body1">
+                {Math.round(
+                  tripData.trip[day - 1].locations[index].travelTo / 60
+                )}{" "}
+                min
+              </Typography>
+              {tripData.transportation.public ? (
+                <DriveEtaIcon fontSize="large" />
+              ) : (
                 <DirectionsWalkIcon fontSize="large" />
-              </div>
-            )}
+              )}
+            </div>
+            <Card type="TripSingleDay" data={element} />
           </Fragment>
         ))}
       </List>
-      <Map key="1" type="SingleDay" />
+      {/* <Map key="1" type="SingleDay" /> */}
     </>
   );
 }

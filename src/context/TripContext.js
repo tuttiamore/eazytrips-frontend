@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from "react";
-import mockBerlin from "../dataFranz/mockBerlin.json";
+import mockBarcelona from "../dataFranz/mockBackend.json";
 
 // Franz' injection of data, can be deleted after proper fetch has been implemented
 

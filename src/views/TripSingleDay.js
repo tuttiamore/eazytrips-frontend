@@ -14,6 +14,8 @@ export default function TripSingleDay() {
   // const tripData = mockData;
   const { day } = useParams();
   console.log(tripData);
+  console.log("day in trip single day is", day);
+
   const classes = useCardStyle();
   return (
     <>

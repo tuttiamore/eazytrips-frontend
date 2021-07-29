@@ -24,20 +24,18 @@ function App() {
         <Grid item xs={12} className={classes.main}>
           <Main>
             <Switch>
-              <PaginationProvider>
-                <Route path="/tripsingleday/:day">
-                  <TripSingleDay />
-                </Route>
-                <Route path="/tripsummary">
-                  <TripSummary />
-                </Route>
-                <Route path="/plantrip">
-                  <EnterDestinationPage />
-                </Route>
-                <Route path="/" exact>
-                  <LandingPage />
-                </Route>
-              </PaginationProvider>
+              <Route path="/tripsingleday/:day">
+                <TripSingleDay />
+              </Route>
+              <Route path="/tripsummary">
+                <TripSummary />
+              </Route>
+              <Route path="/plantrip">
+                <EnterDestinationPage />
+              </Route>
+              <Route path="/" exact>
+                <LandingPage />
+              </Route>
             </Switch>
           </Main>
         </Grid>

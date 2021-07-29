@@ -68,7 +68,7 @@ export default function TripCard({ type, data }) {
   const { tripData } = useTripContext();
   if (type === "TripSummary") {
     const place = tripData.rawDataPlaces.find(
-      (item) => item.place_id === data.highlights.place_id
+      (item) => item.place_id === data.highlight.place_id
     );
     const tripInfo = data ? data : mockData.trip[0];
     //console.log(place);

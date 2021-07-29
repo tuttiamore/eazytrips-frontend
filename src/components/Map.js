@@ -25,20 +25,20 @@ export default function Map({ trip, type }) {
   useEffect(() => {
     let paramSpecificData;
 
-    // assign the accomodation coordinates that are used as the center of the map
-    const accomodationLng = tripData.accomodationCoords.lng;
-    const accomodationLat = tripData.accomodationCoords.lat;
+    // assign the accommodation coordinates that are used as the center of the map
+    const accommodationLng = tripData.accommodationCoords.lng;
+    const accommodationLat = tripData.accommodationCoords.lat;
 
     // Create array containing all the coordinates of the waypoint
-    let waypointCoordinates = [[accomodationLng, accomodationLat]];
+    let waypointCoordinates = [[accommodationLng, accommodationLat]];
 
     let markerCoordinates = [
       {
-        lng: accomodationLng,
-        lat: accomodationLat,
+        lng: accommodationLng,
+        lat: accommodationLat,
       },
     ];
-    let markerTitles = ["Accomodation"];
+    let markerTitles = ["accommodation"];
 
     if (type === "SingleDay") {
       paramSpecificData = tripData.trip[day - 1];
@@ -63,7 +63,7 @@ export default function Map({ trip, type }) {
 
       for (let day in tripData.trip) {
         const rawDataEquivalent = tripData.rawDataPlaces.find(
-          (item) => item.place_id === tripData.trip[day].highlights.place_id
+          (item) => item.place_id === tripData.trip[day].highlight.place_id
         );
         console.log(rawDataEquivalent);
 
@@ -140,7 +140,7 @@ export default function Map({ trip, type }) {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [accomodationLng, accomodationLat],
+      center: [accommodationLng, accommodationLat],
       zoom: zoom,
       scrollZoom: false,
     });

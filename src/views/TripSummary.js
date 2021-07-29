@@ -34,7 +34,7 @@ import { useTripContext } from "../context/TripContext";
 export default function TripSummary() {
   const classes = useTripSummaryStyle();
   const { tripData } = useTripContext();
-
+  console.log(tripData);
   const handleDelete = () => {
     console.info("You clicked the delete icon.");
   };

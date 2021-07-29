@@ -32,7 +32,6 @@ export default function EnterDestinationPage() {
   const classes = useEnterDestinationStyle();
   const history = useHistory();
 
-
   const handleChange = (event) => {
     setTripUserInput({
       ...tripUserInput,
@@ -66,10 +65,13 @@ export default function EnterDestinationPage() {
     //fetch sight suggestions for destination and store them in context
 
     try {
-      const { data } = await axios.post("https://eazytrips-backend.herokuapp.com/gettrip", req);
+      const { data } = await axios.post(
+        "https://eazytrips-backend.herokuapp.com/gettrip",
+        req
+      );
       console.log(data);
       setTripDataRaw(data);
-      history.push("/suggestedplaces")
+      history.push("/suggestedplaces");
     } catch (err) {
       console.log(err);
     }

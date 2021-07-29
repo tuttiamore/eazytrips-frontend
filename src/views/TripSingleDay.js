@@ -50,7 +50,7 @@ export default function TripSingleDay() {
           </Fragment>
         ))}
       </List>
-      {/* <Map key="1" type="SingleDay" /> */}
+      <Map key="1" type="SingleDay" />
     </>
   );
 }

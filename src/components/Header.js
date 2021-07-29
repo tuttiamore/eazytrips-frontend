@@ -19,7 +19,7 @@ export default function Header() {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    //history.push(event);
+    history.push("/signUpPage");
     // console.log(event);
   };
 

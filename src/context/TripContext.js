@@ -7,7 +7,8 @@ const TripContext = createContext();
 const useTripContext = () => useContext(TripContext);
 
 const TripProvider = ({ children }) => {
-  const [tripData, setTripData] = useState();
+  //const [tripData, setTripData] = useState();
+  const [tripData, setTripData] = useState(mockBerlin);
   const [tripDataRaw, setTripDataRaw] = useState();
 
   return (

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
@@ -21,13 +22,16 @@ import useEnterDestinationStyle from "../styles/useEnterDestinationStyle";
 import { useTripContext } from "../context/TripContext";
 
 export default function EnterDestinationPage() {
-  const classes = useEnterDestinationStyle();
   const [tripUserInput, setTripUserInput] = useState({
     public: false,
     walking: false,
     accommodation: "",
   });
+
   const { setTripDataRaw } = useTripContext();
+  const classes = useEnterDestinationStyle();
+  const history = useHistory();
+
 
   const handleChange = (event) => {
     setTripUserInput({
@@ -61,13 +65,14 @@ export default function EnterDestinationPage() {
 
     //fetch sight suggestions for destination and store them in context
 
-    // try {
-    //   const { data } = await axios.post("http://localhost:3000/gettrip", req);
-    //   console.log(data);
-    //   setTripDataRaw(data);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      const { data } = await axios.post("https://eazytrips-backend.herokuapp.com/gettrip", req);
+      console.log(data);
+      setTripDataRaw(data);
+      history.push("/suggestedplaces")
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

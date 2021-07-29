@@ -28,17 +28,12 @@ export default function Map({ trip, type }) {
     // assign the accommodation coordinates that are used as the center of the map
     const accommodationLng = tripData.accommodationCoords.lng;
     const accommodationLat = tripData.accommodationCoords.lat;
-
+    const accommodationLngLat = [accommodationLng, accommodationLat];
     // Create array containing all the coordinates of the waypoint
     let waypointCoordinates = [[accommodationLng, accommodationLat]];
 
-    let markerCoordinates = [
-      {
-        lng: accommodationLng,
-        lat: accommodationLat,
-      },
-    ];
-    let markerTitles = ["accommodation"];
+    let markerCoordinates = [];
+    let markerTitles = [];
 
     if (type === "SingleDay") {
       paramSpecificData = tripData.trip[day - 1];
@@ -151,6 +146,15 @@ export default function Map({ trip, type }) {
       // function that gets a place_id as a parameter and returns a marker on the map by getting the coordinates from the initial rawData
 
       const addAndSetMarkers = () => {
+        const marker = new mapboxgl.Marker({
+          color: theme.palette.secondary.dark,
+          draggable: false,
+          scale: 1,
+          markerSymbol: 2,
+        })
+          .setLngLat(accommodationLngLat)
+          .setPopup(new mapboxgl.Popup().setHTML("Accommodation"))
+          .addTo(map.current);
         for (let item in markerCoordinates) {
           const marker = new mapboxgl.Marker({
             color: theme.palette.primary.light,
@@ -163,7 +167,7 @@ export default function Map({ trip, type }) {
             .addTo(map.current);
         }
       };
-      console.log(map.current.painter.currentLayer);
+
       addAndSetMarkers();
     });
   });

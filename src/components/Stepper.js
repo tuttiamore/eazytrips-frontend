@@ -5,12 +5,12 @@ import Box from "@material-ui/core/Box";
 import Grain from "@material-ui/icons/Grain";
 import TripOrigin from "@material-ui/icons/TripOrigin";
 
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useTripContext } from "../context/TripContext";
-import { usePaginationContext } from "../context/PaginationContext";
 
 const useGetSteps = () => {
-  const { page } = usePaginationContext();
+  let { day } = useParams();
+  day = Number(day);
 
   const {
     tripData: { trip },
@@ -20,8 +20,11 @@ const useGetSteps = () => {
   // if trip duration >3 days: only display -1/+1 day;
   labels = trip.reduce(
     (acc, curr) => {
+      // only run this if days do not fit screen, i.e. more than 4 days
+
+      console.log("inside trip length");
       // Edge case: First day of trip or summary page
-      if ((page === 0 || page === 1) && curr.dayIndex <= 3) {
+      if ((!day || day === 1) && curr.dayIndex <= 3) {
         return [
           ...acc,
           { pageIndex: curr.dayIndex, pageLabel: `Day ${curr.dayIndex}` },
@@ -29,7 +32,15 @@ const useGetSteps = () => {
         // return acc.push(`Day ${curr.dayIndex}`);
       }
       // Edge case: last dayIndex of trip
-      if (page === trip.length && curr.dayIndex >= trip.length - 2) {
+      if (day === trip.length && curr.dayIndex >= trip.length - 3) {
+        return [
+          ...acc,
+          { pageIndex: curr.dayIndex, pageLabel: `Day ${curr.dayIndex}` },
+        ];
+      }
+
+      // Edge case:  dayIndex before last dayIndex of trip
+      if (day === trip.length - 1 && curr.dayIndex >= trip.length - 3) {
         return [
           ...acc,
           { pageIndex: curr.dayIndex, pageLabel: `Day ${curr.dayIndex}` },
@@ -37,7 +48,7 @@ const useGetSteps = () => {
       }
 
       // Remaining dayIndexs
-      if (curr.dayIndex >= page - 1 && curr.dayIndex <= page + 1) {
+      if (curr.dayIndex >= day - 1 && curr.dayIndex <= day + 1) {
         return [
           ...acc,
           { pageIndex: curr.dayIndex, pageLabel: `Day ${curr.dayIndex}` },
@@ -60,6 +71,7 @@ const IconComponent = (props) => {
     2: <TripOrigin />,
     3: <TripOrigin />,
     4: <TripOrigin />,
+    5: <TripOrigin />,
   };
 
   return (
@@ -72,43 +84,43 @@ const IconComponent = (props) => {
 export default function NavStepper() {
   const steps = useGetSteps();
   const history = useHistory();
-  const { page, setPage } = usePaginationContext();
+  const { tripData } = useTripContext();
+  let { day } = useParams();
+  day = !day ? 0 : Number(day);
 
-  const activeStep = steps.findIndex((label) => page === label.pageIndex);
+  const activeStep = steps.findIndex((label) => {
+    return day === label.pageIndex;
+  });
 
   const handleStepClick = (e, targetPage) => {
-    setPage(targetPage);
     if (targetPage === 0) {
       return history.push(`/tripsummary`);
     }
     history.push(`/tripsingleday/${targetPage}`);
   };
 
-  // const handleNext = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  // };
-
-  // const handleBack = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  // };
-
-  // const handleReset = () => {
-  //   setActiveStep(0);
-  // };
-
   return (
     <Stepper activeStep={activeStep} alternativeLabel>
-      {steps.map((page, index) => (
-        <Step
-          key={page.pageIndex}
-          completed={false}
-          onClick={(e) => handleStepClick(e, page.pageIndex)}
-        >
-          <StepLabel StepIconComponent={IconComponent}>
-            {page.pageLabel}
-          </StepLabel>
+      {steps.map((page, index) => {
+        return (
+          <Step
+            key={page.pageIndex}
+            completed={false}
+            onClick={(e) => handleStepClick(e, page.pageIndex)}
+          >
+            <StepLabel StepIconComponent={IconComponent}>
+              {page.pageLabel}
+            </StepLabel>
+          </Step>
+        );
+      })}
+
+      {/* only show next if days do not fit screen */}
+      {tripData.trip.length >= 4 && day < tripData.trip.length - 1 && (
+        <Step completed={false} onClick={(e) => handleStepClick(e)}>
+          <StepLabel StepIconComponent={IconComponent}>Next </StepLabel>
         </Step>
-      ))}
+      )}
     </Stepper>
   );
 }

@@ -12,9 +12,7 @@ import Map from "../components/Map";
 
 export default function TripSingleDay() {
   const { tripData } = useTripContext();
-  // const tripData = mockData;
   const { day } = useParams();
-  // console.log(tripData);
   const classes = useCardStyle();
 
   return (

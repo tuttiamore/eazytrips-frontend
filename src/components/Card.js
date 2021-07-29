@@ -29,7 +29,7 @@ import WavesIcon from "@material-ui/icons/Waves";
 
 import LocationCityIcon from "@material-ui/icons/LocationCity";
 
-export default function RecipeReviewCard({ type, data }) {
+export default function TripCard({ type, data }) {
   //console.log(mockData);
   //const time = luxon.DateTime;
   const { DateTime } = require("luxon");
@@ -43,7 +43,7 @@ export default function RecipeReviewCard({ type, data }) {
   };
   let history = useHistory();
   const handleDaySelectClick = (chosenDay) => {
-    console.log(chosenDay);
+    // console.log(chosenDay);
     history.push(`/tripsingleday/${chosenDay}`);
   };
   const handleUpcomingTripSelectClick = () => {
@@ -71,7 +71,7 @@ export default function RecipeReviewCard({ type, data }) {
       (item) => item.place_id === data.highlights.place_id
     );
     const tripInfo = data ? data : mockData.trip[0];
-    console.log(place);
+    //console.log(place);
     return (
       <Card
         className={classes.root}
@@ -100,7 +100,7 @@ export default function RecipeReviewCard({ type, data }) {
     );
     const tripInfo = data ? data : mockData.trip[0];
     //console.log(tripInfo);
-    console.log();
+    // console.log();
 
     //console.log(tripInfo.arrivalTime);
     return (
@@ -140,7 +140,7 @@ export default function RecipeReviewCard({ type, data }) {
           </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
+          <CardContent className={classes.root}>
             <Typography variant="caption" className={classes.address}>
               Address: {place.vicinity}
             </Typography>

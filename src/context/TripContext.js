@@ -8,9 +8,12 @@ const useTripContext = () => useContext(TripContext);
 
 const TripProvider = ({ children }) => {
   const [tripData, setTripData] = useState(mockBerlin);
+  const [tripDataRaw, setTripDataRaw] = useState();
 
   return (
-    <TripContext.Provider value={{ tripData, setTripData }}>
+    <TripContext.Provider
+      value={{ tripData, setTripData, tripDataRaw, setTripDataRaw }}
+    >
       {children}
     </TripContext.Provider>
   );

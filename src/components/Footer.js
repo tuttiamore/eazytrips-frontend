@@ -9,9 +9,9 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { Button } from "@material-ui/core";
 export default function LandingPage() {
   let history = useHistory();
-  console.log(history);
+  // console.log(history);
   const handleClick = (e) => {
-    console.log(e);
+    // console.log(e);
     history.push(e);
   };
 
@@ -19,7 +19,7 @@ export default function LandingPage() {
     e.preventDefault();
     if (history.location.pathname === "/") return;
     history.goBack();
-    console.log(history);
+    // console.log(history);
   };
   return (
     <>

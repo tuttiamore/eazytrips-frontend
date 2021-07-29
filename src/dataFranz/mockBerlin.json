@@ -6,6 +6,7 @@
   "destination": "Berlin",
   "createdAt": "2021-07-19T20:25:57.534Z",
   "accommodation": "Spandauer Alle 123, 0134 Berlin",
+  "accomodationCoords": { "lat": 52.5321182, "lng": 13.4100018 },
   "transportation": { "walking": true, "public": true },
   "trip": [
     {
@@ -29,7 +30,7 @@
           "departureTime": "2021-07-24T10:00:00.000Z",
           "travelTo": 5000,
           "travelFrom": 5000,
-          "place_id": "ChIJNRqweCpOqEcR9Wab9cvf6lc"
+          "place_id": "ChIJjRbDOf1RqEcRNoyAtT2-8P0"
         },
         {
           "locationIndex": 3,
@@ -38,7 +39,7 @@
           "departureTime": "2021-07-24T13:30:00.000Z",
           "travelTo": 5000,
           "travelFrom": 5000,
-          "place_id": "ChIJS4MKBSBOqEcRMVSPqUYFOJ0"
+          "place_id": "ChIJjRbDOf1RqEcRNoyAtT2-8P0"
         },
         {
           "locationIndex": 4,
@@ -47,7 +48,7 @@
           "departureTime": "2021-07-24T13:30:00.000Z",
           "travelTo": 5000,
           "travelFrom": 5000,
-          "place_id": "ChIJS4MKBSBOqEcRMVSPqUYFOJ0"
+          "place_id": "ChIJjRbDOf1RqEcRNoyAtT2-8P0"
         }
       ]
     },

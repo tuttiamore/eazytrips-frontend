@@ -1,0 +1,2083 @@
+{
+  "routes": [
+    {
+      "geometry": {
+        "coordinates": [
+          [13.410051, 52.53217],
+          [13.410051, 52.53217],
+          [13.408173, 52.530454],
+          [13.410289, 52.529827],
+          [13.409072, 52.528284],
+          [13.409502, 52.528226],
+          [13.407874, 52.524438],
+          [13.406936, 52.523],
+          [13.4053, 52.522183],
+          [13.400835, 52.520746],
+          [13.396047, 52.518802],
+          [13.397229, 52.513239],
+          [13.401094, 52.511636],
+          [13.401202, 52.510629],
+          [13.399996, 52.509558],
+          [13.396981, 52.505349],
+          [13.399446, 52.504631],
+          [13.399162, 52.504099],
+          [13.398375, 52.504262],
+          [13.399162, 52.504099],
+          [13.399446, 52.504631],
+          [13.396981, 52.505349],
+          [13.400118, 52.509519],
+          [13.401383, 52.510691],
+          [13.401094, 52.511636],
+          [13.397173, 52.513344],
+          [13.396047, 52.518802],
+          [13.400835, 52.520746],
+          [13.400068, 52.521416],
+          [13.397637, 52.521968],
+          [13.397637, 52.521968]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "summary": "",
+          "weight": 0,
+          "duration": 0,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "entry": [true],
+                  "bearings": [299],
+                  "location": [13.410051, 52.53217]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.410051, 52.53217],
+                  [13.410051, 52.53217]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 299,
+                "bearing_before": 0,
+                "location": [13.410051, 52.53217],
+                "modifier": "straight",
+                "type": "depart",
+                "instruction": "Head northwest"
+              },
+              "weight": 0,
+              "duration": 0,
+              "name": "",
+              "distance": 0
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [true],
+                  "bearings": [119],
+                  "location": [13.410051, 52.53217]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.410051, 52.53217],
+                  [13.410051, 52.53217]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 299,
+                "location": [13.410051, 52.53217],
+                "modifier": "straight",
+                "type": "arrive",
+                "instruction": "You have arrived at your 1st destination, straight ahead"
+              },
+              "weight": 0,
+              "duration": 0,
+              "name": "",
+              "distance": 0
+            }
+          ],
+          "distance": 0
+        },
+        {
+          "summary": "Oberwallstraße, Axel-Springer-Straße",
+          "weight": 1215.1,
+          "duration": 1283.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "entry": [true],
+                  "bearings": [300],
+                  "location": [13.410051, 52.53217]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.410051, 52.53217],
+                  [13.409896, 52.532224]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 300,
+                "bearing_before": 0,
+                "location": [13.410051, 52.53217],
+                "modifier": "left",
+                "type": "depart",
+                "instruction": "Head northwest"
+              },
+              "weight": 10.9,
+              "duration": 15.2,
+              "name": "",
+              "distance": 12.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true, true],
+                  "bearings": [30, 120, 210, 300],
+                  "location": [13.409896, 52.532224]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [45, 120, 210, 300],
+                  "location": [13.408874, 52.531274]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.409896, 52.532224],
+                  [13.409136, 52.531479],
+                  [13.409123, 52.531466],
+                  [13.408874, 52.531274],
+                  [13.408173, 52.530454]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 210,
+                "bearing_before": 299,
+                "location": [13.409896, 52.532224],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Christinenstraße"
+              },
+              "weight": 63.8,
+              "duration": 91.30000000000001,
+              "name": "Christinenstraße",
+              "distance": 229.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [30, 120, 210, 300],
+                  "location": [13.408173, 52.530454]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [120, 210, 300],
+                  "location": [13.409058, 52.530195]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.408173, 52.530454],
+                  [13.409058, 52.530195],
+                  [13.410289, 52.529827]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 115,
+                "bearing_before": 206,
+                "location": [13.408173, 52.530454],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Lottumstraße"
+              },
+              "weight": 42.4,
+              "duration": 99.8,
+              "name": "Lottumstraße",
+              "distance": 159.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [30, 210, 300],
+                  "location": [13.410289, 52.529827]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 180, 210],
+                  "location": [13.409845, 52.529266]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [30, 105, 210, 285],
+                  "location": [13.409508, 52.528838]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [30, 105, 210, 285],
+                  "location": [13.409405, 52.528711]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.410289, 52.529827],
+                  [13.410153, 52.529655],
+                  [13.409904, 52.52934],
+                  [13.409845, 52.529266],
+                  [13.409598, 52.528953],
+                  [13.409567, 52.528914],
+                  [13.409508, 52.528838],
+                  [13.409458, 52.528777],
+                  [13.40944, 52.528755],
+                  [13.409405, 52.528711],
+                  [13.409328, 52.528624],
+                  [13.409311, 52.528601],
+                  [13.4093, 52.528587],
+                  [13.409124, 52.528352],
+                  [13.409072, 52.528284]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 205,
+                "bearing_before": 115,
+                "location": [13.410289, 52.529827],
+                "modifier": "right",
+                "type": "end of road",
+                "instruction": "Turn right onto Schönhauser Allee"
+              },
+              "weight": 96.5,
+              "duration": 95.6,
+              "name": "Schönhauser Allee",
+              "distance": 190.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [30, 105, 210, 285],
+                  "location": [13.409072, 52.528284]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.409072, 52.528284],
+                  [13.40909, 52.528283],
+                  [13.40913, 52.528282],
+                  [13.409173, 52.528278],
+                  [13.409427, 52.528239],
+                  [13.409502, 52.528226]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 97,
+                "bearing_before": 203,
+                "location": [13.409072, 52.528284],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Linienstraße"
+              },
+              "weight": 11.5,
+              "duration": 11.5,
+              "name": "Linienstraße",
+              "distance": 29.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [105, 195, 285],
+                  "location": [13.409502, 52.528226]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [15, 105, 195, 300],
+                  "location": [13.408893, 52.526845]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.409502, 52.528226],
+                  [13.409318, 52.527777],
+                  [13.40929, 52.527717],
+                  [13.408893, 52.526845],
+                  [13.407907, 52.52453]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 192,
+                "bearing_before": 104,
+                "location": [13.409502, 52.528226],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right onto Max-Beer-Straße"
+              },
+              "weight": 102.1,
+              "duration": 102.1,
+              "name": "Max-Beer-Straße",
+              "distance": 425
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [15, 120, 195, 300],
+                  "location": [13.407907, 52.52453]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [15, 105, 195, 285],
+                  "location": [13.407197, 52.523424]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [0, 75, 225],
+                  "location": [13.404517, 52.52196]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.407907, 52.52453],
+                  [13.407874, 52.524438],
+                  [13.407381, 52.523783],
+                  [13.407197, 52.523424],
+                  [13.407149, 52.523347],
+                  [13.407062, 52.523192],
+                  [13.406986, 52.523075],
+                  [13.406936, 52.523],
+                  [13.406871, 52.522944],
+                  [13.406682, 52.522837],
+                  [13.406502, 52.522746],
+                  [13.406419, 52.522704],
+                  [13.406344, 52.522666],
+                  [13.406322, 52.522655],
+                  [13.40572, 52.522356],
+                  [13.405498, 52.522264],
+                  [13.405416, 52.52223],
+                  [13.4053, 52.522183],
+                  [13.405045, 52.522088],
+                  [13.404738, 52.521992],
+                  [13.404517, 52.52196],
+                  [13.404486, 52.521922],
+                  [13.404423, 52.521892]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 191,
+                "bearing_before": 194,
+                "location": [13.407907, 52.52453],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Rochstraße"
+              },
+              "weight": 97.2,
+              "duration": 98.4,
+              "name": "Rochstraße",
+              "distance": 395.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [45, 240],
+                  "location": [13.404423, 52.521892]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 135, 240],
+                  "location": [13.404224, 52.521827]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 135, 240],
+                  "location": [13.403112, 52.521449]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [60, 135, 240, 330],
+                  "location": [13.402863, 52.521371]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.404423, 52.521892],
+                  [13.404224, 52.521827],
+                  [13.403575, 52.521601],
+                  [13.403375, 52.521535],
+                  [13.403285, 52.521504],
+                  [13.403112, 52.521449],
+                  [13.40301, 52.521417],
+                  [13.402962, 52.521402],
+                  [13.402919, 52.521389],
+                  [13.402863, 52.521371],
+                  [13.402744, 52.521332],
+                  [13.402675, 52.52131],
+                  [13.401397, 52.520895],
+                  [13.401046, 52.520781],
+                  [13.401004, 52.520776],
+                  [13.40096, 52.520787]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 240,
+                "bearing_before": 230,
+                "location": [13.404423, 52.521892],
+                "modifier": "slight left",
+                "type": "new name",
+                "instruction": "Continue slightly left onto Anna-Louisa-Karsch-Straße"
+              },
+              "weight": 102.7,
+              "duration": 102.7,
+              "name": "Anna-Louisa-Karsch-Straße",
+              "distance": 266
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [90, 150, 240, 330],
+                  "location": [13.40096, 52.520787]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [60, 150, 240, 330],
+                  "location": [13.400835, 52.520746]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [60, 240],
+                  "location": [13.40081, 52.520735]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.40096, 52.520787],
+                  [13.400835, 52.520746],
+                  [13.40081, 52.520735],
+                  [13.400386, 52.520564],
+                  [13.399964, 52.520394],
+                  [13.399934, 52.520385]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 240,
+                "bearing_before": 262,
+                "location": [13.40096, 52.520787],
+                "modifier": "slight left",
+                "type": "turn",
+                "instruction": "Make a slight left"
+              },
+              "weight": 19.8,
+              "duration": 21.3,
+              "name": "",
+              "distance": 82.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [60, 135, 225, 315],
+                  "location": [13.399934, 52.520385]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 150, 240],
+                  "location": [13.399165, 52.520055]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [60, 240],
+                  "location": [13.397578, 52.519403]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [60, 240],
+                  "location": [13.397296, 52.5193]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.399934, 52.520385],
+                  [13.399821, 52.520332],
+                  [13.399764, 52.520305],
+                  [13.399558, 52.520215],
+                  [13.399165, 52.520055],
+                  [13.398719, 52.519871],
+                  [13.398066, 52.519603],
+                  [13.398019, 52.519583],
+                  [13.39786, 52.519518],
+                  [13.397744, 52.51947],
+                  [13.397664, 52.519437],
+                  [13.397593, 52.519408],
+                  [13.397578, 52.519403],
+                  [13.397296, 52.5193],
+                  [13.397239, 52.519279]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 232,
+                "bearing_before": 237,
+                "location": [13.399934, 52.520385],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Bodestraße"
+              },
+              "weight": 52.900000000000006,
+              "duration": 54.1,
+              "name": "Bodestraße",
+              "distance": 220.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [60, 150, 240, 330],
+                  "location": [13.397239, 52.519279]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.397239, 52.519279],
+                  [13.396759, 52.519101],
+                  [13.396099, 52.518849],
+                  [13.396047, 52.518802],
+                  [13.39603, 52.518744],
+                  [13.396082, 52.51848],
+                  [13.39609, 52.518446],
+                  [13.39626, 52.517592],
+                  [13.396269, 52.517548]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 237,
+                "bearing_before": 237,
+                "location": [13.397239, 52.519279],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Hinter dem Gießhaus"
+              },
+              "weight": 87.7,
+              "duration": 57.7,
+              "name": "Hinter dem Gießhaus",
+              "distance": 237.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [0, 90, 165, 270],
+                  "location": [13.396269, 52.517548]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.396269, 52.517548],
+                  [13.396294, 52.517436]
+                ],
+                "type": "LineString"
+              },
+              "mode": "pushing bike",
+              "maneuver": {
+                "bearing_after": 171,
+                "bearing_before": 171,
+                "location": [13.396269, 52.517548],
+                "modifier": "straight",
+                "type": "notification",
+                "instruction": "Continue straight"
+              },
+              "weight": 11.3,
+              "duration": 11.3,
+              "name": "",
+              "distance": 12.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [90, 180, 270, 345],
+                  "location": [13.396294, 52.517436]
+                },
+                {
+                  "classes": ["tunnel"],
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false],
+                  "bearings": [180, 345],
+                  "location": [13.396369, 52.517091]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [0, 165],
+                  "location": [13.396382, 52.517017]
+                },
+                {
+                  "classes": ["tunnel"],
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [0, 180],
+                  "location": [13.396524, 52.516315]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [0, 180],
+                  "location": [13.396538, 52.516242]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [0, 75, 180],
+                  "location": [13.396577, 52.516046]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [0, 75, 165, 270],
+                  "location": [13.396748, 52.515233]
+                },
+                {
+                  "out": 1,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [60, 165, 255, 345],
+                  "location": [13.396955, 52.514349]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.396294, 52.517436],
+                  [13.396336, 52.517236],
+                  [13.396369, 52.517091],
+                  [13.396382, 52.517017],
+                  [13.396457, 52.516679],
+                  [13.396509, 52.516394],
+                  [13.396524, 52.516315],
+                  [13.396538, 52.516242],
+                  [13.396577, 52.516046],
+                  [13.396748, 52.515233],
+                  [13.396955, 52.514349],
+                  [13.397173, 52.513344]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 171,
+                "bearing_before": 171,
+                "location": [13.396294, 52.517436],
+                "modifier": "straight",
+                "type": "notification",
+                "instruction": "Continue straight onto Oberwallstraße"
+              },
+              "weight": 110.4,
+              "duration": 116.9,
+              "name": "Oberwallstraße",
+              "distance": 459
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [165, 210, 255, 345],
+                  "location": [13.397173, 52.513344]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [60, 120, 300],
+                  "location": [13.398071, 52.512859]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [30, 120, 300],
+                  "location": [13.399375, 52.512338]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [30, 120, 300],
+                  "location": [13.400953, 52.511696]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.397173, 52.513344],
+                  [13.397229, 52.513239],
+                  [13.397332, 52.513166],
+                  [13.397948, 52.51291],
+                  [13.398071, 52.512859],
+                  [13.398206, 52.512809],
+                  [13.398529, 52.512673],
+                  [13.398953, 52.51251],
+                  [13.399033, 52.512479],
+                  [13.399375, 52.512338],
+                  [13.400013, 52.51208],
+                  [13.40014, 52.51203],
+                  [13.400275, 52.511973],
+                  [13.400456, 52.511895],
+                  [13.400606, 52.511835],
+                  [13.400953, 52.511696],
+                  [13.401094, 52.511636]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 161,
+                "bearing_before": 171,
+                "location": [13.397173, 52.513344],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Niederwallstraße"
+              },
+              "weight": 83.19999999999999,
+              "duration": 83.19999999999999,
+              "name": "Niederwallstraße",
+              "distance": 329.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [120, 210, 300],
+                  "location": [13.401094, 52.511636]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 150, 210],
+                  "location": [13.401005, 52.511561]
+                },
+                {
+                  "out": 1,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [75, 150, 255, 345],
+                  "location": [13.400998, 52.511317]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.401094, 52.511636],
+                  [13.401005, 52.511561],
+                  [13.400931, 52.511495],
+                  [13.400998, 52.511317],
+                  [13.401154, 52.51117]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 215,
+                "bearing_before": 123,
+                "location": [13.401094, 52.511636],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right"
+              },
+              "weight": 14.9,
+              "duration": 14.9,
+              "name": "",
+              "distance": 59
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 4,
+                  "entry": [true, true, true, true, false],
+                  "bearings": [0, 75, 180, 255, 330],
+                  "location": [13.401154, 52.51117]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 120, 210],
+                  "location": [13.401065, 52.510467]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [30, 120, 210, 300],
+                  "location": [13.400503, 52.509995]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 120, 210],
+                  "location": [13.399996, 52.509558]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [30, 105, 195, 270],
+                  "location": [13.399666, 52.50912]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [15, 30, 210],
+                  "location": [13.39949, 52.508729]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 210, 270],
+                  "location": [13.399113, 52.508193]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.401154, 52.51117],
+                  [13.401185, 52.511016],
+                  [13.401222, 52.510799],
+                  [13.401229, 52.510718],
+                  [13.401202, 52.510629],
+                  [13.401144, 52.510545],
+                  [13.401065, 52.510467],
+                  [13.400797, 52.510245],
+                  [13.400503, 52.509995],
+                  [13.400074, 52.50964],
+                  [13.399996, 52.509558],
+                  [13.399666, 52.50912],
+                  [13.399551, 52.508929],
+                  [13.39949, 52.508729],
+                  [13.399154, 52.508251],
+                  [13.399113, 52.508193],
+                  [13.399054, 52.508109],
+                  [13.399041, 52.508091],
+                  [13.398614, 52.507512],
+                  [13.398483, 52.50733],
+                  [13.398397, 52.507217],
+                  [13.398371, 52.507181],
+                  [13.398369, 52.507179],
+                  [13.398282, 52.50707]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 172,
+                "bearing_before": 146,
+                "location": [13.401154, 52.51117],
+                "modifier": "slight right",
+                "type": "turn",
+                "instruction": "Make a slight right onto Axel-Springer-Straße"
+              },
+              "weight": 140.39999999999998,
+              "duration": 140.39999999999998,
+              "name": "Axel-Springer-Straße",
+              "distance": 506
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "in": 0,
+                  "entry": [false, false, true, true, true],
+                  "bearings": [30, 90, 120, 210, 285],
+                  "location": [13.398282, 52.50707]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 120, 210],
+                  "location": [13.397583, 52.506146]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.398282, 52.50707],
+                  [13.398213, 52.50697],
+                  [13.398184, 52.506931],
+                  [13.398067, 52.506771],
+                  [13.398038, 52.50673],
+                  [13.397877, 52.50651],
+                  [13.397681, 52.506251],
+                  [13.397583, 52.506146],
+                  [13.39705, 52.505432],
+                  [13.396981, 52.505349]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 202,
+                "bearing_before": 203,
+                "location": [13.398282, 52.50707],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Lindenstraße"
+              },
+              "weight": 78.30000000000001,
+              "duration": 78.30000000000001,
+              "name": "Lindenstraße",
+              "distance": 210.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true, true, true],
+                  "bearings": [30, 120, 195, 225, 285],
+                  "location": [13.396981, 52.505349]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [30, 120, 300],
+                  "location": [13.398174, 52.505009]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [30, 120, 300],
+                  "location": [13.398327, 52.504965]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.396981, 52.505349],
+                  [13.398174, 52.505009],
+                  [13.398327, 52.504965],
+                  [13.399446, 52.504631]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 113,
+                "bearing_before": 206,
+                "location": [13.396981, 52.505349],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Ritterstraße"
+              },
+              "weight": 47.9,
+              "duration": 47.9,
+              "name": "Ritterstraße",
+              "distance": 185
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [15, 120, 195, 300],
+                  "location": [13.399446, 52.504631]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.399446, 52.504631],
+                  [13.399162, 52.504099]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 196,
+                "bearing_before": 115,
+                "location": [13.399446, 52.504631],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right onto Alte Jakobstraße"
+              },
+              "weight": 19.7,
+              "duration": 19.7,
+              "name": "Alte Jakobstraße",
+              "distance": 62.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [15, 195, 300],
+                  "location": [13.399162, 52.504099]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.399162, 52.504099],
+                  [13.398939, 52.504158]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 292,
+                "bearing_before": 196,
+                "location": [13.399162, 52.504099],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right"
+              },
+              "weight": 5.7,
+              "duration": 5.7,
+              "name": "",
+              "distance": 16.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true, true],
+                  "bearings": [0, 120, 255, 285],
+                  "location": [13.398939, 52.504158]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.398939, 52.504158],
+                  [13.398913, 52.50412],
+                  [13.398375, 52.504262]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 251,
+                "bearing_before": 292,
+                "location": [13.398939, 52.504158],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left"
+              },
+              "weight": 15.8,
+              "duration": 15.8,
+              "name": "",
+              "distance": 44.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [true],
+                  "bearings": [113],
+                  "location": [13.398375, 52.504262]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.398375, 52.504262],
+                  [13.398375, 52.504262]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 293,
+                "location": [13.398375, 52.504262],
+                "modifier": "left",
+                "type": "arrive",
+                "instruction": "You have arrived at your 2nd destination, on the left"
+              },
+              "weight": 0,
+              "duration": 0,
+              "name": "",
+              "distance": 0
+            }
+          ],
+          "distance": 4132.4
+        },
+        {
+          "summary": "Axel-Springer-Straße, Oberwallstraße",
+          "weight": 729.9,
+          "duration": 737.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "entry": [true],
+                  "bearings": [113],
+                  "location": [13.398375, 52.504262]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.398375, 52.504262],
+                  [13.398913, 52.50412],
+                  [13.398939, 52.504158]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 113,
+                "bearing_before": 0,
+                "location": [13.398375, 52.504262],
+                "modifier": "right",
+                "type": "depart",
+                "instruction": "Head southeast"
+              },
+              "weight": 16.6,
+              "duration": 16.6,
+              "name": "",
+              "distance": 44.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [0, 120, 255, 285],
+                  "location": [13.398939, 52.504158]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.398939, 52.504158],
+                  [13.399162, 52.504099]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 112,
+                "bearing_before": 71,
+                "location": [13.398939, 52.504158],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right"
+              },
+              "weight": 13.4,
+              "duration": 13.4,
+              "name": "",
+              "distance": 16.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [15, 195, 300],
+                  "location": [13.399162, 52.504099]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.399162, 52.504099],
+                  [13.399446, 52.504631]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 16,
+                "bearing_before": 112,
+                "location": [13.399162, 52.504099],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Alte Jakobstraße"
+              },
+              "weight": 21.8,
+              "duration": 21.8,
+              "name": "Alte Jakobstraße",
+              "distance": 62.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [15, 120, 195, 300],
+                  "location": [13.399446, 52.504631]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 120, 300],
+                  "location": [13.398327, 52.504965]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 120, 300],
+                  "location": [13.398174, 52.505009]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.399446, 52.504631],
+                  [13.398327, 52.504965],
+                  [13.398174, 52.505009],
+                  [13.396981, 52.505349]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 295,
+                "bearing_before": 16,
+                "location": [13.399446, 52.504631],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Ritterstraße"
+              },
+              "weight": 48.8,
+              "duration": 48.8,
+              "name": "Ritterstraße",
+              "distance": 185
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false, true, true, true],
+                  "bearings": [30, 120, 195, 225, 285],
+                  "location": [13.396981, 52.505349]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [30, 120, 210],
+                  "location": [13.397583, 52.506146]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.396981, 52.505349],
+                  [13.39705, 52.505432],
+                  [13.397583, 52.506146],
+                  [13.397681, 52.506251],
+                  [13.397877, 52.50651],
+                  [13.398038, 52.50673],
+                  [13.398067, 52.506771],
+                  [13.398184, 52.506931],
+                  [13.398213, 52.50697],
+                  [13.398282, 52.50707]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 26,
+                "bearing_before": 293,
+                "location": [13.396981, 52.505349],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right onto Lindenstraße"
+              },
+              "weight": 69.6,
+              "duration": 69.6,
+              "name": "Lindenstraße",
+              "distance": 210.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 3,
+                  "entry": [true, false, true, false, true],
+                  "bearings": [30, 90, 120, 210, 285],
+                  "location": [13.398282, 52.50707]
+                },
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 210, 270],
+                  "location": [13.399113, 52.508193]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.398282, 52.50707],
+                  [13.398369, 52.507179],
+                  [13.398371, 52.507181],
+                  [13.398397, 52.507217],
+                  [13.398483, 52.50733],
+                  [13.398614, 52.507512],
+                  [13.399041, 52.508091],
+                  [13.399054, 52.508109],
+                  [13.399113, 52.508193],
+                  [13.399154, 52.508251],
+                  [13.39949, 52.508729]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 23,
+                "bearing_before": 22,
+                "location": [13.398282, 52.50707],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Axel-Springer-Straße"
+              },
+              "weight": 67.39999999999999,
+              "duration": 67.39999999999999,
+              "name": "Axel-Springer-Straße",
+              "distance": 201.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [15, 30, 210],
+                  "location": [13.39949, 52.508729]
+                },
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 210, 285],
+                  "location": [13.399812, 52.509086]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [30, 120, 210, 300],
+                  "location": [13.400118, 52.509519]
+                },
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 210, 300],
+                  "location": [13.400618, 52.509942]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [30, 120, 210, 300],
+                  "location": [13.40117, 52.510424]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.39949, 52.508729],
+                  [13.399654, 52.508889],
+                  [13.399812, 52.509086],
+                  [13.400118, 52.509519],
+                  [13.400219, 52.509615],
+                  [13.400618, 52.509942],
+                  [13.400876, 52.51017],
+                  [13.40117, 52.510424],
+                  [13.401336, 52.510586],
+                  [13.401383, 52.510691],
+                  [13.401377, 52.510806],
+                  [13.401349, 52.511016],
+                  [13.401343, 52.511055],
+                  [13.401312, 52.511208]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 28,
+                "bearing_before": 22,
+                "location": [13.39949, 52.508729],
+                "modifier": "straight",
+                "type": "continue",
+                "instruction": "Continue straight to stay on Axel-Springer-Straße"
+              },
+              "weight": 77.19999999999999,
+              "duration": 77.19999999999999,
+              "name": "Axel-Springer-Straße",
+              "distance": 312.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "in": 1,
+                  "entry": [true, false, true, true, true],
+                  "bearings": [60, 180, 255, 315, 330],
+                  "location": [13.401312, 52.511208]
+                },
+                {
+                  "out": 3,
+                  "in": 1,
+                  "entry": [true, false, true, true],
+                  "bearings": [75, 150, 255, 330],
+                  "location": [13.401197, 52.511353]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.401312, 52.511208],
+                  [13.401197, 52.511353],
+                  [13.401124, 52.511446],
+                  [13.401005, 52.511561]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 333,
+                "bearing_before": 352,
+                "location": [13.401312, 52.511208],
+                "modifier": "straight",
+                "type": "turn",
+                "instruction": "Go straight"
+              },
+              "weight": 13.100000000000001,
+              "duration": 13.100000000000001,
+              "name": "",
+              "distance": 44.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 150, 210],
+                  "location": [13.401005, 52.511561]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.401005, 52.511561],
+                  [13.401094, 52.511636]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 35,
+                "bearing_before": 327,
+                "location": [13.401005, 52.511561],
+                "modifier": "right",
+                "type": "end of road",
+                "instruction": "Turn right"
+              },
+              "weight": 11,
+              "duration": 11,
+              "name": "",
+              "distance": 10.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [120, 210, 300],
+                  "location": [13.401094, 52.511636]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 120, 300],
+                  "location": [13.400953, 52.511696]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [30, 120, 300],
+                  "location": [13.399375, 52.512338]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [60, 120, 300],
+                  "location": [13.398071, 52.512859]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.401094, 52.511636],
+                  [13.400953, 52.511696],
+                  [13.400606, 52.511835],
+                  [13.400456, 52.511895],
+                  [13.400275, 52.511973],
+                  [13.40014, 52.51203],
+                  [13.400013, 52.51208],
+                  [13.399375, 52.512338],
+                  [13.399033, 52.512479],
+                  [13.398953, 52.51251],
+                  [13.398529, 52.512673],
+                  [13.398206, 52.512809],
+                  [13.398071, 52.512859],
+                  [13.397948, 52.51291],
+                  [13.397332, 52.513166],
+                  [13.397229, 52.513239],
+                  [13.397173, 52.513344]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 303,
+                "bearing_before": 35,
+                "location": [13.401094, 52.511636],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Niederwallstraße"
+              },
+              "weight": 78.9,
+              "duration": 78.9,
+              "name": "Niederwallstraße",
+              "distance": 329.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [165, 210, 255, 345],
+                  "location": [13.397173, 52.513344]
+                },
+                {
+                  "out": 3,
+                  "in": 1,
+                  "entry": [true, false, true, true],
+                  "bearings": [60, 165, 255, 345],
+                  "location": [13.396955, 52.514349]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [0, 75, 165, 270],
+                  "location": [13.396748, 52.515233]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [0, 75, 180],
+                  "location": [13.396577, 52.516046]
+                },
+                {
+                  "classes": ["tunnel"],
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false],
+                  "bearings": [0, 180],
+                  "location": [13.396538, 52.516242]
+                },
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false],
+                  "bearings": [0, 180],
+                  "location": [13.396524, 52.516315]
+                },
+                {
+                  "classes": ["tunnel"],
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false],
+                  "bearings": [0, 165],
+                  "location": [13.396382, 52.517017]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true],
+                  "bearings": [180, 345],
+                  "location": [13.396369, 52.517091]
+                },
+                {
+                  "out": 3,
+                  "in": 1,
+                  "entry": [true, false, true, true],
+                  "bearings": [90, 180, 270, 345],
+                  "location": [13.396294, 52.517436]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.397173, 52.513344],
+                  [13.396955, 52.514349],
+                  [13.396748, 52.515233],
+                  [13.396577, 52.516046],
+                  [13.396538, 52.516242],
+                  [13.396524, 52.516315],
+                  [13.396509, 52.516394],
+                  [13.396457, 52.516679],
+                  [13.396382, 52.517017],
+                  [13.396369, 52.517091],
+                  [13.396336, 52.517236],
+                  [13.396294, 52.517436],
+                  [13.396269, 52.517548]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 351,
+                "bearing_before": 341,
+                "location": [13.397173, 52.513344],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Oberwallstraße"
+              },
+              "weight": 113.3,
+              "duration": 119.80000000000003,
+              "name": "Oberwallstraße",
+              "distance": 471.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [0, 90, 165, 270],
+                  "location": [13.396269, 52.517548]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [60, 150, 240, 330],
+                  "location": [13.397239, 52.519279]
+                },
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false],
+                  "bearings": [60, 240],
+                  "location": [13.397296, 52.5193]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.396269, 52.517548],
+                  [13.39626, 52.517592],
+                  [13.39609, 52.518446],
+                  [13.396082, 52.51848],
+                  [13.39603, 52.518744],
+                  [13.396047, 52.518802],
+                  [13.396099, 52.518849],
+                  [13.396759, 52.519101],
+                  [13.397239, 52.519279],
+                  [13.397296, 52.5193],
+                  [13.397578, 52.519403]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 351,
+                "bearing_before": 351,
+                "location": [13.396269, 52.517548],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Hinter dem Gießhaus"
+              },
+              "weight": 63.8,
+              "duration": 63.8,
+              "name": "Hinter dem Gießhaus",
+              "distance": 264.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 1,
+                  "entry": [true, false],
+                  "bearings": [60, 240],
+                  "location": [13.397578, 52.519403]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [60, 150, 240],
+                  "location": [13.399165, 52.520055]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [60, 135, 225, 315],
+                  "location": [13.399934, 52.520385]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.397578, 52.519403],
+                  [13.397593, 52.519408],
+                  [13.397664, 52.519437],
+                  [13.397744, 52.51947],
+                  [13.39786, 52.519518],
+                  [13.398019, 52.519583],
+                  [13.398066, 52.519603],
+                  [13.398719, 52.519871],
+                  [13.399165, 52.520055],
+                  [13.399558, 52.520215],
+                  [13.399764, 52.520305],
+                  [13.399821, 52.520332],
+                  [13.399934, 52.520385],
+                  [13.399964, 52.520394],
+                  [13.400386, 52.520564],
+                  [13.40081, 52.520735],
+                  [13.400835, 52.520746]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 60,
+                "bearing_before": 57,
+                "location": [13.397578, 52.519403],
+                "modifier": "straight",
+                "type": "new name",
+                "instruction": "Continue onto Bodestraße"
+              },
+              "weight": 70.9,
+              "duration": 72.4,
+              "name": "Bodestraße",
+              "distance": 266.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "in": 2,
+                  "entry": [true, true, false, true],
+                  "bearings": [60, 150, 240, 330],
+                  "location": [13.400835, 52.520746]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [60, 150, 330],
+                  "location": [13.400512, 52.521118]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.400835, 52.520746],
+                  [13.400512, 52.521118],
+                  [13.400303, 52.521305],
+                  [13.400068, 52.521416],
+                  [13.399909, 52.52146],
+                  [13.397637, 52.521968]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 331,
+                "bearing_before": 53,
+                "location": [13.400835, 52.520746],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Spreepromenade"
+              },
+              "weight": 64.1,
+              "duration": 64.1,
+              "name": "Spreepromenade",
+              "distance": 267.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [true],
+                  "bearings": [110],
+                  "location": [13.397637, 52.521968]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.397637, 52.521968],
+                  [13.397637, 52.521968]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 290,
+                "location": [13.397637, 52.521968],
+                "modifier": "left",
+                "type": "arrive",
+                "instruction": "You have arrived at your 3rd destination, on the left"
+              },
+              "weight": 0,
+              "duration": 0,
+              "name": "Spreepromenade",
+              "distance": 0
+            }
+          ],
+          "distance": 2687
+        },
+        {
+          "summary": "",
+          "weight": 0,
+          "duration": 0,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "entry": [true],
+                  "bearings": [357],
+                  "location": [13.397637, 52.521968]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.397637, 52.521968],
+                  [13.397637, 52.521968]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 357,
+                "bearing_before": 0,
+                "location": [13.397637, 52.521968],
+                "modifier": "straight",
+                "type": "depart",
+                "instruction": "Head north on Spreepromenade"
+              },
+              "weight": 0,
+              "duration": 0,
+              "name": "Spreepromenade",
+              "distance": 0
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [true],
+                  "bearings": [177],
+                  "location": [13.397637, 52.521968]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [13.397637, 52.521968],
+                  [13.397637, 52.521968]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 357,
+                "location": [13.397637, 52.521968],
+                "modifier": "straight",
+                "type": "arrive",
+                "instruction": "You have arrived at your destination, straight ahead"
+              },
+              "weight": 0,
+              "duration": 0,
+              "name": "Spreepromenade",
+              "distance": 0
+            }
+          ],
+          "distance": 0
+        }
+      ],
+      "weight_name": "cyclability",
+      "weight": 1945,
+      "duration": 2021.6999999999998,
+      "distance": 6819.4
+    }
+  ],
+  "waypoints": [
+    {
+      "distance": 6.674146091218293,
+      "name": "",
+      "location": [13.410051, 52.53217]
+    },
+    {
+      "distance": 6.674146091218293,
+      "name": "",
+      "location": [13.410051, 52.53217]
+    },
+    {
+      "distance": 37.09999427870008,
+      "name": "",
+      "location": [13.398375, 52.504262]
+    },
+    {
+      "distance": 100.66235119026187,
+      "name": "Spreepromenade",
+      "location": [13.397637, 52.521968]
+    },
+    {
+      "distance": 100.66235119026187,
+      "name": "Spreepromenade",
+      "location": [13.397637, 52.521968]
+    }
+  ],
+  "code": "Ok",
+  "uuid": "ed9TZNCE06fIM_ieJpdcOVO-2Aw3ff7VuBrLNKRJH1uQ-Ff-3OXEyQ=="
+}

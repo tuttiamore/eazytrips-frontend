@@ -54,7 +54,7 @@ const useCardStyle = makeStyles((theme) => ({
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
-    color: theme.palette.primary.light,
+
     backgroundColor: theme.palette.primary.dark,
   },
   landing: {
@@ -71,6 +71,10 @@ const useCardStyle = makeStyles((theme) => ({
   //   maxWidth: "80%",
   //   margin: "8px 0",
   // },
+  accommodation: {
+    padding: "0px 0px 24px",
+    margin: "8px 0",
+  },
 }));
 
 export default useCardStyle;

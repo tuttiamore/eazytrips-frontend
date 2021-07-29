@@ -23,44 +23,58 @@ export default function Map({ trip, type }) {
   const map = useRef(null);
 
   useEffect(() => {
-    const dayIndexSpecificData = tripData.trip[day - 1];
+    let paramSpecificData;
 
     // assign the accomodation coordinates that are used as the center of the map
     const accomodationLng = tripData.accomodationCoords.lng;
     const accomodationLat = tripData.accomodationCoords.lat;
 
     // Create array containing all the coordinates of the waypoint
+    let waypointCoordinates = [[accomodationLng, accomodationLat]];
+
     let markerCoordinates = [
       {
         lng: accomodationLng,
         lat: accomodationLat,
       },
     ];
-    console.log(markerCoordinates);
-    let waypointCoordinates = [[accomodationLng, accomodationLat]];
+    let markerTitles = ["Accomodation"];
 
-    //put all the coordinates of all locations in the day into the waypointCoordinates
+    if (type === "SingleDay") {
+      paramSpecificData = tripData.trip[day - 1];
+      for (let location of paramSpecificData.locations) {
+        const rawDataEquivalent = tripData.rawDataPlaces.find(
+          (item) => item.place_id === location.place_id
+        );
+        waypointCoordinates.push([
+          rawDataEquivalent.geometry.location.lng,
+          rawDataEquivalent.geometry.location.lat,
+        ]);
 
-    for (let location of dayIndexSpecificData.locations) {
-      const rawDataEquivalent = tripData.rawDataPlaces.find(
-        (item) => item.place_id === location.place_id
-      );
-      waypointCoordinates.push([
-        rawDataEquivalent.geometry.location.lng,
-        rawDataEquivalent.geometry.location.lat,
-      ]);
-
-      markerCoordinates.push({
-        lng: rawDataEquivalent.geometry.location.lng,
-        lat: rawDataEquivalent.geometry.location.lat,
-      });
+        markerCoordinates.push({
+          lng: rawDataEquivalent.geometry.location.lng,
+          lat: rawDataEquivalent.geometry.location.lat,
+        });
+        markerTitles.push(rawDataEquivalent.name);
+      }
     }
-    //find the corresponding Place from raw data based on the day in the params
-    const rawDataEquivalent = (locationIndex) => {
-      tripData.rawDataPlaces.find(
-        (item) => item.place_id === dayIndexSpecificData.locations[1].place_id
-      );
-    };
+    if (type === "TripSummary") {
+      waypointCoordinates = null;
+
+      for (let day in tripData.trip) {
+        const rawDataEquivalent = tripData.rawDataPlaces.find(
+          (item) => item.place_id === tripData.trip[day].highlights.place_id
+        );
+        console.log(rawDataEquivalent);
+
+        markerCoordinates.push({
+          lng: rawDataEquivalent.geometry.location.lng,
+          lat: rawDataEquivalent.geometry.location.lat,
+        });
+        markerTitles.push(rawDataEquivalent.name);
+      }
+    }
+    //put all the coordinates of all locations in the day into the waypointCoordinates
 
     const zoom = 12;
 
@@ -113,7 +127,7 @@ export default function Map({ trip, type }) {
               "line-cap": "round",
             },
             paint: {
-              "line-color": "#3887be",
+              "line-color": theme.palette.secondary.light,
               "line-width": 5,
               "line-opacity": 0.75,
             },
@@ -128,11 +142,11 @@ export default function Map({ trip, type }) {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [accomodationLng, accomodationLat],
       zoom: zoom,
-      scrollZoom: true,
+      scrollZoom: false,
     });
 
     map.current.on("load", () => {
-      fetchRoute("walking");
+      if (waypointCoordinates) fetchRoute("walking");
 
       // function that gets a place_id as a parameter and returns a marker on the map by getting the coordinates from the initial rawData
 
@@ -141,11 +155,11 @@ export default function Map({ trip, type }) {
           const marker = new mapboxgl.Marker({
             color: theme.palette.primary.light,
             draggable: false,
-            scale: 0.5,
+            scale: 0.9,
             markerSymbol: 1,
           })
             .setLngLat(markerCoordinates[item])
-            .setPopup(new mapboxgl.Popup().setHTML(rawDataEquivalent.name))
+            .setPopup(new mapboxgl.Popup().setHTML(markerTitles[item]))
             .addTo(map.current);
         }
       };

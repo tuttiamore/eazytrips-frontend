@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useCardStyle = makeStyles((theme) => ({
   root: {
     maxWidth: "100%",
-    padding: "8px",
+    padding: "4px 8px 0px",
 
     // margin: " 16px auto",
   },
@@ -20,7 +20,7 @@ const useCardStyle = makeStyles((theme) => ({
     transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
-    padding: "8px",
+    padding: "0px",
   },
   expandOpen: {
     transform: "rotate(180deg)",
@@ -41,7 +41,7 @@ const useCardStyle = makeStyles((theme) => ({
   span: {
     backgroundColor: theme.palette.secondary.light,
     width: "8px",
-    height: "80px",
+    height: "72px",
     margin: "0 16px",
     display: "flex",
     alignItems: "center",

@@ -23,6 +23,7 @@ import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
 import BeachAccessIcon from "@material-ui/icons/BeachAccess";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import LandscapeIcon from "@material-ui/icons/Landscape";
+import HotelIcon from "@material-ui/icons/Hotel";
 import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
 import NaturePeopleIcon from "@material-ui/icons/NaturePeople";
 import WavesIcon from "@material-ui/icons/Waves";
@@ -63,6 +64,7 @@ export default function TripCard({ type, data }) {
     if (placeType.includes("place_of_worship")) return "⛪";
     if (placeType.includes("park")) return <NaturePeopleIcon />;
     if (placeType.includes("city_hall")) return <MuseumIcon />;
+    return <NaturePeopleIcon />;
   };
   const avatarImage = examplePicture;
   const { tripData } = useTripContext();
@@ -104,7 +106,7 @@ export default function TripCard({ type, data }) {
 
     //console.log(tripInfo.arrivalTime);
     return (
-      <Card className={classes.outer}>
+      <Card className={classes.outer} onClick={handleExpandClick}>
         <CardHeader
           className={classes.root}
           avatar={
@@ -112,7 +114,6 @@ export default function TripCard({ type, data }) {
               variant="rounded"
               aria-label="default"
               className={classes.large}
-              src={!avatarImage && avatarImage}
             >
               {getAvatarImage(place.types)}
             </Avatar>
@@ -131,7 +132,6 @@ export default function TripCard({ type, data }) {
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
             })}
-            onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
           >
@@ -191,6 +191,27 @@ export default function TripCard({ type, data }) {
           }
           title={tripName}
           titleTypographyProps={{ noWrap: false }}
+        />
+      </Card>
+    );
+  }
+  if (type === "Accommodation") {
+    const tripName = data ? data : mockData.trip[0];
+
+    return (
+      <Card className={classes.accommodation}>
+        <CardHeader
+          className={classes.root}
+          avatar={
+            <Avatar
+              variant="rounded"
+              aria-label="default"
+              className={classes.large}
+            >
+              <HotelIcon />
+            </Avatar>
+          }
+          title={tripName}
         />
       </Card>
     );

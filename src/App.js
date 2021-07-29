@@ -31,6 +31,9 @@ function App() {
               <Route path="/tripsummary">
                 <TripSummary />
               </Route>
+              <Route path="/suggestedplaces">
+                <SuggestedPlaces />
+              </Route>
               <Route path="/plantrip">
                 <EnterDestinationPage />
               </Route>

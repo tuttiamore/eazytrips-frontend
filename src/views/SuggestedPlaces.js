@@ -2,19 +2,22 @@ import { useState } from "react";
 import useSuggestedPlacesStyle from "../styles/useSuggestedPlacesStyle";
 import Suggested from "../components/Card";
 import { useTripContext } from "../context/TripContext";
-import Checkbox from '@material-ui/core/Checkbox';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+
 import {
     Box,
     Typography,
     List,
-    ListItem
+    ListItem,
+    Checkbox,
+    TextField,
+    Button,
 } from "@material-ui/core";
+import axios from "axios";
 
 
 export default function SuggestedPlaces() {
     const [isSelected, setIsSelected] = useState({});
+    const { tripDataRaw, setTripData } = useTripContext();
 
     console.log(isSelected)
     const handleChange = (e) => {
@@ -24,8 +27,20 @@ export default function SuggestedPlaces() {
     }
 
 
-    const handleSubmit = () => {
-        // 
+    const handleSubmit = async () => {
+        // grab the raw data object: use trip context
+        // add locations selected by user to the raw trip data object
+        const tripDataRawUpdated = { ...tripDataRaw, userLocations: Object.keys(isSelected) }
+        console.log(tripDataRawUpdated)
+
+        // send updated data back to API which will calculate final itinerary 
+        try {
+            const { data } = await axios.put("https://eazytrips-backend.herokuapp.com/gettrip", tripDataRawUpdated)
+            console.log("received trip:", data);
+            setTripData(data);
+        } catch (err) {
+            console.log(err)
+        }
     }
 
 
@@ -47,7 +62,7 @@ export default function SuggestedPlaces() {
                 //     margin: "auto",
                 // }}
                 >
-                    {tripData.rawDataPlaces.map((item, index) => (
+                    {tripDataRaw.rawDataPlaces.map((item, index) => (
                         <ListItem>
                             <Checkbox
                                 color="primary"
@@ -74,7 +89,7 @@ export default function SuggestedPlaces() {
                 </Box>
 
                 <Box p={2} align="right">
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={handleSubmit}>
                         SKIP/NEXT
                     </Button>
                 </Box>

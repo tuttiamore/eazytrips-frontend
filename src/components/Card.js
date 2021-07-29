@@ -46,7 +46,7 @@ export default function RecipeReviewCard({ type, data }) {
     console.log(chosenDay);
     history.push(`/tripsingleday/${chosenDay}`);
   };
-  const handleUpomingTripSelectClick = () => {
+  const handleUpcomingTripSelectClick = () => {
     history.push(`/tripSummary`);
   };
   const convertTime = (time) => {
@@ -155,7 +155,7 @@ export default function RecipeReviewCard({ type, data }) {
     return (
       <Card
         className={classes.landing}
-        onClick={() => handleUpomingTripSelectClick()}
+        onClick={() => handleUpcomingTripSelectClick()}
       >
         <CardHeader
           avatar={
@@ -169,6 +169,28 @@ export default function RecipeReviewCard({ type, data }) {
             </Avatar>
           }
           title={tripName}
+        />
+      </Card>
+    );
+  }
+  if (type === "Suggested") {
+    const tripName = data ? data : mockData.trip[0];
+
+    return (
+      <Card className={classes.suggested}>
+        <CardHeader
+          avatar={
+            <Avatar
+              variant="rounded"
+              aria-label="default"
+              className={classes.avatar}
+              src={avatarImage && avatarImage}
+            >
+              <LandscapeIcon />
+            </Avatar>
+          }
+          title={tripName}
+          titleTypographyProps={{ noWrap: false }}
         />
       </Card>
     );

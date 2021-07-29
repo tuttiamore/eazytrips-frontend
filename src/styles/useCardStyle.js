@@ -62,6 +62,15 @@ const useCardStyle = makeStyles((theme) => ({
     alignSelf: "center",
   },
   address: {},
+  suggested: {
+    width: "100%",
+
+    // margin: " 16px auto",
+  },
+  // suggestedOuter: {
+  //   maxWidth: "80%",
+  //   margin: "8px 0",
+  // },
 }));
 
 export default useCardStyle;

@@ -20,7 +20,7 @@ export default function Header() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     history.push(event);
-    console.log(event);
+    // console.log(event);
   };
 
   const handleClose = () => {

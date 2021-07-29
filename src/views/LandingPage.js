@@ -18,7 +18,7 @@ export default function LandingPage() {
   const history = useHistory();
 
   const handleClick = (e, ev) => {
-    console.log(e);
+    // console.log(e);
     history.push(e);
   };
 

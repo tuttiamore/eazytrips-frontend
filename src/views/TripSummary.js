@@ -1,5 +1,6 @@
 import React from "react";
 import { DateTime } from "luxon";
+import Map from "../components/Map";
 
 // Material UI helper functions
 // import { sizing, palette, spacing } from "@material-ui/system";
@@ -149,7 +150,7 @@ export default function TripSummary() {
           Highlights
         </Typography>
         {tripData.trip.map((day) => {
-          console.log(day.dayIndex);
+          // console.log(day.dayIndex);
           return (
             <HighlightCard
               type="TripSummary"
@@ -159,6 +160,7 @@ export default function TripSummary() {
           );
         })}
       </Box>
+      <Map type="TripSummary" />
     </>
   );
 }

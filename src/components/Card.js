@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //import { animateScroll as scroll } from "react-scroll";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -16,7 +16,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useHistory } from "react-router";
 import useCardStyle from "../styles/useCardStyle";
 
-import mockData from "../mock.json";
+import mockData from "../dataFranz/mockBerlin.json";
 import { useTripContext } from "../context/TripContext";
 import MuseumIcon from "@material-ui/icons/Museum";
 import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";

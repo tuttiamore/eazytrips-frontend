@@ -12,6 +12,7 @@ import useAppGridStyle from "../src/styles/useAppGridStyle";
 import EnterDestinationPage from "../src/views/EnterDestinationPage";
 import SignUpPage from "../src/views/SignUpPage";
 import SignInPage from "../src/views/SignInPage";
+import WelcomePage from "../src/views/WelcomePage";
 import { PaginationProvider } from "./context/PaginationContext";
 import "./App.css";
 
@@ -45,8 +46,11 @@ function App() {
               <Route path="/signInPage">
                 <SignInPage />
               </Route>
-              <Route path="/" exact>
+              <Route path="/landingpage" exact>
                 <LandingPage />
+              </Route>
+              <Route path="/" exact>
+                <WelcomePage />
               </Route>
             </Switch>
           </Main>

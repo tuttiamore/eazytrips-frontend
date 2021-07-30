@@ -9,8 +9,8 @@ import { useHistory } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-export default function LandingPage() {
-
+export default function Footer({ location }) {
+  console.log("Footer is on path", location.pathname)
   let history = useHistory();
 
   const handleClick = (event) => {
@@ -27,6 +27,7 @@ export default function LandingPage() {
   return (
     <>
       <Container>
+
         <BottomNavigation showLabels>
           <BottomNavigationAction
             label="Discover"

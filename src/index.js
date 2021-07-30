@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import "./index.css";
@@ -28,15 +28,13 @@ const theme = createTheme({
 ReactDOM.render(
   <Router>
     <ThemeProvider theme={theme}>
-      <Container
-        maxWidth="md"
-        disableGutters={true}
+      <Box
         style={{
           height: "100vh",
         }}
       >
         <App />
-      </Container>
+      </Box>
     </ThemeProvider>
   </Router>,
   document.getElementById("root")

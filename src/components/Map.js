@@ -5,8 +5,8 @@ import { useTripContext } from "../context/TripContext";
 import { useTheme } from "@material-ui/styles";
 import axios from "axios";
 //import geojsonMock from "../mockRoute.json";
-const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
-
+//const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 export default function Map({ trip, type }) {

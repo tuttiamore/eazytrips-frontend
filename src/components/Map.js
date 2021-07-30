@@ -29,6 +29,11 @@ export default function Map({ trip, type }) {
     const accommodationLng = tripData.accommodationCoords.lng;
     const accommodationLat = tripData.accommodationCoords.lat;
     const accommodationLngLat = [accommodationLng, accommodationLat];
+
+    const mapCenter = [
+      (tripData.rawDataPlaces[0].geometry.location.lng + accommodationLng) / 2,
+      (tripData.rawDataPlaces[0].geometry.location.lat + accommodationLat) / 2,
+    ];
     // Create array containing all the coordinates of the waypoint
     let waypointCoordinates = [[accommodationLng, accommodationLat]];
 
@@ -135,7 +140,7 @@ export default function Map({ trip, type }) {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [accommodationLng, accommodationLat],
+      center: mapCenter,
       zoom: zoom,
       scrollZoom: false,
     });

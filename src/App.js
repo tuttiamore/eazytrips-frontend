@@ -12,8 +12,12 @@ import useAppGridStyle from "../src/styles/useAppGridStyle";
 import EnterDestinationPage from "../src/views/EnterDestinationPage";
 import SignUpPage from "../src/views/SignUpPage";
 import SignInPage from "../src/views/SignInPage";
+<<<<<<< HEAD
 import WelcomePage from "../src/views/WelcomePage";
 import { PaginationProvider } from "./context/PaginationContext";
+=======
+//import { PaginationProvider } from "./context/PaginationContext";
+>>>>>>> becb0cadb23ed5fb274a1c4af4ef34acb2b3f5f6
 import "./App.css";
 
 function App() {

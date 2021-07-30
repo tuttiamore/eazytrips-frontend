@@ -54,7 +54,7 @@ export default function SuggestedPlaces() {
   };
 
   const classes = useSuggestedPlacesStyle();
-  const { tripData } = useTripContext();
+  // const { tripData } = useTripContext();
 
   return (
     <>
@@ -73,10 +73,9 @@ export default function SuggestedPlaces() {
           // }}
         >
           {tripDataRaw.rawDataPlaces.map((item, index) => (
-            <ListItem>
+            <ListItem key={index}>
               <Checkbox
                 color="primary"
-                key={index}
                 name={item.place_id}
                 inputProps={{ "aria-label": "secondary checkbox" }}
                 onChange={handleChange}

@@ -97,7 +97,7 @@ export default function EnterDestinationPage() {
               Destination
             </Typography>
             <Typography
-              variant="body"
+              variant="body1"
               component="p"
               color="textPrimary"
               gutterBottom
@@ -129,7 +129,7 @@ export default function EnterDestinationPage() {
               Travel dates
             </Typography>
             <Typography
-              variant="body"
+              variant="body1"
               component="p"
               color="textPrimary"
               gutterBottom
@@ -155,7 +155,7 @@ export default function EnterDestinationPage() {
 
           <Grid item align="left">
             <Typography
-              variant="body"
+              variant="body1"
               component="p"
               color="textPrimary"
               gutterBottom
@@ -191,7 +191,7 @@ export default function EnterDestinationPage() {
               Accommodation
             </Typography>
             <Typography
-              variant="body"
+              variant="body1"
               component="p"
               color="textPrimary"
               gutterBottom
@@ -236,7 +236,7 @@ export default function EnterDestinationPage() {
                 }
                 label={
                   <Box display="flex" direction="row">
-                    <Typography align="bottom">Walking</Typography>
+                    <Typography>Walking</Typography>
                     <DirectionsWalkIcon />
                   </Box>
                 }
@@ -252,7 +252,7 @@ export default function EnterDestinationPage() {
                 }
                 label={
                   <Box display="flex" direction="row">
-                    <Typography align="bottom">Public transport</Typography>
+                    <Typography>Public transport</Typography>
                     <DriveEtaIcon />
                   </Box>
                 }
@@ -262,7 +262,7 @@ export default function EnterDestinationPage() {
 
           <Grid
             item
-            alignItems="center"
+            // alignItems="center"
             className={classes.chipAlignSelf}
           ></Grid>
 

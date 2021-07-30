@@ -8,11 +8,12 @@ import Grid from "@material-ui/core/Grid";
 import Card from "../components/Card";
 import { useHistory } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { sizing } from "@material-ui/system";
+//import Box from "@material-ui/core/Box";
+//import { sizing } from "@material-ui/system";
 
 export default function LandingPage() {
   const theme = useTheme();
+  console.log(theme);
   const classes = { useLandingPageButtonStyle };
 
   const history = useHistory();

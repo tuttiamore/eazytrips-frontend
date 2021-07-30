@@ -29,12 +29,17 @@ export default function Map({ trip, type }) {
     const accommodationLng = tripData.accommodationCoords.lng;
     const accommodationLat = tripData.accommodationCoords.lat;
     const accommodationLngLat = [accommodationLng, accommodationLat];
+
+    const mapCenter = [
+      (tripData.rawDataPlaces[0].geometry.location.lng + accommodationLng) / 2,
+      (tripData.rawDataPlaces[0].geometry.location.lat + accommodationLat) / 2,
+    ];
     // Create array containing all the coordinates of the waypoint
     let waypointCoordinates = [[accommodationLng, accommodationLat]];
 
     let markerCoordinates = [];
     let markerTitles = [];
-
+    let popUpInfo = [];
     if (type === "SingleDay") {
       paramSpecificData = tripData.trip[day - 1];
       for (let location of paramSpecificData.locations) {
@@ -51,6 +56,7 @@ export default function Map({ trip, type }) {
           lat: rawDataEquivalent.geometry.location.lat,
         });
         markerTitles.push(rawDataEquivalent.name);
+        popUpInfo.push(rawDataEquivalent.vicinity);
       }
     }
     if (type === "TripSummary") {
@@ -67,6 +73,7 @@ export default function Map({ trip, type }) {
           lat: rawDataEquivalent.geometry.location.lat,
         });
         markerTitles.push(rawDataEquivalent.name);
+        popUpInfo.push(rawDataEquivalent.vicinity);
       }
     }
     //put all the coordinates of all locations in the day into the waypointCoordinates
@@ -134,17 +141,30 @@ export default function Map({ trip, type }) {
     };
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [accommodationLng, accommodationLat],
+      style: "mapbox://styles/thomasbeckdresden/ckrq6qk0n5t3j17pd92mwb3eo",
+      center: mapCenter,
       zoom: zoom,
       scrollZoom: false,
     });
-
+    map.current.addControl(new mapboxgl.FullscreenControl());
+    map.current.addControl(new mapboxgl.NavigationControl());
     map.current.on("load", () => {
       if (waypointCoordinates) fetchRoute("walking");
 
       // function that gets a place_id as a parameter and returns a marker on the map by getting the coordinates from the initial rawData
-
+      let markerFeatures = [
+        {
+          // feature for Mapbox DC
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: accommodationLngLat,
+          },
+          properties: {
+            title: "Accomodation",
+          },
+        },
+      ];
       const addAndSetMarkers = () => {
         const marker = new mapboxgl.Marker({
           color: theme.palette.secondary.dark,
@@ -155,6 +175,7 @@ export default function Map({ trip, type }) {
           .setLngLat(accommodationLngLat)
           .setPopup(new mapboxgl.Popup().setHTML("Accommodation"))
           .addTo(map.current);
+
         for (let item in markerCoordinates) {
           const marker = new mapboxgl.Marker({
             color: theme.palette.primary.light,
@@ -163,12 +184,47 @@ export default function Map({ trip, type }) {
             markerSymbol: 1,
           })
             .setLngLat(markerCoordinates[item])
-            .setPopup(new mapboxgl.Popup().setHTML(markerTitles[item]))
+            .setPopup(new mapboxgl.Popup().setHTML(popUpInfo[item]))
             .addTo(map.current);
+          markerFeatures.push({
+            // feature for Mapbox DC
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [
+                markerCoordinates[item].lng,
+                markerCoordinates[item].lat,
+              ],
+            },
+            properties: {
+              title: markerTitles[item],
+            },
+          });
         }
       };
 
       addAndSetMarkers();
+
+      map.current.addSource("points", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: markerFeatures,
+        },
+      });
+      map.current.addLayer({
+        id: "points",
+        type: "symbol",
+        source: "points",
+        layout: {
+          "icon-image": "custom-marker",
+          // get the title name from the source's "title" property
+          "text-field": ["get", "title"],
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.75],
+          "text-anchor": "top",
+        },
+      });
     });
   });
 

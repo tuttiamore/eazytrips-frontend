@@ -50,7 +50,8 @@ export default function TripCard({ type, data }) {
   const handleUpcomingTripSelectClick = () => {
     history.push(`/tripSummary`);
   };
-  const convertTime = (time) => {
+  const convertTime = (Ztime) => {
+    const time = Ztime.substring(0, Ztime.length);
     return DateTime.fromISO(time).toLocaleString(DateTime.TIME_SIMPLE);
   };
   const convertDate = (date) => {

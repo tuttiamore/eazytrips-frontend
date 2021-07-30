@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 //import { animateScroll as scroll } from "react-scroll";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -19,16 +19,16 @@ import useCardStyle from "../styles/useCardStyle";
 import mockData from "../dataFranz/mockBerlin.json";
 import { useTripContext } from "../context/TripContext";
 import MuseumIcon from "@material-ui/icons/Museum";
-import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
-import BeachAccessIcon from "@material-ui/icons/BeachAccess";
-import DirectionsIcon from "@material-ui/icons/Directions";
+//import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
+//import BeachAccessIcon from "@material-ui/icons/BeachAccess";
+//import DirectionsIcon from "@material-ui/icons/Directions";
 import LandscapeIcon from "@material-ui/icons/Landscape";
 import HotelIcon from "@material-ui/icons/Hotel";
-import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
+//import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
 import NaturePeopleIcon from "@material-ui/icons/NaturePeople";
 import WavesIcon from "@material-ui/icons/Waves";
 
-import LocationCityIcon from "@material-ui/icons/LocationCity";
+//import LocationCityIcon from "@material-ui/icons/LocationCity";
 
 export default function TripCard({ type, data }) {
   //console.log(mockData);

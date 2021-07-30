@@ -4,8 +4,11 @@ import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
+
+
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+
 export default function LandingPage() {
 
   let history = useHistory();

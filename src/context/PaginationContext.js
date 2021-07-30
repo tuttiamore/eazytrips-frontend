@@ -1,5 +1,5 @@
-import { useContext, createContext, useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useContext, createContext, useState } from "react";
+//import { useParams } from "react-router";
 
 const PaginationContext = createContext();
 const usePaginationContext = () => useContext(PaginationContext);

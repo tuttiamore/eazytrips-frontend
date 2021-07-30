@@ -6,7 +6,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import { Button } from "@material-ui/core";
+//import { Button } from "@material-ui/core";
 export default function LandingPage() {
   let history = useHistory();
   // console.log(history);

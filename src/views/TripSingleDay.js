@@ -20,6 +20,7 @@ export default function TripSingleDay() {
   return (
     <>
       <NavStepper></NavStepper>
+      <Map key="1" type="SingleDay" />
       <List
         style={{
           height: "100%",
@@ -50,7 +51,6 @@ export default function TripSingleDay() {
           </Fragment>
         ))}
       </List>
-      <Map key="1" type="SingleDay" />
     </>
   );
 }

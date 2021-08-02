@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { List } from "@material-ui/core/";
 import Card from "../components/Card";
-import mockData from "../dataFranz/mockBackend.json";
+//import mockData from "../dataFranz/mockBackend.json";
 import NavStepper from "../components/Stepper";
 import useCardStyle from "../styles/useCardStyle";
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
@@ -20,6 +20,7 @@ export default function TripSingleDay() {
   return (
     <>
       <NavStepper></NavStepper>
+      <Map key="1" type="SingleDay" />
       <List
         style={{
           height: "100%",
@@ -50,7 +51,6 @@ export default function TripSingleDay() {
           </Fragment>
         ))}
       </List>
-      <Map key="1" type="SingleDay" />
     </>
   );
 }

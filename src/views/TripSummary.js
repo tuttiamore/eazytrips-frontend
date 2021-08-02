@@ -104,7 +104,7 @@ export default function TripSummary() {
           Berlin
         </Typography>
       </Box>
-
+      <Map type="TripSummary" />
       <Box width="100%" boxSizing="border-box" padding={2} component="section">
         <Typography variant="h5" component="p" align="center">
           Trip summary
@@ -160,7 +160,6 @@ export default function TripSummary() {
           );
         })}
       </Box>
-      <Map type="TripSummary" />
     </>
   );
 }

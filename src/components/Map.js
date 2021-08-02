@@ -1,19 +1,20 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect } from "react";
 import { useParams } from "react-router";
 import Box from "@material-ui/core/Box";
 import { useTripContext } from "../context/TripContext";
 import { useTheme } from "@material-ui/styles";
 import axios from "axios";
-import geojsonMock from "../mockRoute.json";
-const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+//import geojsonMock from "../mockRoute.json";
+//const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-export default function Map({ trip, type }) {
+export default function Map({ trip, type, isSelected }) {
   //import theme
   const theme = useTheme();
 
   // get access to backend data
-  const { tripData } = useTripContext();
+  const { tripData, tripDataRaw } = useTripContext();
 
   // select day from params
   const { day } = useParams();
@@ -30,7 +31,7 @@ export default function Map({ trip, type }) {
     const accommodationLat = tripData.accommodationCoords.lat;
     const accommodationLngLat = [accommodationLng, accommodationLat];
 
-    const mapCenter = [
+    let mapCenter = [
       (tripData.rawDataPlaces[0].geometry.location.lng + accommodationLng) / 2,
       (tripData.rawDataPlaces[0].geometry.location.lat + accommodationLat) / 2,
     ];
@@ -40,6 +41,24 @@ export default function Map({ trip, type }) {
     let markerCoordinates = [];
     let markerTitles = [];
     let popUpInfo = [];
+    let zoom = 11;
+    if (type === "SuggestedPlaces") {
+      waypointCoordinates = null;
+      paramSpecificData = tripDataRaw.rawDataPlaces;
+      for (let place of paramSpecificData) {
+        markerCoordinates.push({
+          lng: place.geometry.location.lng,
+          lat: place.geometry.location.lat,
+        });
+        markerTitles.push(place.name);
+        popUpInfo.push(place.vicinity);
+      }
+      mapCenter = [
+        paramSpecificData[0].geometry.location.lng,
+        paramSpecificData[0].geometry.location.lat,
+      ];
+      zoom = 12.5;
+    }
     if (type === "SingleDay") {
       paramSpecificData = tripData.trip[day - 1];
       for (let location of paramSpecificData.locations) {
@@ -77,8 +96,6 @@ export default function Map({ trip, type }) {
       }
     }
     //put all the coordinates of all locations in the day into the waypointCoordinates
-
-    const zoom = 12;
 
     const fetchRoute = async (meansOfTransport) => {
       const url = `https://api.mapbox.com/directions/v5/mapbox/${meansOfTransport}/`;
@@ -141,7 +158,7 @@ export default function Map({ trip, type }) {
     };
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/thomasbeckdresden/ckrq6qk0n5t3j17pd92mwb3eo",
+      style: "mapbox://styles/mapbox/streets-v11",
       center: mapCenter,
       zoom: zoom,
       scrollZoom: false,
@@ -175,10 +192,18 @@ export default function Map({ trip, type }) {
           .setLngLat(accommodationLngLat)
           .setPopup(new mapboxgl.Popup().setHTML("Accommodation"))
           .addTo(map.current);
-
+        console.log(marker);
         for (let item in markerCoordinates) {
+          let markerColor = theme.palette.primary.light;
+          if (type === "SuggestedPlaces") {
+            let markerPlaceId = tripDataRaw.rawDataPlaces[item].place_id;
+
+            isSelected[markerPlaceId]
+              ? (markerColor = theme.palette.primary.light)
+              : (markerColor = theme.palette.secondary.light);
+          }
           const marker = new mapboxgl.Marker({
-            color: theme.palette.primary.light,
+            color: markerColor,
             draggable: false,
             scale: 0.9,
             markerSymbol: 1,
@@ -200,7 +225,9 @@ export default function Map({ trip, type }) {
               title: markerTitles[item],
             },
           });
+          console.log(marker);
         }
+        console.log(marker);
       };
 
       addAndSetMarkers();
@@ -217,7 +244,6 @@ export default function Map({ trip, type }) {
         type: "symbol",
         source: "points",
         layout: {
-          "icon-image": "custom-marker",
           // get the title name from the source's "title" property
           "text-field": ["get", "title"],
           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
@@ -226,7 +252,7 @@ export default function Map({ trip, type }) {
         },
       });
     });
-  });
+  }, [isSelected]);
 
   return (
     <Box p={3}>

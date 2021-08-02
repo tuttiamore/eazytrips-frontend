@@ -4,7 +4,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Grid from "@material-ui/core/Grid";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { useHistory } from "react-router-dom";
 
 const options = ["Home", "TripSummary", "tripsingleday"];
@@ -19,7 +18,6 @@ export default function Header() {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    history.push("/signUpPage");
     // console.log(event);
   };
 
@@ -48,7 +46,6 @@ export default function Header() {
       justifyContent="flex-end"
       alignItems="center"
     >
-      <AccountCircleIcon onClick={() => handleClick("/userAccount")} />
       <div>
         <IconButton
           aria-label="more"

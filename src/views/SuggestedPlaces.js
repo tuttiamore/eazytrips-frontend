@@ -3,7 +3,7 @@ import useSuggestedPlacesStyle from "../styles/useSuggestedPlacesStyle";
 import Suggested from "../components/Card";
 import { useTripContext } from "../context/TripContext";
 import { useHistory } from "react-router";
-
+import Map from "../components/Map";
 import {
   Box,
   Typography,
@@ -54,7 +54,7 @@ export default function SuggestedPlaces() {
   };
 
   const classes = useSuggestedPlacesStyle();
-  const { tripData } = useTripContext();
+  // const { tripData } = useTripContext();
 
   return (
     <>
@@ -62,6 +62,7 @@ export default function SuggestedPlaces() {
         <Typography variant="h5" component="p" gutterBottom>
           Suggested Places
         </Typography>
+        <Map key="1" type="SuggestedPlaces" isSelected={isSelected} />
         <List
           className={classes.listMarginBottom}
           // style={{
@@ -73,10 +74,9 @@ export default function SuggestedPlaces() {
           // }}
         >
           {tripDataRaw.rawDataPlaces.map((item, index) => (
-            <ListItem>
+            <ListItem key={index}>
               <Checkbox
                 color="primary"
-                key={index}
                 name={item.place_id}
                 inputProps={{ "aria-label": "secondary checkbox" }}
                 onChange={handleChange}

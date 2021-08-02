@@ -2,8 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useLandingPageStyle = makeStyles((theme) => ({
   searchBarContainer: {
-    backgroundImage: `url("florian-wehde-WBGjg0DsO_g-unsplash.jpg")`,
+    backgroundImage: `url("malte-schmidt-enGr5YbjQKQ-unsplash.jpg")`,
     backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "100%",
   },
   searchBar: {
     backgroundColor: "white",

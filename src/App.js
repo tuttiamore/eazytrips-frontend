@@ -8,7 +8,7 @@ import SuggestedPlaces from "../src/views/SuggestedPlaces";
 import TripSummary from "../src/views/TripSummary";
 import TripSingleDay from "../src/views/TripSingleDay";
 import useAppGridStyle from "../src/styles/useAppGridStyle";
-import EnterDestinationPage from "../src/views/EnterDestinationPage";
+import TripPlanerWrapper from "./views/TripPlanerWrapper";
 import SignUpPage from "../src/views/SignUpPage";
 import SignInPage from "../src/views/SignInPage";
 import WelcomePage from "../src/views/WelcomePage";
@@ -18,12 +18,11 @@ function App({ location }) {
   const classes = useAppGridStyle();
   return (
     <TripProvider>
-      {/* <Grid item xs={12} className={classes.header}>
-          {location.pathname !== "/" && <Header></Header>}
-        </Grid> */}
-
       <Main>
         <Switch>
+          <Route path="/plantrip/:stage">
+            <TripPlanerWrapper />
+          </Route>
           <Route path="/tripsingleday/:day">
             <TripSingleDay />
           </Route>
@@ -33,26 +32,21 @@ function App({ location }) {
           <Route path="/suggestedplaces">
             <SuggestedPlaces />
           </Route>
-          <Route path="/plantrip">
-            <EnterDestinationPage />
-          </Route>
+
           <Route path="/signUpPage">
             <SignUpPage />
           </Route>
           <Route path="/signInPage">
             <SignInPage />
           </Route>
-          <Route path="/landingpage" >
-            <LandingPage />
-          </Route>
           <Route path="/" exact>
-            <WelcomePage />
+            <LandingPage />
           </Route>
         </Switch>
       </Main>
 
       <Box className={classes.footer}>
-        {location.pathname !== "/" && <Footer location={location} ></Footer>}
+        {location.pathname !== "/" && <Footer location={location}></Footer>}
       </Box>
     </TripProvider>
   );

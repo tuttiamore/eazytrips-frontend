@@ -1,77 +1,49 @@
-import React from "react";
-import Fab from "@material-ui/core/Fab";
-import useLandingPageButtonStyle from "../styles/useLandingPageButtonStyle";
-import { useTheme } from "@material-ui/core/styles";
-import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
-import CardTravelIcon from "@material-ui/icons/CardTravel";
-import Grid from "@material-ui/core/Grid";
-import Card from "../components/Card";
-import { useHistory } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
-//import Box from "@material-ui/core/Box";
-//import { sizing } from "@material-ui/system";
+import { Box, Typography } from "@material-ui/core";
+
+import AutocompletePlaces from "../components/AutocompletePlaces";
+import useLandingPageStyle from "../styles/useLandingPageStyle";
+import CardCustom from "../components/Card";
 
 export default function LandingPage() {
-  const theme = useTheme();
-  console.log(theme);
-  const classes = { useLandingPageButtonStyle };
-
-  const history = useHistory();
-
-  const handleClick = (path) => {
-    console.log(path);
-    history.push(path);
-  };
+  const classes = useLandingPageStyle();
 
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      spacing={3}
-      className={classes.container}
-    >
-      <Grid item align="left">
-        <Typography variant="h5" component="p" color="textSecondary">
-          Getting Started
-        </Typography>
-      </Grid>
-
-      <Grid item align="center">
-        <Fab
-          variant="extended"
-          size="large"
-          color="primary"
-          aria-label="add"
-          className={classes.margin}
-          onClick={() => handleClick("/plantrip")}
+    <Box>
+      <Box component="section" className={classes.searchBarContainer}>
+        <Box
+          component="article"
+          p={2}
+          display="flex"
+          alignItems="center"
+          flexDirection="column"
         >
-          <CardTravelIcon className={classes.extendedIcon} />
-          Plan a trip
-        </Fab>
-      </Grid>
+          <Box my={8} width="70%">
+            <Typography
+              variant="h3"
+              component="p"
+              className={classes.headingDiscover}
+              gutterBottom
+              align="center"
+            >
+              Discover
+            </Typography>
+            <AutocompletePlaces
+              nextPath={"/plantrip/tripdates"}
+              isSearchIcon={true}
+              variant="standard"
+            ></AutocompletePlaces>
+          </Box>
+        </Box>
+      </Box>
 
-      <Grid item align="center">
-        <Fab
-          variant="extended"
-          size="large"
-          color="primary"
-          aria-label="add"
-          className={classes.margin}
-          onClick={() => handleClick("/tripsummary")}
-        >
-          <BookmarkBorderIcon />
-          Saved trips
-        </Fab>
-      </Grid>
-
-      <Grid item align="left">
-        <Typography variant="h5" component="p" color="textSecondary">
+      <Box p={2}>
+        <Typography variant="h5" component="p" color="primary">
           Upcoming trips
         </Typography>
-      </Grid>
-
-      <Card type="UpcomingTrip" data={"Berlin"} />
-    </Grid>
+      </Box>
+      <Box p={2}>
+        <CardCustom type="UpcomingTrip" data={"Berlin"} />
+      </Box>
+    </Box>
   );
 }

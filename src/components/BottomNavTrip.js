@@ -12,36 +12,36 @@ import useBottomNavTripStyle from "../styles/useBottomNavTripStyle";
 export default function BottomNavTrip() {
   const classes = useBottomNavTripStyle();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
 
-    // build the request object
-    const req = {
-      destination: tripUserInput.destination,
-      tripName: `Trip to ${tripUserInput.destination}`,
-      tripStarts: tripUserInput.tripStarts,
-      tripEnds: tripUserInput.tripEnds,
-      accommodation: tripUserInput.accommodation,
-      transportation: {
-        walking: tripUserInput.walking,
-        public: tripUserInput.public,
-      },
-    };
+  //   // build the request object
+  //   const req = {
+  //     destination: tripUserInput.destination,
+  //     tripName: `Trip to ${tripUserInput.destination}`,
+  //     tripStarts: tripUserInput.tripStarts,
+  //     tripEnds: tripUserInput.tripEnds,
+  //     accommodation: tripUserInput.accommodation,
+  //     transportation: {
+  //       walking: tripUserInput.walking,
+  //       public: tripUserInput.public,
+  //     },
+  //   };
 
-    //fetch sight suggestions for destination and store them in context
+  //   //fetch sight suggestions for destination and store them in context
 
-    try {
-      const { data } = await axios.post(
-        "https://eazytrips-backend.herokuapp.com/gettrip",
-        req
-      );
-      console.log(data);
-      setTripDataRaw(data);
-      history.push("/suggestedplaces");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://eazytrips-backend.herokuapp.com/gettrip",
+  //       req
+  //     );
+  //     console.log(data);
+  //     setTripDataRaw(data);
+  //     history.push("/suggestedplaces");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <Box p={3}>

@@ -9,10 +9,9 @@ import SuggestedPlaces from "../src/views/SuggestedPlaces";
 import TripSummary from "../src/views/TripSummary";
 import TripSingleDay from "../src/views/TripSingleDay";
 import useAppGridStyle from "../src/styles/useAppGridStyle";
-import EnterDestinationPage from "../src/views/EnterDestinationPage";
+import TripPlanerWrapper from "./views/TripPlanerWrapper";
 import SignUpPage from "../src/views/SignUpPage";
 import SignInPage from "../src/views/SignInPage";
-import { PaginationProvider } from "./context/PaginationContext";
 import "./App.css";
 
 function App() {
@@ -20,13 +19,16 @@ function App() {
   return (
     <TripProvider>
       <Grid container style={{ height: "100%" }}>
-        <Grid item xs={12} className={classes.header}>
+        {/* <Grid item xs={12} className={classes.header}>
           <Header></Header>
-        </Grid>
+        </Grid> */}
 
         <Grid item xs={12} className={classes.main}>
           <Main>
             <Switch>
+              <Route path="/plantrip/:stage">
+                <TripPlanerWrapper />
+              </Route>
               <Route path="/tripsingleday/:day">
                 <TripSingleDay />
               </Route>
@@ -36,9 +38,7 @@ function App() {
               <Route path="/suggestedplaces">
                 <SuggestedPlaces />
               </Route>
-              <Route path="/plantrip">
-                <EnterDestinationPage />
-              </Route>
+
               <Route path="/signUpPage">
                 <SignUpPage />
               </Route>

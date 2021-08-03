@@ -44,7 +44,7 @@ export default function AutocompletePlaces({
           sessionToken,
         };
         const { data } = await axios.post(
-          "http://localhost:3000/autocomplete",
+          "https://eazytrips-backend.herokuapp.com/autocomplete",
           body
         );
         console.log(data);
@@ -70,7 +70,7 @@ export default function AutocompletePlaces({
         console.log("place_id is", place_id);
 
         const { data } = await axios.get(
-          `http://localhost:3000/autocomplete/${place_id}`
+          `https://eazytrips-backend.herokuapp.com/autocomplete/${place_id}`
         );
 
         // either set accommodation or destination dependent on route

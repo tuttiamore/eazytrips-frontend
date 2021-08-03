@@ -44,7 +44,10 @@ export default function BottomNavTrip() {
       // //fetch sight suggestions for destination and store them in context
 
       try {
-        const { data } = await axios.post("http://localhost:3000/gettrip", req);
+        const { data } = await axios.post(
+          "https://eazytrips-backend.herokuapp.com/gettrip",
+          req
+        );
         console.log(data);
         setTripDataRaw(data);
         history.push("/plantrip/suggestions");
@@ -56,7 +59,7 @@ export default function BottomNavTrip() {
 
       try {
         const { data } = await axios.put(
-          "http://localhost:3000/gettrip",
+          "https://eazytrips-backend.herokuapp.com/gettrip",
           tripDataRaw
         );
         console.log("received trip:", data);

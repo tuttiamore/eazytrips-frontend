@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { DateTime } from "luxon";
 import Map from "../components/Map";
-
+import Button from "@material-ui/core/Button";
 // Material UI helper functions
 // import { sizing, palette, spacing } from "@material-ui/system";
 
@@ -18,13 +18,15 @@ import {
   ListItemText,
   Divider,
 } from "@material-ui/core";
+import { useTheme } from "@material-ui/styles";
 
 // Customn components and helper functions
 import HighlightCard from "../components/Card";
 import "../styles/tripSummary.css";
 
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
-import { useTripContext } from "../context/TripContext";
+import { useTripContext, setTripData } from "../context/TripContext";
+import { save_trip, getToken } from "../auth/auth";
 
 //////////////////////
 // Define TripSummary
@@ -32,7 +34,8 @@ import { useTripContext } from "../context/TripContext";
 
 export default function TripSummary() {
   const classes = useTripSummaryStyle();
-  const { tripData } = useTripContext();
+  const { tripData, setTripData } = useTripContext();
+
   console.log(tripData);
   const handleDelete = () => {
     console.info("You clicked the delete icon.");
@@ -78,7 +81,19 @@ export default function TripSummary() {
       </>
     );
   };
-
+  const [stored, setStored] = useState();
+  const handleSaveTrip = async () => {
+    let tripToSave = tripData;
+    tripToSave.email = getToken();
+    tripToSave.isStored = true;
+    setTripData(tripToSave);
+    setStored(true);
+    if (tripData.email && !stored) {
+      tripToSave = tripData;
+      await save_trip(tripToSave);
+    }
+    setStored(true);
+  };
   return (
     <Box
       width="100%"
@@ -87,6 +102,15 @@ export default function TripSummary() {
       component="section"
       className={classes.summaryWrapper}
     >
+      {getToken() && (
+        <Button
+          color="primary"
+          variant={stored ? "outlined" : "contained"}
+          onClick={handleSaveTrip}
+        >
+          {stored ? "Saved" : "Save"}
+        </Button>
+      )}
       <Box>
         <List component="ul">
           <ListItem>
@@ -123,7 +147,6 @@ export default function TripSummary() {
           </ListItem>
         </List>
       </Box>
-
       <Box id="highlights-container">
         <Typography variant="h5" component="p" align="center" gutterBottom>
           Highlights

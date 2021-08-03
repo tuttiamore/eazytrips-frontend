@@ -22,8 +22,19 @@ const login = async (credentials) => {
   }
 };
 
+const save_trip = async (tripData) => {
+  try {
+    console.log(tripData);
+    const data = await client.post("/save_trip", tripData);
+
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 const logout = (history) => {
   Cookies.remove(`${REACT_APP_APP_NAME}-auth-token`);
   history.push("/");
 };
-export { login, logout, getToken, setToken };
+export { login, logout, getToken, setToken, save_trip };

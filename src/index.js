@@ -29,13 +29,13 @@ ReactDOM.render(
   <Router>
     <ThemeProvider theme={theme}>
       <Div100vh>
-        <Box
+        {/* <Box
           style={{
             height: "100vh",
           }}
-        >
-          <App />
-        </Box>
+        > */}
+        <App />
+        {/* </Box> */}
       </Div100vh>
     </ThemeProvider>
   </Router>,

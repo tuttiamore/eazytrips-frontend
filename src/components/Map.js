@@ -172,7 +172,12 @@ export default function Map({ trip, type, isSelected }) {
     map.current.addControl(new mapboxgl.FullscreenControl());
     map.current.addControl(new mapboxgl.NavigationControl());
     map.current.on("load", () => {
-      if (waypointCoordinates) fetchRoute("walking");
+      if (waypointCoordinates && tripData.transportation.walking)
+        fetchRoute("walking");
+      if (waypointCoordinates && tripData.transportation.public)
+        fetchRoute("driving");
+      if (waypointCoordinates && tripData.transportation.cycling)
+        fetchRoute("cycling");
 
       // function that gets a place_id as a parameter and returns a marker on the map by getting the coordinates from the initial rawData
       let markerFeatures = [

@@ -171,6 +171,7 @@ export default function TripCard({ type, data }) {
             </Avatar>
           }
           title={tripName}
+          subheader={"date when loading is implemented"}
         />
       </Card>
     );

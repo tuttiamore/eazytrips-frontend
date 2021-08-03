@@ -3,13 +3,12 @@ import { useParams } from "react-router";
 
 import { Box, Typography } from "@material-ui/core";
 
-import BottomNavTrip from "../components/BottomNavTrip";
-
 import { useTripContext } from "../context/TripContext";
 import TripDates from "../components/TripDates";
 import TripAccomodation from "../components/TripAccomodation";
 import TripTransportation from "../components/TripTransportation";
 import TripSuggestions from "../components/TripSuggestions";
+import Map from "../components/Map";
 
 import useTripPlanerWrapperStyle from "../styles/useTripPlanerWrapperStyle";
 
@@ -27,6 +26,7 @@ export default function TripPlanerWrapper() {
         bgcolor="primary.main"
         className={classes.headerWrapper}
       >
+        {stage === "suggestions" && <Map type="SuggestedPlaces" />}
         <Box
           className={classes.headingContainer}
           id="heading-container"
@@ -36,24 +36,28 @@ export default function TripPlanerWrapper() {
           padding={3}
           boxSizing="border-box"
         >
-          <Typography
-            variant="h5"
-            component="p"
-            color="textSecondary"
-            className={classes.cityHeading}
-          >
-            Your trip to
-          </Typography>
-          <Typography
-            variant="h3"
-            component="p"
-            className={classes.cityHeading}
-          >
-            {tripDataRaw.destination}
-          </Typography>
+          {stage !== "suggestions" && (
+            <>
+              <Typography
+                variant="h5"
+                component="p"
+                color="textSecondary"
+                className={classes.cityHeading}
+              >
+                Your trip to
+              </Typography>
+              <Typography
+                variant="h3"
+                component="p"
+                className={classes.cityHeading}
+              >
+                {tripDataRaw.destination}
+              </Typography>
+            </>
+          )}
         </Box>
 
-        <Box p={3} mt={5} bgcolor="white" className={classes.contentWrapper}>
+        <Box p={2} mt={5} bgcolor="white" className={classes.contentWrapper}>
           {stage === "tripdates" && <TripDates></TripDates>}
           {stage === "accommodation" && <TripAccomodation></TripAccomodation>}
           {stage === "transportation" && (

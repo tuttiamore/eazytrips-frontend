@@ -20,7 +20,6 @@ import {
 } from "@material-ui/core";
 
 // Customn components and helper functions
-import NavStepper from "../components/Stepper";
 import HighlightCard from "../components/Card";
 import "../styles/tripSummary.css";
 
@@ -81,34 +80,14 @@ export default function TripSummary() {
   };
 
   return (
-    <>
-      <Box id="stepper-nav" component="section">
-        <NavStepper></NavStepper>
-      </Box>
-
-      <Box
-        className={classes.headingContainer}
-        id="heading-container"
-        component="section"
-        bgcolor="primary.main"
-        width="100%"
-        px={2}
-        py={0}
-        boxSizing="border-box"
-        mb={3}
-      >
-        <Typography variant="h5" component="p" color="textSecondary">
-          Welcome to
-        </Typography>
-        <Typography variant="h2" component="p" className={classes.cityHeading}>
-          Berlin
-        </Typography>
-      </Box>
-      <Map type="TripSummary" />
-      <Box width="100%" boxSizing="border-box" padding={2} component="section">
-        <Typography variant="h5" component="p" align="center">
-          Trip summary
-        </Typography>
+    <Box
+      width="100%"
+      boxSizing="border-box"
+      padding={2}
+      component="section"
+      className={classes.summaryWrapper}
+    >
+      <Box>
         <List component="ul">
           <ListItem>
             <ListItemText
@@ -145,23 +124,27 @@ export default function TripSummary() {
         </List>
       </Box>
 
-      <Box padding={2} id="highlights-container">
+      <Box id="highlights-container">
         <Typography variant="h5" component="p" align="center" gutterBottom>
           Highlights
         </Typography>
-        {tripData.trip.map((day) => {
-          if (day.highlight.place_id) {
-            return (
-              <HighlightCard
-                type="TripSummary"
-                data={day}
-                key={day.dayIndex}
-              ></HighlightCard>
-            );
-          }
-          return null;
-        })}
+        <List>
+          {tripData.trip.map((day) => {
+            if (day.highlight.place_id) {
+              return (
+                <ListItem>
+                  <HighlightCard
+                    type="TripSummary"
+                    data={day}
+                    key={day.dayIndex}
+                  ></HighlightCard>
+                </ListItem>
+              );
+            }
+            return null;
+          })}
+        </List>
       </Box>
-    </>
+    </Box>
   );
 }

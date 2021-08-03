@@ -68,43 +68,10 @@ export default function BottomNavTrip() {
     }
   };
 
-  //   MOVE THIS TO BOTTOM TRIP NAV
-  // const handleSubmit = async () => {
-  //   // grab the raw data object: use trip context
-  //   // add locations selected by user to the raw trip data object
-  //   const tripDataRawUpdated = {
-  //     ...tripDataRaw,
-  //     userLocations: Object.keys(isSelected),
-  //   };
-  //   console.log(tripDataRawUpdated);
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       "https://eazytrips-backend.herokuapp.com/gettrip",
-  //       tripDataRawUpdated
-  //     );
-  //     console.log("received trip:", data);
-  //     setTripData(data);
-  //     history.push("/tripsummary");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   return (
     <Box p={3}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box>
-          {/* <Typography
-            className={clsx(classes.skip, {
-              [classes.skipDeactivated]: skipDeactivated,
-            })}
-            onClick={(e) => {
-              handleClickSkip(skipDeactivated, nextPath, stage);
-            }}
-          >
-            Skip
-          </Typography> */}
           <Button
             color="primary"
             onClick={(e) => {
@@ -112,7 +79,7 @@ export default function BottomNavTrip() {
             }}
             disabled={nextDeactivated}
           >
-            Next
+            Skip
           </Button>
         </Box>
 

@@ -29,7 +29,10 @@ export default function LandingPage() {
             Discover
           </Typography> */}
           <Box component="article" p={2}>
-            <img src="./easzytrips-2.png" style={{ maxWidth: "100%" }}></img>
+            <img
+              src="./easzytrips-2-white.png"
+              style={{ maxWidth: "100%" }}
+            ></img>
           </Box>
 
           <AutocompletePlaces
@@ -44,10 +47,10 @@ export default function LandingPage() {
       <Box p={3} component="section">
         {/* Conditional render based on logged in state */}
         <Box component="article">
-          <DrawerCustom>
-            <Typography variant="h5" component="p" color="primary">
+          <DrawerCustom heading="Upcoming trips">
+            {/* <Typography variant="h5" component="p" color="primary">
               Upcoming trips
-            </Typography>
+            </Typography> */}
             <Box component="article" py={2}>
               <CardCustom type="UpcomingTrip" data={"Berlin"} />
             </Box>

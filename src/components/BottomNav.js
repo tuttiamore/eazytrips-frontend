@@ -13,10 +13,15 @@ export default function BottomNav() {
   };
   return (
     <BottomNavigation showLabels>
-      <BottomNavigationAction label="Discover" icon={<SearchIcon />} />
+      <BottomNavigationAction
+        label="Discover"
+        icon={<SearchIcon></SearchIcon>}
+        onClick={() => history.push("/")}
+      />
       <BottomNavigationAction
         label="Saved Trips"
         icon={<BookmarkBorderIcon />}
+        onClick={() => history.push("/savedtrips")}
       />
       <BottomNavigationAction
         label="Profile"

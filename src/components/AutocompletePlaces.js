@@ -141,6 +141,7 @@ export default function AutocompletePlaces({
                   </Button>
                 </InputAdornment>
               ),
+              className: classes.input,
               disableUnderline: true,
             }}
             // onChange={handleSearchChange}

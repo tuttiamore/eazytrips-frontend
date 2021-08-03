@@ -5,9 +5,11 @@ import { TripProvider } from "./context/TripContext";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import LandingPage from "../src/views/LandingPage";
-import SuggestedPlaces from "../src/views/SuggestedPlaces";
-import TripSummary from "../src/views/TripSummary";
-import TripSingleDay from "../src/views/TripSingleDay";
+import SuggestedPlaces from "./archiv/SuggestedPlaces";
+import TripSummary from "./components/TripSummary";
+import TripSingleDay from "./components/TripSingleDay";
+import TripResultsWrapper from "./views/TripResultsWrapper";
+
 import useAppGridStyle from "../src/styles/useAppGridStyle";
 import TripPlanerWrapper from "./views/TripPlanerWrapper";
 import SignUpPage from "../src/views/SignUpPage";
@@ -69,10 +71,14 @@ function App({ location }) {
             <TripPlanerWrapper />
           </Route>
           <Route path="/tripsingleday/:day">
-            <TripSingleDay />
+            <TripResultsWrapper>
+              <TripSingleDay></TripSingleDay>
+            </TripResultsWrapper>
           </Route>
           <Route path="/tripsummary">
-            <TripSummary />
+            <TripResultsWrapper>
+              <TripSummary></TripSummary>
+            </TripResultsWrapper>
           </Route>
           <Route path="/suggestedplaces">
             <SuggestedPlaces />

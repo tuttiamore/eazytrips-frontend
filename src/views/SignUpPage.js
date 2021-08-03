@@ -107,10 +107,7 @@ export default function SignUp() {
 
   const createUser = async (formData) => {
     try {
-      const data = await axios.post(
-        "https://eazytrips-backend.herokuapp.com/user",
-        formData
-      );
+      const data = await axios.post("http://localhost:3000/user", formData);
       const token = data.headers["x-authorization-token"];
       console.log(token);
       toast.success("User account was successfully created!");

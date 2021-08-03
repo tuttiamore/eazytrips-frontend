@@ -9,6 +9,7 @@ const useTripContext = () => useContext(TripContext);
 const TripProvider = ({ children }) => {
   const [tripData, setTripData] = useState();
   const [tripDataRaw, setTripDataRaw] = useState();
+  // new state for saved trips
 
   return (
     <TripContext.Provider

@@ -72,6 +72,8 @@ export default function SignIn({ me, setMe }) {
     if (isAuthenticated) {
       toast.success("Successfully logged in!");
       setMe("bla");
+      // fetch saved trips, put into TripContext
+
       history.push("/savedtrips");
     } else {
       toast.error("Invalid username or password!");

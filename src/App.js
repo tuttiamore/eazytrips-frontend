@@ -1,4 +1,4 @@
-import { Switch, Route,useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import pathToRegex from "path-to-regexp";
 import React, { useState, useCallback } from "react";
 import { TripProvider } from "./context/TripContext";
@@ -57,6 +57,7 @@ function App({ location }) {
       getUserInfo();
     }
   }, [history, getUserInfo]);
+
   const classes = useAppGridStyle();
   const footerRoute = pathToRegex("/*");
   console.log(footerRoute);

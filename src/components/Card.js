@@ -51,7 +51,7 @@ export default function TripCard({ type, data }) {
     history.push(`/tripSummary`);
   };
   const convertTime = (Ztime) => {
-    const time = Ztime.substring(0, Ztime.length);
+    const time = Ztime.substring(0, Ztime.length - 1);
     return DateTime.fromISO(time).toLocaleString(DateTime.TIME_SIMPLE);
   };
   const convertDate = (date) => {

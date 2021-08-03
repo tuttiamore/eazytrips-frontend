@@ -42,6 +42,7 @@ export default function AutocompletePlaces({
         const body = {
           prefix: inputValue,
           sessionToken,
+          type: placeType === "accommodation" ? "address" : "cities",
         };
         const { data } = await axios.post(
           "https://eazytrips-backend.herokuapp.com/autocomplete",

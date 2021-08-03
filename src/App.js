@@ -19,7 +19,6 @@ import client from "./auth/client";
 import { useEffect } from "react";
 import { getToken } from "./auth/auth";
 import SavedTrips from "./components/SavedTrips";
-import Div100vh from "react-div-100vh";
 
 function App({ location }) {
   let history = useHistory();
@@ -64,38 +63,36 @@ function App({ location }) {
   console.log(footerRoute);
   return (
     <TripProvider>
-      <Div100vh>
-        <Main>
-          <Switch>
-            <Route path="/plantrip/:stage">
-              <TripPlanerWrapper />
-            </Route>
-            <Route path="/tripsingleday/:day">
-              <TripSingleDay />
-            </Route>
-            <Route path="/tripsummary">
-              <TripSummary />
-            </Route>
-            <Route path="/suggestedplaces">
-              <SuggestedPlaces />
-            </Route>
-            <ProtectedRoute path="/savedtrips" component={SavedTrips} me={me} />
-            <Route path="/signUpPage">
-              <SignUpPage />
-            </Route>
-            <Route path="/signInPage">
-              <SignInPage me={me} setMe={setMe} />
-            </Route>
-            <Route path="/" exact>
-              <LandingPage />
-            </Route>
-          </Switch>
-        </Main>
+      <Main>
+        <Switch>
+          <Route path="/plantrip/:stage">
+            <TripPlanerWrapper />
+          </Route>
+          <Route path="/tripsingleday/:day">
+            <TripSingleDay />
+          </Route>
+          <Route path="/tripsummary">
+            <TripSummary />
+          </Route>
+          <Route path="/suggestedplaces">
+            <SuggestedPlaces />
+          </Route>
+          <ProtectedRoute path="/savedtrips" component={SavedTrips} me={me} />
+          <Route path="/signUpPage">
+            <SignUpPage />
+          </Route>
+          <Route path="/signInPage">
+            <SignInPage me={me} setMe={setMe} />
+          </Route>
+          <Route path="/" exact>
+            <LandingPage />
+          </Route>
+        </Switch>
+      </Main>
 
-        <Route path={footerRoute}>
-          <Footer className={classes.footer}></Footer>
-        </Route>
-      </Div100vh>
+      <Route path={footerRoute}>
+        <Footer className={classes.footer}></Footer>
+      </Route>
     </TripProvider>
   );
 }

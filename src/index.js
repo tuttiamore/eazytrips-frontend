@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Box from "@material-ui/core/Box";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-
+import Div100vh from "react-div-100vh";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -28,13 +28,15 @@ const theme = createTheme({
 ReactDOM.render(
   <Router>
     <ThemeProvider theme={theme}>
-      <Box
-        style={{
-          height: "100vh",
-        }}
-      >
-        <App />
-      </Box>
+      <Div100vh>
+        <Box
+          style={{
+            height: "100vh",
+          }}
+        >
+          <App />
+        </Box>
+      </Div100vh>
     </ThemeProvider>
   </Router>,
   document.getElementById("root")

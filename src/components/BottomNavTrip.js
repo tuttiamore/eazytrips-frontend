@@ -26,13 +26,8 @@ export default function BottomNavTrip() {
     transportation: "suggestions",
   };
 
-  const handleClickSkip = (skipDeactivated, nextPath, stage) => {
-    if (skipDeactivated) return;
-    history.push(`/plantrip/${nextPath[stage]}`);
-  };
-
   const handleClickNext = async (nextPath, stage) => {
-    // get suggestions from google places
+    // get suggestions from google places after entering transportation
     if (stage === "transportation") {
       console.log(tripDataRaw);
 
@@ -100,7 +95,7 @@ export default function BottomNavTrip() {
     <Box p={3}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box>
-          <Typography
+          {/* <Typography
             className={clsx(classes.skip, {
               [classes.skipDeactivated]: skipDeactivated,
             })}
@@ -109,7 +104,16 @@ export default function BottomNavTrip() {
             }}
           >
             Skip
-          </Typography>
+          </Typography> */}
+          <Button
+            color="primary"
+            onClick={(e) => {
+              handleClickNext(nextPath, stage);
+            }}
+            disabled={nextDeactivated}
+          >
+            Next
+          </Button>
         </Box>
 
         <Box>

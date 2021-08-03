@@ -45,7 +45,7 @@ export default function TripPlanerWrapper() {
             Your trip to
           </Typography>
           <Typography
-            variant="h2"
+            variant="h3"
             component="p"
             className={classes.cityHeading}
           >

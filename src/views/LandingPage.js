@@ -18,8 +18,8 @@ export default function LandingPage() {
         alignItems="center"
         flexDirection="column"
       >
-        <Box my={8} width="70%">
-          <Typography
+        <Box my={10} width="70%">
+          {/* <Typography
             variant="h3"
             component="p"
             className={classes.headingDiscover}
@@ -27,7 +27,11 @@ export default function LandingPage() {
             align="center"
           >
             Discover
-          </Typography>
+          </Typography> */}
+          <Box component="article" p={2}>
+            <img src="./easzytrips-2.png" style={{ maxWidth: "100%" }}></img>
+          </Box>
+
           <AutocompletePlaces
             nextPath={"/plantrip/tripdates"}
             isSearchIcon={true}

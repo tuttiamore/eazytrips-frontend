@@ -258,7 +258,7 @@ export default function Map({ trip, type, isSelected }) {
         },
       });
     });
-  }, [isSelected]);
+  }, [day]);
 
   return (
     <Box p={3}>

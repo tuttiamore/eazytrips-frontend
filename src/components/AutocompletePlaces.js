@@ -23,9 +23,14 @@ export default function AutocompletePlaces({
   const { tripDataRaw, setTripDataRaw } = useTripContext();
   const classes = useAutocompleteStyle();
   const history = useHistory();
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    history.push(nextPath);
+    console.log(tripDataRaw);
+
+    if (tripDataRaw && tripDataRaw.destination && tripDataRaw.destination) {
+      history.push(nextPath);
+    }
   };
 
   const handleFinalSelection = (e, newValue) => {
@@ -136,6 +141,7 @@ export default function AutocompletePlaces({
                   </Button>
                 </InputAdornment>
               ),
+              disableUnderline: true,
             }}
             // onChange={handleSearchChange}
             size="medium"

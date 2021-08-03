@@ -263,7 +263,7 @@ export default function Map({ trip, type, isSelected }) {
         },
       });
     });
-  }, [isSelected, day]);
+  }, [day]);
 
   return (
     <Box p={3}>

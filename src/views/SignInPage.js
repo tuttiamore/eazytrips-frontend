@@ -74,7 +74,7 @@ export default function SignIn({ me, setMe }) {
       setMe("bla");
       // fetch saved trips, put into TripContext
 
-      history.push("/savedtrips");
+      history.push("/");
     } else {
       toast.error("Invalid username or password!");
     }

@@ -15,6 +15,8 @@ import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
 import { login } from "../auth/auth";
 import { ToastContainer, toast } from "react-toastify";
+import { useTripContext } from "../context/TripContext";
+
 import "react-toastify/dist/ReactToastify.css";
 
 // function Copyright() {
@@ -53,6 +55,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn({ me, setMe }) {
   const classes = useStyles();
 
+  const { tripData } = useTripContext();
+
   const history = useHistory();
   // console.log(history);
   const handleClick = (event) => {
@@ -70,12 +74,10 @@ export default function SignIn({ me, setMe }) {
     console.log(formData);
     const isAuthenticated = await login(formData);
     if (isAuthenticated) {
-      toast.success("Successfully logged in!");
+      tripData ? history.push("/tripSummary") : history.push("/");
 
       setMe("bla");
       // fetch saved trips, put into TripContext
-
-      history.push("/savedtrips");
     } else {
       toast.error("Invalid username or password!");
     }

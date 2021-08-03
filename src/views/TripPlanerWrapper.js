@@ -6,8 +6,10 @@ import { Box, Typography } from "@material-ui/core";
 import BottomNavTrip from "../components/BottomNavTrip";
 
 import { useTripContext } from "../context/TripContext";
-import TripDates from "./TripDates";
+import TripDates from "../components/TripDates";
 import TripAccomodation from "../components/TripAccomodation";
+import TripTransportation from "../components/TripTransportation";
+import TripSuggestions from "../components/TripSuggestions";
 
 import useTripPlanerWrapperStyle from "../styles/useTripPlanerWrapperStyle";
 
@@ -17,7 +19,7 @@ export default function TripPlanerWrapper() {
   const classes = useTripPlanerWrapperStyle();
 
   return (
-    <div>
+    <>
       <Box
         display="flex"
         flexDirection="column"
@@ -54,9 +56,12 @@ export default function TripPlanerWrapper() {
         <Box p={3} mt={5} bgcolor="white" className={classes.contentWrapper}>
           {stage === "tripdates" && <TripDates></TripDates>}
           {stage === "accommodation" && <TripAccomodation></TripAccomodation>}
+          {stage === "transportation" && (
+            <TripTransportation></TripTransportation>
+          )}
+          {stage === "suggestions" && <TripSuggestions></TripSuggestions>}
         </Box>
       </Box>
-      <BottomNavTrip></BottomNavTrip>
-    </div>
+    </>
   );
 }

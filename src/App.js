@@ -1,7 +1,7 @@
-import { Switch, Route, withRouter, useHistory } from "react-router-dom";
+import { Switch, Route,useHistory } from "react-router-dom";
+import pathToRegex from "path-to-regexp";
 import React, { useState, useCallback } from "react";
 import { TripProvider } from "./context/TripContext";
-import Box from "@material-ui/core/Grid";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import LandingPage from "../src/views/LandingPage";
@@ -12,7 +12,6 @@ import useAppGridStyle from "../src/styles/useAppGridStyle";
 import TripPlanerWrapper from "./views/TripPlanerWrapper";
 import SignUpPage from "../src/views/SignUpPage";
 import SignInPage from "../src/views/SignInPage";
-import WelcomePage from "../src/views/WelcomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
 import { login } from "./auth/auth";
@@ -59,6 +58,8 @@ function App({ location }) {
     }
   }, [history, getUserInfo]);
   const classes = useAppGridStyle();
+  const footerRoute = pathToRegex("/*");
+  console.log(footerRoute);
   return (
     <TripProvider>
       <Main>
@@ -88,11 +89,11 @@ function App({ location }) {
         </Switch>
       </Main>
 
-      <Box className={classes.footer}>
-        {location.pathname !== "/" && <Footer location={location}></Footer>}
-      </Box>
+      <Route path={footerRoute}>
+        <Footer className={classes.footer}></Footer>
+      </Route>
     </TripProvider>
   );
 }
 
-export default withRouter(App);
+export default App;

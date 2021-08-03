@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 import { TextField, InputAdornment, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { Autocomplete } from "@material-ui/lab";
-import { spacing } from "@material-ui/system";
 
 import { useTripContext } from "../context/TripContext";
 import useAutocompleteStyle from "../styles/useAutocompleteStyle";
@@ -15,15 +14,15 @@ export default function AutocompletePlaces({
   nextPath,
   isSearchIcon,
   variant,
+  placeType,
 }) {
   const [destination, setDestination] = useState();
   const [inputValue, setInputValue] = useState(null);
   const [citySuggestions, setCitySuggestions] = useState([]);
   const [sessionToken, setSessionToken] = useState();
-  const { setTripDataRaw } = useTripContext();
+  const { tripDataRaw, setTripDataRaw } = useTripContext();
   const classes = useAutocompleteStyle();
   const history = useHistory();
-
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     history.push(nextPath);
@@ -38,7 +37,7 @@ export default function AutocompletePlaces({
   useEffect(() => {
     console.log("use effect inputValue fired");
 
-    const getCitySuggestions = async () => {
+    const getCitySuggestions = async (sessionToken, prefix) => {
       try {
         const body = {
           prefix: inputValue,
@@ -55,8 +54,10 @@ export default function AutocompletePlaces({
       }
     };
 
-    getCitySuggestions();
-  }, [inputValue]);
+    if (inputValue) {
+      getCitySuggestions();
+    }
+  }, [inputValue, sessionToken]);
 
   // use effect for final call to google places
   useEffect(() => {
@@ -65,12 +66,30 @@ export default function AutocompletePlaces({
         const place_id = citySuggestions.find(
           (city) => destination === city.description
         ).place_id;
+
         console.log("place_id is", place_id);
+
         const { data } = await axios.get(
           `http://localhost:3000/autocomplete/${place_id}`
         );
-        setTripDataRaw(data);
-        // history.push(nextPath);
+
+        // either set accommodation or destination dependent on route
+        if (placeType === "destination") {
+          setTripDataRaw({
+            ...tripDataRaw,
+            destination: data.placeAddress,
+            destinationCoords: data.placeCoords,
+          });
+        }
+
+        if (placeType === "accommodation") {
+          setTripDataRaw({
+            ...tripDataRaw,
+            accommodation: data.placeAddress,
+            accommodationCoords: data.placeCoords,
+          });
+        }
+
         console.log(data);
       } catch (err) {
         console.log(err);
@@ -79,11 +98,9 @@ export default function AutocompletePlaces({
     if (destination) {
       getPlacesDetails();
       console.log("submitted");
-    } else {
-      console.log("destination not set");
     }
-    setTripDataRaw({ destination });
     // history.push("/plantrip");
+    // eslint-disable-next-line
   }, [destination]);
 
   // useEffect for session token for gplaces API
@@ -118,7 +135,6 @@ export default function AutocompletePlaces({
                   </Button>
                 </InputAdornment>
               ),
-              disableUnderline: true,
             }}
             // onChange={handleSearchChange}
             size="medium"

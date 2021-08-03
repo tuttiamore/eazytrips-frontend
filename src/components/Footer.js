@@ -1,23 +1,10 @@
-import React from "react";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
-import Container from "@material-ui/core/Container";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import BottomNav from "./BottomNav";
+import BottomNavTrip from "./BottomNavTrip";
 
-
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-
-export default function Footer({ location }) {
-  console.log("Footer is on path", location.pathname)
-  let history = useHistory();
-
-  const handleClick = (event) => {
-    history.push("/signUpPage");
-    // console.log(event);
-  };
-
+export default function Footer() {
+  const location = useLocation();
+  console.log("location in footer is", location);
   // const handleBack = (e) => {
   //   e.preventDefault();
   //   if (history.location.pathname === "/") return;
@@ -26,25 +13,10 @@ export default function Footer({ location }) {
   // };
   return (
     <>
-      <Container>
-
-        <BottomNavigation showLabels>
-          <BottomNavigationAction
-            label="Discover"
-            icon={<SearchIcon />}
-          />
-          <BottomNavigationAction
-            label="Saved Trips"
-            icon={
-              <BookmarkBorderIcon />
-            }
-          />
-          <BottomNavigationAction
-            label="Profile"
-            icon={<AccountCircleIcon onClick={() => handleClick("/userAccount")} />}
-          />
-        </BottomNavigation>
-      </Container>
+      {!location.pathname.includes("plantrip") && <BottomNav></BottomNav>}
+      {location.pathname.includes("plantrip") && (
+        <BottomNavTrip></BottomNavTrip>
+      )}
     </>
   );
 }

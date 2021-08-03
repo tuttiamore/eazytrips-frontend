@@ -5,6 +5,9 @@ const useBottomNavTripStyle = makeStyles((theme) => ({
     textDecoration: "underline",
     fontWeight: "bold",
   },
+  skipDeactivated: {
+    color: theme.palette.text.disabled,
+  },
 }));
 
 export default useBottomNavTripStyle;

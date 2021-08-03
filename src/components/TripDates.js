@@ -1,16 +1,16 @@
-import React from "react";
 import { useState } from "react";
-import axios from "axios";
-import { useHistory } from "react-router";
 
 import { Divider, Box, TextField, Typography } from "@material-ui/core";
-import useTripDatesStyle from "../styles/useTripPlanerWrapperStyle";
+import { sizing } from "@material-ui/system";
 
-import { spacing, sizing } from "@material-ui/system";
+import { useTripContext } from "../context/TripContext";
+import useTripDatesStyle from "../styles/useTripPlanerWrapperStyle";
 
 // GET PICTURES HERE :https://api.teleport.org/api/urban_areas/slug:berlin/images
 
 export default function TripDates() {
+  const { tripDataRaw, setTripDataRaw } = useTripContext();
+
   const [tripUserInput, setTripUserInput] = useState({
     public: false,
     walking: false,
@@ -18,12 +18,11 @@ export default function TripDates() {
   });
 
   const classes = useTripDatesStyle();
-  const history = useHistory();
 
   const handleChange = (event) => {
     console.log("date changed");
-    setTripUserInput({
-      ...tripUserInput,
+    setTripDataRaw({
+      ...tripDataRaw,
       [event.target.name]: event.target.value,
     });
   };

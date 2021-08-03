@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,6 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
+import { login } from "../auth/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // function Copyright() {
 //     return (
@@ -47,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn({ me, setMe }) {
   const classes = useStyles();
 
   const history = useHistory();
@@ -55,6 +58,24 @@ export default function SignIn() {
   const handleClick = (event) => {
     // console.log(e);
     history.push("/SignUpPage");
+  };
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const handleInputChange = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    const isAuthenticated = await login(formData);
+    if (isAuthenticated) {
+      toast.success("Successfully logged in!");
+      setMe("bla");
+      history.push("/savedtrips");
+    } else {
+      toast.error("Invalid username or password!");
+    }
   };
 
   return (
@@ -67,7 +88,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleFormSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -78,6 +99,7 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={handleInputChange}
           />
           <TextField
             variant="outlined"
@@ -89,6 +111,7 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handleInputChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

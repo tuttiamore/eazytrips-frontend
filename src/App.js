@@ -1,5 +1,6 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route,useHistory } from "react-router-dom";
 import pathToRegex from "path-to-regexp";
+import React, { useState, useCallback } from "react";
 import { TripProvider } from "./context/TripContext";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -11,9 +12,51 @@ import useAppGridStyle from "../src/styles/useAppGridStyle";
 import TripPlanerWrapper from "./views/TripPlanerWrapper";
 import SignUpPage from "../src/views/SignUpPage";
 import SignInPage from "../src/views/SignInPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
+import { login } from "./auth/auth";
+import client from "./auth/client";
+import { useEffect } from "react";
+import { getToken } from "./auth/auth";
+import SavedTrips from "./components/SavedTrips";
 
 function App({ location }) {
+  let history = useHistory();
+  const [me, setMe] = useState();
+  const [credentials, setCredentials] = useState();
+
+  // const handleCredentials = (e) => {
+  //   setCredentials((prevCredentials) => ({
+  //     ...prevCredentials,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
+
+  // const handleAuthentication = async () => {
+  //   const isAuthenticated = await login(credentials);
+  //   if (isAuthenticated) {
+  //     getUserInfo();
+  //   } else {
+  //     alert("Invalid login credentials");
+  //   }
+  // };
+  const getUserInfo = useCallback(async () => {
+    try {
+      const { data } = await client.get("backenurltogetdata");
+      if (data) {
+        setMe(data);
+        history.push("home");
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  }, [history]);
+
+  useEffect(() => {
+    if (getToken()) {
+      getUserInfo();
+    }
+  }, [history, getUserInfo]);
   const classes = useAppGridStyle();
   const footerRoute = pathToRegex("/*");
   console.log(footerRoute);
@@ -33,12 +76,12 @@ function App({ location }) {
           <Route path="/suggestedplaces">
             <SuggestedPlaces />
           </Route>
-
+          <ProtectedRoute path="/savedtrips" component={SavedTrips} me={me} />
           <Route path="/signUpPage">
             <SignUpPage />
           </Route>
           <Route path="/signInPage">
-            <SignInPage />
+            <SignInPage me={me} setMe={setMe} />
           </Route>
           <Route path="/" exact>
             <LandingPage />

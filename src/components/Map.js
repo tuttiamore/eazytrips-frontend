@@ -25,15 +25,19 @@ export default function Map({ trip, type, isSelected }) {
 
   useEffect(() => {
     let paramSpecificData;
+    let tripDataUse = type === "SuggestedPlaces" ? tripDataRaw : tripData;
 
     // assign the accommodation coordinates that are used as the center of the map
-    const accommodationLng = tripData.accommodationCoords.lng;
-    const accommodationLat = tripData.accommodationCoords.lat;
+
+    const accommodationLng = tripDataUse.accommodationCoords.lng;
+    const accommodationLat = tripDataUse.accommodationCoords.lat;
     const accommodationLngLat = [accommodationLng, accommodationLat];
 
     let mapCenter = [
-      (tripData.rawDataPlaces[0].geometry.location.lng + accommodationLng) / 2,
-      (tripData.rawDataPlaces[0].geometry.location.lat + accommodationLat) / 2,
+      (tripDataUse.rawDataPlaces[0].geometry.location.lng + accommodationLng) /
+        2,
+      (tripDataUse.rawDataPlaces[0].geometry.location.lat + accommodationLat) /
+        2,
     ];
     // Create array containing all the coordinates of the waypoint
     let waypointCoordinates = [[accommodationLng, accommodationLat]];

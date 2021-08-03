@@ -99,7 +99,7 @@ export default function AutocompletePlaces({
       getPlacesDetails();
       console.log("submitted");
     }
-    // history.push("/plantrip");
+    // history.push("/plantrip/tripdates");
     // eslint-disable-next-line
   }, [destination]);
 

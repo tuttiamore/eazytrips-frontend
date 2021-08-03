@@ -7,6 +7,7 @@ import NavStepper from "../components/Stepper";
 import useCardStyle from "../styles/useCardStyle";
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
+import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import Typography from "@material-ui/core/Typography";
 import { useTripContext } from "../context/TripContext";
 import Map from "../components/Map";
@@ -43,6 +44,8 @@ export default function TripSingleDay() {
               </Typography>
               {tripData.transportation.public ? (
                 <DriveEtaIcon fontSize="large" />
+              ) : tripData.transportation.cycling ? (
+                <DirectionsBikeIcon fontSize="large" />
               ) : (
                 <DirectionsWalkIcon fontSize="large" />
               )}

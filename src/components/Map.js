@@ -86,17 +86,19 @@ export default function Map({ trip, type, isSelected }) {
       waypointCoordinates = null;
 
       for (let day in tripData.trip) {
-        const rawDataEquivalent = tripData.rawDataPlaces.find(
-          (item) => item.place_id === tripData.trip[day].highlight.place_id
-        );
-        console.log(rawDataEquivalent);
+        if (tripData.trip[day].highlight.place_id) {
+          const rawDataEquivalent = tripData.rawDataPlaces.find(
+            (item) => item.place_id === tripData.trip[day].highlight.place_id
+          );
+          console.log(rawDataEquivalent);
 
-        markerCoordinates.push({
-          lng: rawDataEquivalent.geometry.location.lng,
-          lat: rawDataEquivalent.geometry.location.lat,
-        });
-        markerTitles.push(rawDataEquivalent.name);
-        popUpInfo.push(rawDataEquivalent.vicinity);
+          markerCoordinates.push({
+            lng: rawDataEquivalent.geometry.location.lng,
+            lat: rawDataEquivalent.geometry.location.lat,
+          });
+          markerTitles.push(rawDataEquivalent.name);
+          popUpInfo.push(rawDataEquivalent.vicinity);
+        }
       }
     }
     //put all the coordinates of all locations in the day into the waypointCoordinates

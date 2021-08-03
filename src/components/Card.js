@@ -70,6 +70,7 @@ export default function TripCard({ type, data }) {
   const avatarImage = examplePicture;
   const { tripData } = useTripContext();
   if (type === "TripSummary") {
+    console.log(data);
     const place = tripData.rawDataPlaces.find(
       (item) => item.place_id === data.highlight.place_id
     );

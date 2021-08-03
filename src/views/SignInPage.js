@@ -71,10 +71,11 @@ export default function SignIn({ me, setMe }) {
     const isAuthenticated = await login(formData);
     if (isAuthenticated) {
       toast.success("Successfully logged in!");
+
       setMe("bla");
       // fetch saved trips, put into TripContext
 
-      history.push("/");
+      history.push("/savedtrips");
     } else {
       toast.error("Invalid username or password!");
     }

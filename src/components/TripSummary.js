@@ -25,7 +25,9 @@ import HighlightCard from "../components/Card";
 import "../styles/tripSummary.css";
 
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
+
 import { useTripContext, setTripData } from "../context/TripContext";
+import { useHistory } from "react-router-dom";
 import { save_trip, getToken } from "../auth/auth";
 
 //////////////////////
@@ -84,15 +86,19 @@ export default function TripSummary() {
   const [stored, setStored] = useState();
   const handleSaveTrip = async () => {
     let tripToSave = tripData;
-    tripToSave.email = getToken();
-    tripToSave.isStored = true;
-    setTripData(tripToSave);
+    tripData.email = getToken();
+    tripData.isStored = true;
+    setTripData(tripData);
     setStored(true);
     if (tripData.email && !stored) {
       tripToSave = tripData;
       await save_trip(tripToSave);
     }
     setStored(true);
+  };
+  const history = useHistory();
+  const handleRedirectToLogin = () => {
+    history.push("/SignInPage");
   };
   return (
     <Box
@@ -102,13 +108,24 @@ export default function TripSummary() {
       component="section"
       className={classes.summaryWrapper}
     >
+      {/* show the save /saved button if the user is logged in */}
       {getToken() && (
         <Button
           color="primary"
-          variant={stored ? "outlined" : "contained"}
+          variant={stored || tripData.isStored ? "outlined" : "contained"}
           onClick={handleSaveTrip}
         >
-          {stored ? "Saved" : "Save"}
+          {stored || tripData.isStored ? "Saved" : "Save"}
+        </Button>
+      )}
+      {/* show the login button if the user is not logged in */}
+      {!getToken() && (
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={handleRedirectToLogin}
+        >
+          Log in to save
         </Button>
       )}
       <Box>

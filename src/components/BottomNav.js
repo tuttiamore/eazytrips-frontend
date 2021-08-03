@@ -8,7 +8,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 export default function BottomNav() {
   const history = useHistory();
   const handleClick = (event) => {
-    history.push("/signUpPage");
+    history.push("/signInPage");
     // console.log(event);
   };
   return (

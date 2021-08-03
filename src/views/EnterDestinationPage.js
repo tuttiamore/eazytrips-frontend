@@ -65,7 +65,10 @@ export default function EnterDestinationPage() {
     //fetch sight suggestions for destination and store them in context
 
     try {
-      const { data } = await axios.post("http://localhost:3000/gettrip", req);
+      const { data } = await axios.post(
+        "https://eazytrips-backend.herokuapp.com/gettrip",
+        req
+      );
       console.log(data);
       setTripDataRaw(data);
       history.push("/suggestedplaces");

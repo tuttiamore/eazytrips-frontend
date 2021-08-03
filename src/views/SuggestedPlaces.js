@@ -42,7 +42,7 @@ export default function SuggestedPlaces() {
     // send updated data back to API which will calculate final itinerary
     try {
       const { data } = await axios.put(
-        "http://localhost:3000/gettrip",
+        "https://eazytrips-backend.herokuapp.com/gettrip",
         tripDataRawUpdated
       );
       console.log("received trip:", data);

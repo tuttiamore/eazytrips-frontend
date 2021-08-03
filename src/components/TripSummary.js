@@ -87,13 +87,14 @@ export default function TripSummary() {
   const handleSaveTrip = async () => {
     let tripToSave = tripData;
     tripData.email = getToken();
-    tripData.isStored = true;
-    setTripData(tripData);
+
     setStored(true);
-    if (tripData.email && !stored) {
+    if (tripData.email && !stored && !tripData.isStored) {
       tripToSave = tripData;
       await save_trip(tripToSave);
     }
+    tripData.isStored = true;
+    setTripData(tripData);
     setStored(true);
   };
   const history = useHistory();
@@ -112,8 +113,9 @@ export default function TripSummary() {
       {getToken() && (
         <Button
           color="primary"
-          variant={stored || tripData.isStored ? "outlined" : "contained"}
+          variant={stored || tripData.isStored ? "contained" : "contained"}
           onClick={handleSaveTrip}
+          disabled={stored || tripData.isStored}
         >
           {stored || tripData.isStored ? "Saved" : "Save"}
         </Button>

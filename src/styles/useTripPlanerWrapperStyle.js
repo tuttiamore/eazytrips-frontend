@@ -25,6 +25,9 @@ const useTripPlanerWrapperStyle = makeStyles((theme) => ({
     position: "absolute",
     top: 0,
   },
+  textField: {
+    width: "80vw",
+  },
 }));
 
 export default useTripPlanerWrapperStyle;

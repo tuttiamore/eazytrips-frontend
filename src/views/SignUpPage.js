@@ -112,9 +112,9 @@ export default function SignUp() {
         formData
       );
       const token = data.headers["x-authorization-token"];
-      console.log(token);
-      toast.success("User account was successfully created!");
-      //setToken(token);
+      if (token) {
+        history.push("/SignInPage");
+      }
     } catch (error) {
       toast.error("This email address is already in use!");
     }
@@ -227,7 +227,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2" onClick={handleSignInClick}>
+                <Link variant="body2" onClick={handleSignInClick}>
                   Already have an account? Sign in
                 </Link>
               </Grid>

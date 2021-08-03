@@ -31,7 +31,7 @@ client.interceptors.response.use(
   (error) => {
     if (error.response.status === 401 || error.response.status === 403) {
       // Sending a custom error message to the user
-      alert("errir");
+      alert("error");
       // This error will be caught by whichever part of your code is using axios
       // When a 401 or 403 is handled so we can customize the error message
       throw new Error(`${error.config.url}: ${error.request.response}`);

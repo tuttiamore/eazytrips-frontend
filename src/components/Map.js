@@ -209,9 +209,9 @@ export default function Map({ trip, type, isSelected }) {
           if (type === "SuggestedPlaces") {
             let markerPlaceId = tripDataRaw.rawDataPlaces[item].place_id;
 
-            isSelected[markerPlaceId]
-              ? (markerColor = theme.palette.primary.light)
-              : (markerColor = theme.palette.secondary.light);
+            // isSelected[markerPlaceId]
+            //   ? (markerColor = theme.palette.primary.light)
+            //   : (markerColor = theme.palette.secondary.light);
           }
           const marker = new mapboxgl.Marker({
             color: markerColor,
@@ -266,12 +266,10 @@ export default function Map({ trip, type, isSelected }) {
   }, [day]);
 
   return (
-    <Box p={3}>
-      <Box
-        ref={mapContainer}
-        className="map-container"
-        style={{ height: "70vw", width: "100%", maxHeight: "600px" }}
-      />
-    </Box>
+    <Box
+      ref={mapContainer}
+      className="map-container"
+      style={{ height: "90vh", width: "100%", position: "absolute", top: "0" }}
+    ></Box>
   );
 }

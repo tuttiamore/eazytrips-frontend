@@ -26,13 +26,8 @@ export default function BottomNavTrip() {
     transportation: "suggestions",
   };
 
-  const handleClickSkip = (skipDeactivated, nextPath, stage) => {
-    if (skipDeactivated) return;
-    history.push(`/plantrip/${nextPath[stage]}`);
-  };
-
   const handleClickNext = async (nextPath, stage) => {
-    // get suggestions from google places
+    // get suggestions from google places after entering transportation
     if (stage === "transportation") {
       console.log(tripDataRaw);
 
@@ -73,43 +68,19 @@ export default function BottomNavTrip() {
     }
   };
 
-  //   MOVE THIS TO BOTTOM TRIP NAV
-  // const handleSubmit = async () => {
-  //   // grab the raw data object: use trip context
-  //   // add locations selected by user to the raw trip data object
-  //   const tripDataRawUpdated = {
-  //     ...tripDataRaw,
-  //     userLocations: Object.keys(isSelected),
-  //   };
-  //   console.log(tripDataRawUpdated);
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       "https://eazytrips-backend.herokuapp.com/gettrip",
-  //       tripDataRawUpdated
-  //     );
-  //     console.log("received trip:", data);
-  //     setTripData(data);
-  //     history.push("/tripsummary");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   return (
     <Box p={3}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box>
-          <Typography
-            className={clsx(classes.skip, {
-              [classes.skipDeactivated]: skipDeactivated,
-            })}
+          <Button
+            color="primary"
             onClick={(e) => {
-              handleClickSkip(skipDeactivated, nextPath, stage);
+              handleClickNext(nextPath, stage);
             }}
+            disabled={nextDeactivated}
           >
             Skip
-          </Typography>
+          </Button>
         </Box>
 
         <Box>

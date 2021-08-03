@@ -18,8 +18,8 @@ export default function LandingPage() {
         alignItems="center"
         flexDirection="column"
       >
-        <Box my={8} width="70%">
-          <Typography
+        <Box my={10} width="70%">
+          {/* <Typography
             variant="h3"
             component="p"
             className={classes.headingDiscover}
@@ -27,7 +27,14 @@ export default function LandingPage() {
             align="center"
           >
             Discover
-          </Typography>
+          </Typography> */}
+          <Box component="article" p={2}>
+            <img
+              src="./easzytrips-2-white.png"
+              style={{ maxWidth: "100%" }}
+            ></img>
+          </Box>
+
           <AutocompletePlaces
             nextPath={"/plantrip/tripdates"}
             isSearchIcon={true}
@@ -40,10 +47,10 @@ export default function LandingPage() {
       <Box p={3} component="section">
         {/* Conditional render based on logged in state */}
         <Box component="article">
-          <DrawerCustom>
-            <Typography variant="h5" component="p" color="primary">
+          <DrawerCustom heading="Upcoming trips">
+            {/* <Typography variant="h5" component="p" color="primary">
               Upcoming trips
-            </Typography>
+            </Typography> */}
             <Box component="article" py={2}>
               <CardCustom type="UpcomingTrip" data={"Berlin"} />
             </Box>

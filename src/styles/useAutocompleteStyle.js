@@ -14,6 +14,9 @@ const useLandingPageStyle = makeStyles((theme) => ({
     margin: 0,
     minWidth: 0,
   },
+  input: {
+    paddingLeft: theme.spacing(2),
+  },
 }));
 
 export default useLandingPageStyle;

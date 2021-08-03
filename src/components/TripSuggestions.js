@@ -46,7 +46,7 @@ export default function TripSuggestions() {
         <Typography variant="h5" component="p" gutterBottom>
           Suggested Places
         </Typography>
-        <Map key="1" type="SuggestedPlaces" isSelected={isSelected} />
+        {/* <Map key="1" type="SuggestedPlaces" isSelected={isSelected} /> */}
         <List
           className={classes.listMarginBottom}
           // style={{

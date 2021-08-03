@@ -23,6 +23,10 @@ const useTripSummaryStyle = makeStyles((theme) => ({
     textAlign: "right",
     textDecoration: "underline",
   },
+  summaryWrapper: {
+    height: "100%",
+    overflow: "auto",
+  },
 }));
 
 export default useTripSummaryStyle;

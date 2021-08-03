@@ -1,11 +1,11 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import { Drawer, Button } from "@material-ui/core";
+import { Drawer, Button, Typography } from "@material-ui/core";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-const drawerHeight = 50;
+const drawerHeight = 70;
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     boxSizing: "border-box",
     borderRadius: "20px 20px 0 0",
-    padding: `0 ${theme.spacing(3)}px 0 ${theme.spacing(3)}px`,
+    padding: `0 ${theme.spacing(2)}px 0 ${theme.spacing(2)}px`,
     bottom: "10%",
   },
 
@@ -34,11 +34,11 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowY: "hidden",
-    height: "40px",
+    height: "6rem",
   },
 }));
 
-export default function DrawerCustom({ children }) {
+export default function DrawerCustom({ children, heading }) {
   const classes = useStyles();
   const [toggleOpen, setToggleOpen] = useState(false);
 
@@ -68,6 +68,15 @@ export default function DrawerCustom({ children }) {
           {toggleOpen && <ExpandMoreIcon></ExpandMoreIcon>}
           {!toggleOpen && <ExpandLessIcon></ExpandLessIcon>}
         </Button>
+        <Typography
+          variant="h5"
+          component="p"
+          color="primary"
+          align="center"
+          gutterBottom
+        >
+          {heading}
+        </Typography>
 
         {children}
       </Drawer>

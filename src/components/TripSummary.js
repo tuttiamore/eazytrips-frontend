@@ -87,7 +87,7 @@ export default function TripSummary() {
 
     setStored(true);
     if (tripData.email && !stored && !tripData.isStored) {
-      tripToSave = tripData;
+      tripData.isStored = true;
       await save_trip(tripToSave);
       await get_user_trips();
     }

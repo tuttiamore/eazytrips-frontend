@@ -8,6 +8,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import { deleteToken } from "./auth/auth";
 
 const theme = createTheme({
   typography: {
@@ -25,6 +26,8 @@ const theme = createTheme({
     ].join(","),
   },
 });
+
+deleteToken();
 
 ReactDOM.render(
   <Router>

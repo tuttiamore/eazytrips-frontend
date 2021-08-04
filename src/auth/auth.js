@@ -48,5 +48,16 @@ const logout = (history) => {
 
   history.push("/");
 };
+const deleteToken = (history) => {
+  Cookies.remove(`${REACT_APP_APP_NAME}-auth-token`);
+};
 
-export { login, logout, getToken, setToken, save_trip, get_user_trips };
+export {
+  login,
+  logout,
+  deleteToken,
+  getToken,
+  setToken,
+  save_trip,
+  get_user_trips,
+};

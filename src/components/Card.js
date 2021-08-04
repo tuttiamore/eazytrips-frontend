@@ -219,4 +219,21 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
       </Card>
     );
   }
+  if (type === "LunchBreak") {
+    return (
+      <Card className={classes.outer}>
+        <CardHeader
+          className={classes.root}
+          avatar={
+            <Avatar
+              variant="rounded"
+              aria-label="default"
+              className={classes.large}
+            ></Avatar>
+          }
+          title={"Let's grab something to eat"}
+        />
+      </Card>
+    );
+  }
 }

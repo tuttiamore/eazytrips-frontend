@@ -72,6 +72,11 @@ const useCardStyle = makeStyles((theme) => ({
     padding: "0px 0px 24px",
     margin: "8px 0",
   },
+  divide: {
+    margin: "32px",
+
+    backgroundColor: theme.palette.primary.dark,
+  },
 }));
 
 export default useCardStyle;

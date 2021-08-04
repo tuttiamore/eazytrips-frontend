@@ -63,7 +63,7 @@ export default function AutocompletePlaces({
     if (inputValue) {
       getCitySuggestions();
     }
-  }, [inputValue, sessionToken]);
+  }, [inputValue, sessionToken, placeType]);
 
   // use effect for final call to google places
   useEffect(() => {
@@ -105,7 +105,6 @@ export default function AutocompletePlaces({
       getPlacesDetails();
       console.log("submitted");
     }
-    // history.push("/plantrip/tripdates");
     // eslint-disable-next-line
   }, [destination]);
 
@@ -144,7 +143,6 @@ export default function AutocompletePlaces({
               className: classes.input,
               disableUnderline: true,
             }}
-            // onChange={handleSearchChange}
             size="medium"
             placeholder="Enter a destination"
             fullWidth={false}
@@ -156,7 +154,6 @@ export default function AutocompletePlaces({
           console.log("input changed");
           setInputValue(newValue);
         }}
-        // onClose={handleSearchSubmit}
       />
     </form>
   );

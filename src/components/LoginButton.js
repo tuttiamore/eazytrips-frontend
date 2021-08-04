@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import useLoginButtonStyle from "../styles/useLoginButtonStyle";
 
 export default function LoginButton() {

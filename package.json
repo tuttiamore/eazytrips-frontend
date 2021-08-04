@@ -15,7 +15,7 @@
     "js-cookie": "^3.0.0",
     "luxon": "^2.0.1",
     "mapbox-gl": "^2.3.1",
-    "path-to-regexp": "^0.1.7",
+    "path-to-regexp": "^6.2.0",
     "react": "^17.0.2",
     "react-div-100vh": "^0.6.0",
     "react-dom": "^17.0.2",

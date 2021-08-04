@@ -7,12 +7,11 @@ const useTripPlanerWrapperStyle = makeStyles((theme) => ({
   contentWrapper: {
     borderRadius: "20px 20px 0 0",
     position: "relative",
-    top: "200px",
+    top: "50vh",
     // height: "auto",
     zIndex: "1000",
   },
   headerWrapper: {
-    background: "rgb(2,0,36)",
     background:
       "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(63,81,181,1) 35%, rgba(245,0,87,1) 100%)",
     // height: "100%",
@@ -27,6 +26,13 @@ const useTripPlanerWrapperStyle = makeStyles((theme) => ({
   },
   textField: {
     width: "80vw",
+  },
+  backgroundWrapper: {
+    background:
+      "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(63,81,181,1) 35%, rgba(245,0,87,1) 100%)",
+    height: "90vh",
+    position: "absolute",
+    top: "0",
   },
 }));
 

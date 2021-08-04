@@ -1,31 +1,30 @@
-import { Switch, Route, useHistory } from "react-router-dom";
-import pathToRegex from "path-to-regexp";
-import React, { useState, useCallback } from "react";
-import { TripProvider } from "./context/TripContext";
+import { Switch, Route, useHistory, Redirect } from "react-router-dom";
+import React, { useState, useCallback, useEffect } from "react";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import LandingPage from "../src/views/LandingPage";
-import SuggestedPlaces from "./archiv/SuggestedPlaces";
 import TripSummary from "./components/TripSummary";
 import TripSingleDay from "./components/TripSingleDay";
 import TripResultsWrapper from "./views/TripResultsWrapper";
-
+import SavedTrips from "./components/SavedTrips";
 import useAppGridStyle from "../src/styles/useAppGridStyle";
 import TripPlanerWrapper from "./views/TripPlanerWrapper";
 import SignUpPage from "../src/views/SignUpPage";
 import SignInPage from "../src/views/SignInPage";
-import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
-import { login } from "./auth/auth";
-import client from "./auth/client";
-import { useEffect } from "react";
-import { getToken } from "./auth/auth";
-import SavedTrips from "./components/SavedTrips";
 
-function App({ location }) {
+import { useTripContext } from "./context/TripContext";
+
+// AUTH
+import ProtectedRoute from "./components/ProtectedRoute";
+import client from "./auth/client";
+import { getToken } from "./auth/auth";
+
+function App() {
   let history = useHistory();
   const [me, setMe] = useState();
-  const [credentials, setCredentials] = useState();
+  const { tripDataRaw, tripData } = useTripContext();
+  const classes = useAppGridStyle();
 
   // const handleCredentials = (e) => {
   //   setCredentials((prevCredentials) => ({
@@ -60,28 +59,30 @@ function App({ location }) {
     }
   }, [history, getUserInfo]);
 
-  const classes = useAppGridStyle();
-  const footerRoute = pathToRegex("/*");
-  console.log(footerRoute);
   return (
-    <TripProvider>
+    <>
       <Main>
         <Switch>
           <Route path="/plantrip/:stage">
-            <TripPlanerWrapper />
+            {!tripDataRaw ? <Redirect to="/" /> : <TripPlanerWrapper />}
           </Route>
           <Route path="/tripsingleday/:day">
-            <TripResultsWrapper>
-              <TripSingleDay></TripSingleDay>
-            </TripResultsWrapper>
+            {!tripData ? (
+              <Redirect to="/" />
+            ) : (
+              <TripResultsWrapper>
+                <TripSingleDay></TripSingleDay>
+              </TripResultsWrapper>
+            )}
           </Route>
           <Route path="/tripsummary">
-            <TripResultsWrapper>
-              <TripSummary></TripSummary>
-            </TripResultsWrapper>
-          </Route>
-          <Route path="/suggestedplaces">
-            <SuggestedPlaces />
+            {!tripData ? (
+              <Redirect to="/" />
+            ) : (
+              <TripResultsWrapper>
+                <TripSummary></TripSummary>
+              </TripResultsWrapper>
+            )}
           </Route>
           <ProtectedRoute path="/savedtrips" component={SavedTrips} me={me} />
           <Route path="/signUpPage">
@@ -96,10 +97,8 @@ function App({ location }) {
         </Switch>
       </Main>
 
-      <Route path={footerRoute}>
-        <Footer className={classes.footer}></Footer>
-      </Route>
-    </TripProvider>
+      <Footer className={classes.footer}></Footer>
+    </>
   );
 }
 

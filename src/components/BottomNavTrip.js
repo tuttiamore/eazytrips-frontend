@@ -1,22 +1,16 @@
-import clsx from "clsx";
-import { useState } from "react";
 import axios from "axios";
-import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
-import { Button, Box, Typography } from "@material-ui/core";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { Button, Box } from "@material-ui/core";
 
 import { useTripContext } from "../context/TripContext";
 
-import useBottomNavTripStyle from "../styles/useBottomNavTripStyle";
-
 export default function BottomNavTrip() {
-  const classes = useBottomNavTripStyle();
   const history = useHistory();
   const {
     params: { stage },
   } = useRouteMatch("/plantrip/:stage");
   const { tripDataRaw, setTripDataRaw, setTripData } = useTripContext();
 
-  const skipDeactivated = stage.includes("tripdates") ? true : false;
   const nextDeactivated =
     !tripDataRaw.tripStarts || !tripDataRaw.tripEnds ? true : false;
 

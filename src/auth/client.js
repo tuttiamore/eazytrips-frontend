@@ -1,8 +1,9 @@
 import axios from "axios";
 import { getToken } from "./auth";
 
-const { NODE_ENV, REACT_APP_DEV_API_URL, REACT_APP_PRODUCTION_URL } =
-  process.env;
+const { NODE_ENV, REACT_APP_PRODUCTION_URL } = process.env;
+
+// const { REACT_APP_DEV_API_URL } = process.env;
 
 const baseURL =
   NODE_ENV === "production"

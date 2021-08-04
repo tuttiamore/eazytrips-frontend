@@ -2,14 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useCardStyle = makeStyles((theme) => ({
   root: {
-    maxWidth: "100%",
-    padding: "4px 8px 0px",
-
-    // margin: " 16px auto",
+    width: "100%",
   },
   media: {
     height: 0,
-    // 16:9
   },
   tick: {
     padding: "0",

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Box from "@material-ui/core/Box";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { TripProvider } from "./context/TripContext";
 
 import "./index.css";
 import App from "./App";
@@ -27,15 +28,17 @@ const theme = createTheme({
 
 ReactDOM.render(
   <Router>
-    <ThemeProvider theme={theme}>
-      <Box
-        style={{
-          height: "100vh",
-        }}
-      >
-        <App />
-      </Box>
-    </ThemeProvider>
+    <TripProvider>
+      <ThemeProvider theme={theme}>
+        <Box
+          style={{
+            height: "100vh",
+          }}
+        >
+          <App />
+        </Box>
+      </ThemeProvider>
+    </TripProvider>
   </Router>,
   document.getElementById("root")
 );

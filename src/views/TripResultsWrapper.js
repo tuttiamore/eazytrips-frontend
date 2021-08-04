@@ -1,6 +1,4 @@
-import React from "react";
-
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import Map from "../components/Map";
 import NavStepper from "../components/Stepper";
 import DrawerCustom from "../components/DrawerCustom";
@@ -35,13 +33,6 @@ export default function TripResultsWrapper({ children }) {
           </Box>
           {children}
         </DrawerCustom>
-
-        {/* <Box
-          p={2}
-          mt={5}
-          bgcolor="white"
-          className={classes.contentWrapper}
-        ></Box> */}
       </Box>
     </>
   );

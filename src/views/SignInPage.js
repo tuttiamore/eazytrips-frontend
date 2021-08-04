@@ -94,9 +94,7 @@ export default function SignIn({ me, setMe }) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
+
         {!token && (
           <form className={classes.form} noValidate onSubmit={handleFormSubmit}>
             <TextField

@@ -52,10 +52,9 @@ export default function LandingPage() {
       {/* Conditional render based on logged in state */}
       <DrawerCustom heading="Upcoming trips">
         {getToken() && savedTrips && <SavedTripsList></SavedTripsList>}
-
-        {getToken() && !savedTrips && (
-          <Typography align="center" variant="body1">
-            You do not have any saved trips
+        {getToken() && savedTrips && savedTrips.data.length === 0 && (
+          <Typography align="center">
+            You don't have any saved trips yet
           </Typography>
         )}
 

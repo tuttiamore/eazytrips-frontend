@@ -31,7 +31,7 @@ import { save_trip, getToken, get_user_trips } from "../auth/auth";
 
 export default function TripSummary() {
   const classes = useTripSummaryStyle();
-  const { tripData, setTripData } = useTripContext();
+  const { tripData, setTripData, setSavedTrips } = useTripContext();
   const [stored, setStored] = useState();
   const history = useHistory();
 
@@ -87,9 +87,12 @@ export default function TripSummary() {
 
     setStored(true);
     if (tripData.email && !stored && !tripData.isStored) {
+      console.log("inside if save trips");
       tripData.isStored = true;
       await save_trip(tripToSave);
-      await get_user_trips();
+      const savedTripsFresh = await get_user_trips();
+      console.log("received fresh trips", savedTripsFresh);
+      setSavedTrips(savedTripsFresh);
     }
     setTripData({ ...tripData, isStored: true });
     setStored(true);

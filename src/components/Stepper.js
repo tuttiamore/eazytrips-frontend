@@ -117,7 +117,7 @@ export default function NavStepper() {
 
       {/* only show next if days do not fit screen */}
       {tripData.trip.length >= 4 && day < tripData.trip.length - 1 && (
-        <Step completed={false} onClick={(e) => handleStepClick(e)}>
+        <Step completed={false} onClick={(e) => handleStepClick(e, day + 1)}>
           <StepLabel StepIconComponent={IconComponent}>Next </StepLabel>
         </Step>
       )}

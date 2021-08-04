@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
 import AutocompletePlaces from "../components/AutocompletePlaces";
 import DrawerCustom from "../components/DrawerCustom";
@@ -19,19 +19,11 @@ export default function LandingPage() {
         flexDirection="column"
       >
         <Box my={10} width="70%">
-          {/* <Typography
-            variant="h3"
-            component="p"
-            className={classes.headingDiscover}
-            gutterBottom
-            align="center"
-          >
-            Discover
-          </Typography> */}
           <Box component="article" p={2}>
             <img
               src="./easzytrips-2-white.png"
               style={{ maxWidth: "100%" }}
+              alt="View on street with skyscrapers rising left and right"
             ></img>
           </Box>
 
@@ -46,20 +38,14 @@ export default function LandingPage() {
 
       <Box p={3} component="section">
         {/* Conditional render based on logged in state */}
-        <Box component="article">
-          <DrawerCustom heading="Upcoming trips">
-            {/* <Typography variant="h5" component="p" color="primary">
-              Upcoming trips
-            </Typography> */}
-            <Box component="article" py={2}>
-              <CardCustom type="UpcomingTrip" data={"Berlin"} />
-            </Box>
-
-            <Box component="article" py={2}>
-              <LoginButton></LoginButton>
-            </Box>
-          </DrawerCustom>
-        </Box>
+        <DrawerCustom heading="Upcoming trips">
+          <Box component="article" p={2}>
+            <CardCustom type="UpcomingTrip" data={"Berlin"} />
+          </Box>
+          <Box component="article" p={2}>
+            <LoginButton></LoginButton>
+          </Box>
+        </DrawerCustom>
       </Box>
     </Box>
   );

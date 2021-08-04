@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import useSuggestedPlacesStyle from "../styles/useSuggestedPlacesStyle";
 import Suggested from "../components/Card";
 import { useTripContext } from "../context/TripContext";
-import { useHistory } from "react-router";
-import Map from "../components/Map";
 import {
   Box,
   Typography,
@@ -11,16 +9,12 @@ import {
   ListItem,
   Checkbox,
   TextField,
-  Button,
 } from "@material-ui/core";
-import axios from "axios";
 
 export default function TripSuggestions() {
   const [isSelected, setIsSelected] = useState({});
-  const { tripDataRaw, setTripDataRaw, setTripData } = useTripContext();
-  const history = useHistory();
+  const { tripDataRaw, setTripDataRaw } = useTripContext();
 
-  console.log(isSelected);
   const handleChange = (e) => {
     // on Click: toggle selected status
     // set value of the checkbox to the opposite value of now
@@ -31,14 +25,15 @@ export default function TripSuggestions() {
   };
 
   useEffect(() => {
+    console.log("suggestions rerendered");
     const selectedPlaces = Object.keys(isSelected).filter((placeId) => {
       return isSelected[placeId];
     });
     setTripDataRaw({ ...tripDataRaw, userLocations: selectedPlaces });
+    // eslint-disable-next-line
   }, [isSelected]);
 
   const classes = useSuggestedPlacesStyle();
-  // const { tripData } = useTripContext();
 
   return (
     <>
@@ -46,17 +41,7 @@ export default function TripSuggestions() {
         <Typography variant="h5" component="p" gutterBottom>
           Suggested Places
         </Typography>
-        {/* <Map key="1" type="SuggestedPlaces" isSelected={isSelected} /> */}
-        <List
-          className={classes.listMarginBottom}
-          // style={{
-          //     height: "100%",
-          //     overflow: "auto",
-          //     padding: "8px",
-          //     width: "80%",
-          //     margin: "auto",
-          // }}
-        >
+        <List className={classes.listMarginBottom}>
           {tripDataRaw.rawDataPlaces.map((item, index) => (
             <ListItem key={index}>
               <Checkbox

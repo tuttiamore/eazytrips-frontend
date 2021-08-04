@@ -11,7 +11,6 @@ const useTripResultsWrapperStyle = makeStyles((theme) => ({
     zIndex: "1000",
   },
   headerWrapper: {
-    background: "rgb(2,0,36)",
     background:
       "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(63,81,181,1) 35%, rgba(245,0,87,1) 100%)",
   },

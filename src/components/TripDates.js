@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-import { Divider, Box, TextField, Typography } from "@material-ui/core";
-import { sizing } from "@material-ui/system";
+import { Box, TextField, Typography } from "@material-ui/core";
 
 import { useTripContext } from "../context/TripContext";
 import useTripDatesStyle from "../styles/useTripPlanerWrapperStyle";
@@ -11,26 +10,18 @@ import useTripDatesStyle from "../styles/useTripPlanerWrapperStyle";
 export default function TripDates() {
   const { tripDataRaw, setTripDataRaw } = useTripContext();
 
-  const [tripUserInput, setTripUserInput] = useState({
-    public: false,
-    walking: false,
-    accommodation: "",
-  });
+  const [tripUserInput, setTripUserInput] = useState({});
 
   const classes = useTripDatesStyle();
 
   const handleChange = (event) => {
-    console.log("date changed");
     setTripDataRaw({
       ...tripDataRaw,
       [event.target.name]: event.target.value,
     });
-  };
-
-  const handleSwitchChange = (event) => {
     setTripUserInput({
       ...tripUserInput,
-      [event.target.name]: !tripUserInput[String(event.target.name)],
+      [event.target.name]: event.target.value,
     });
   };
 

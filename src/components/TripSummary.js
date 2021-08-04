@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { DateTime } from "luxon";
-import Map from "../components/Map";
 import Button from "@material-ui/core/Button";
 // Material UI helper functions
 // import { sizing, palette, spacing } from "@material-ui/system";
@@ -18,7 +17,6 @@ import {
   ListItemText,
   Divider,
 } from "@material-ui/core";
-import { useTheme } from "@material-ui/styles";
 
 // Customn components and helper functions
 import HighlightCard from "../components/Card";
@@ -26,7 +24,7 @@ import "../styles/tripSummary.css";
 
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
 
-import { useTripContext, setTripData } from "../context/TripContext";
+import { useTripContext } from "../context/TripContext";
 import { useHistory } from "react-router-dom";
 import { save_trip, getToken } from "../auth/auth";
 

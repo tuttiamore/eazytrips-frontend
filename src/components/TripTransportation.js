@@ -1,21 +1,11 @@
 import { useState } from "react";
-import {
-  Box,
-  Typography,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  FormHelperText,
-} from "@material-ui/core";
+import { Box, Typography, Select, MenuItem } from "@material-ui/core";
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import DirectionsCarIcon from "@material-ui/icons/DirectionsCar";
-import { sizing } from "@material-ui/system";
 
 import { useTripContext } from "../context/TripContext";
 import useTripTransportationStyle from "../styles/useTripTransportationStyle";
-import { DirectionsCar } from "@material-ui/icons";
 
 export default function TripTransportation() {
   const { tripDataRaw, setTripDataRaw } = useTripContext();
@@ -74,54 +64,4 @@ export default function TripTransportation() {
       </Box>
     </>
   );
-}
-
-{
-  /* <Grid item align="left">
-<Typography variant="h5" component="p" color="textPrimary">
-  Preferred transportation
-</Typography>
-</Grid>
-<Grid
-item
-xs
-className={classes.chipAlignSelf}
-container
-direction="row"
->
-<FormGroup>
-  <FormControlLabel
-    control={
-      <Switch
-        checked={tripUserInput.walking}
-        onChange={handleSwitchChange}
-        name="walking"
-        value={tripUserInput.walking}
-      />
-    }
-    label={
-      <Box display="flex" direction="row">
-        <Typography align="bottom">Walking</Typography>
-        <DirectionsWalkIcon />
-      </Box>
-    }
-  />
-  <FormControlLabel
-    control={
-      <Switch
-        checked={tripUserInput.public}
-        onChange={handleSwitchChange}
-        name="public"
-        value={tripUserInput.public}
-      />
-    }
-    label={
-      <Box display="flex" direction="row">
-        <Typography align="bottom">Public transport</Typography>
-        <DriveEtaIcon />
-      </Box>
-    }
-  />
-</FormGroup>
-</Grid> */
 }

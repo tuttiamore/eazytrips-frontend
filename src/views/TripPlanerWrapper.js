@@ -26,6 +26,7 @@ export default function TripPlanerWrapper() {
         bgcolor="primary.main"
         className={classes.headerWrapper}
       >
+        {/* <Box className={classes.backgroundWrapper}></Box> */}
         {stage === "suggestions" && <Map type="SuggestedPlaces" />}
         <Box
           className={classes.headingContainer}
@@ -47,7 +48,7 @@ export default function TripPlanerWrapper() {
                 Your trip to
               </Typography>
               <Typography
-                variant="h3"
+                variant="h4"
                 component="p"
                 className={classes.cityHeading}
               >

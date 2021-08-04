@@ -15,7 +15,7 @@ import {
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { useHistory } from "react-router-dom";
-import { login, logout, get_user_trips } from "../auth/auth";
+import { login, logout, get_user_trips, getToken } from "../auth/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { useTripContext } from "../context/TripContext";
 
@@ -45,7 +45,7 @@ export default function SignIn({ me, setMe }) {
   const classes = useStyles();
 
   const { tripData, setSavedTrips } = useTripContext();
-
+  const token = getToken();
   const history = useHistory();
   // console.log(history);
   const handleClick = (event) => {
@@ -63,7 +63,7 @@ export default function SignIn({ me, setMe }) {
     console.log(formData);
     const isAuthenticated = await login(formData);
     if (isAuthenticated) {
-      tripData ? history.push("/tripSummary") : history.push("/");
+      tripData ? history.push("/tripsummary") : history.push("/");
       const data = await get_user_trips();
       setSavedTrips(data);
       setMe(data);
@@ -86,7 +86,7 @@ export default function SignIn({ me, setMe }) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        {!me && (
+        {!token && (
           <form className={classes.form} noValidate onSubmit={handleFormSubmit}>
             <TextField
               variant="outlined"
@@ -145,7 +145,7 @@ export default function SignIn({ me, setMe }) {
             </Grid>
           </form>
         )}
-        {me && (
+        {token && (
           <Button
             onClick={handleLogoutClick}
             type="submit"

@@ -28,7 +28,7 @@ export default function AutocompletePlaces({
     e.preventDefault();
     console.log(tripDataRaw);
 
-    if (tripDataRaw && tripDataRaw.destination && tripDataRaw.destination) {
+    if (tripDataRaw && tripDataRaw.destination) {
       history.push(nextPath);
     }
   };
@@ -79,12 +79,14 @@ export default function AutocompletePlaces({
           `https://eazytrips-backend.herokuapp.com/autocomplete/${place_id}`
         );
 
-        // either set accommodation or destination dependent on route
+        // either set accommodation or destination dependent on route and set all required fields
         if (placeType === "destination") {
           setTripDataRaw({
-            ...tripDataRaw,
             destination: data.placeAddress,
             destinationCoords: data.placeCoords,
+            transportation: {},
+            tripStarts: "",
+            tripEnds: "",
           });
         }
 

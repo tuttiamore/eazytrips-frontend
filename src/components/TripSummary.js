@@ -26,7 +26,7 @@ import "../styles/tripSummary.css";
 
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
 
-import { useTripContext, setTripData } from "../context/TripContext";
+import { useTripContext } from "../context/TripContext";
 import { useHistory } from "react-router-dom";
 import { save_trip, getToken } from "../auth/auth";
 
@@ -93,6 +93,7 @@ export default function TripSummary() {
       tripToSave = tripData;
       await save_trip(tripToSave);
     }
+
     tripData.isStored = true;
     setTripData(tripData);
     setStored(true);

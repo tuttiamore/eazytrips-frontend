@@ -59,11 +59,12 @@ export default function Map({ trip, type, isSelected }) {
       }
       mapCenter = [
         paramSpecificData[0].geometry.location.lng,
-        paramSpecificData[0].geometry.location.lat,
+        paramSpecificData[0].geometry.location.lat - 0.02,
       ];
       zoom = 12.5;
     }
     if (type === "SingleDay") {
+      zoom = 13.5;
       paramSpecificData = tripData.trip[day - 1];
       for (let location of paramSpecificData.locations) {
         const rawDataEquivalent = tripData.rawDataPlaces.find(
@@ -86,6 +87,7 @@ export default function Map({ trip, type, isSelected }) {
       waypointCoordinates = null;
 
       for (let day in tripData.trip) {
+        zoom = 12.4;
         if (tripData.trip[day].highlight.place_id) {
           const rawDataEquivalent = tripData.rawDataPlaces.find(
             (item) => item.place_id === tripData.trip[day].highlight.place_id

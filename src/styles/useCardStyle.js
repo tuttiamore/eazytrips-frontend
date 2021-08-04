@@ -26,6 +26,7 @@ const useCardStyle = makeStyles((theme) => ({
   },
   outer: {
     margin: "8px 0",
+    width: "100%",
   },
   div: {
     display: "flex",

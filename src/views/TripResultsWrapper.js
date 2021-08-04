@@ -1,4 +1,5 @@
 import { Box } from "@material-ui/core";
+import { useLocation } from "react-router";
 import Map from "../components/Map";
 import NavStepper from "../components/Stepper";
 import DrawerCustom from "../components/DrawerCustom";
@@ -6,6 +7,7 @@ import DrawerCustom from "../components/DrawerCustom";
 import useTripResultsWrapperStyle from "../styles/useTripResultsWrapperStyle";
 export default function TripResultsWrapper({ children }) {
   const classes = useTripResultsWrapperStyle();
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -24,7 +26,11 @@ export default function TripResultsWrapper({ children }) {
           width="100%"
           boxSizing="border-box"
         >
-          <Map type="TripSummary" />
+          {pathname.includes("tripsummary") ? (
+            <Map type="TripSummary" />
+          ) : (
+            <Map type="SingleDay" />
+          )}
         </Box>
 
         <DrawerCustom heading="Trip Summary">

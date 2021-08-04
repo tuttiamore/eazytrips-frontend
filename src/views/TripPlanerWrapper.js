@@ -26,7 +26,7 @@ export default function TripPlanerWrapper() {
         bgcolor="primary.main"
         className={classes.headerWrapper}
       >
-        {/* <Box className={classes.backgroundWrapper}></Box> */}
+        <Box className={classes.backgroundWrapper}></Box>
         {stage === "suggestions" && <Map type="SuggestedPlaces" />}
         <Box
           className={classes.headingContainer}
@@ -58,7 +58,7 @@ export default function TripPlanerWrapper() {
           )}
         </Box>
 
-        <Box p={2} mt={5} bgcolor="white" className={classes.contentWrapper}>
+        <Box p={3} mt={5} bgcolor="white" className={classes.contentWrapper}>
           {stage === "tripdates" && <TripDates></TripDates>}
           {stage === "accommodation" && <TripAccomodation></TripAccomodation>}
           {stage === "transportation" && (

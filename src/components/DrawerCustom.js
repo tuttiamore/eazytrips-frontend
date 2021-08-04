@@ -1,7 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import { Drawer, Button, Typography } from "@material-ui/core";
+import { Drawer, Button, Typography, Box } from "@material-ui/core";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     boxSizing: "border-box",
     borderRadius: "20px 20px 0 0",
-    padding: `0 ${theme.spacing(2)}px 0 ${theme.spacing(2)}px`,
+    // padding: `0 ${theme.spacing(2)}px 0 ${theme.spacing(2)}px`,
     bottom: "10%",
   },
 
@@ -77,8 +77,7 @@ export default function DrawerCustom({ children, heading }) {
         >
           {heading}
         </Typography>
-
-        {children}
+        <Box p={3}> {children}</Box>
       </Drawer>
     </div>
   );

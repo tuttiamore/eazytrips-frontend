@@ -20,7 +20,13 @@ export default function SavedTrips({ me }) {
         >
           Saved trips
         </Typography>
-        {savedTrips && <SavedTripsList></SavedTripsList>}
+        {savedTrips && savedTrips.data.length === 0 ? (
+          <Typography align="center">
+            You don't have any saved trips yet
+          </Typography>
+        ) : (
+          <SavedTripsList></SavedTripsList>
+        )}
       </Box>
     </>
   );

@@ -45,7 +45,7 @@ export default function TripSummary() {
     <>
       {DateTime.fromISO(tripData.tripStarts).toLocaleString(
         DateTime.DATETIME_SHORT
-      )}{" "}
+      )}
       -<br></br>
       {DateTime.fromISO(tripData.tripEnds).toLocaleString(
         DateTime.DATETIME_SHORT
@@ -91,9 +91,7 @@ export default function TripSummary() {
       tripToSave = tripData;
       await save_trip(tripToSave);
     }
-
-    tripData.isStored = true;
-    setTripData(tripData);
+    setTripData({ ...tripData, isStored: true });
     setStored(true);
   };
   const history = useHistory();

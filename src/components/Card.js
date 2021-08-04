@@ -51,6 +51,10 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
   //   history.push(`/tripSummary`);
   // };
   const convertTime = (Ztime) => {
+    if (type === "UpcomingTrip") {
+      const time = Ztime.substring(0, Ztime.length);
+      return DateTime.fromISO(time).toLocaleString(DateTime.Date);
+    }
     const time = Ztime.substring(0, Ztime.length - 1);
     return DateTime.fromISO(time).toLocaleString(DateTime.TIME_SIMPLE);
   };

@@ -26,21 +26,6 @@ function App() {
   const { tripDataRaw, tripData } = useTripContext();
   const classes = useAppGridStyle();
 
-  // const handleCredentials = (e) => {
-  //   setCredentials((prevCredentials) => ({
-  //     ...prevCredentials,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
-  // const handleAuthentication = async () => {
-  //   const isAuthenticated = await login(credentials);
-  //   if (isAuthenticated) {
-  //     getUserInfo();
-  //   } else {
-  //     alert("Invalid login credentials");
-  //   }
-  // };
   const getUserInfo = useCallback(async () => {
     try {
       const { data } = await client.get("backenurltogetdata");

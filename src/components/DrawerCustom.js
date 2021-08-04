@@ -77,7 +77,9 @@ export default function DrawerCustom({ children, heading }) {
         >
           {heading}
         </Typography>
-        <Box p={3}> {children}</Box>
+        <Box p={3} component="article" id="drawer-padding-wrapper">
+          {children}
+        </Box>
       </Drawer>
     </div>
   );

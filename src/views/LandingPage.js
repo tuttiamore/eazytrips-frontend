@@ -36,17 +36,15 @@ export default function LandingPage() {
         </Box>
       </Box>
 
-      <Box p={3} component="section">
-        {/* Conditional render based on logged in state */}
-        <DrawerCustom heading="Upcoming trips">
-          <Box component="article" p={2}>
-            <CardCustom type="UpcomingTrip" data={"Berlin"} />
-          </Box>
-          <Box component="article" p={2}>
-            <LoginButton></LoginButton>
-          </Box>
-        </DrawerCustom>
-      </Box>
+      {/* Conditional render based on logged in state */}
+      <DrawerCustom heading="Upcoming trips">
+        <Box component="article" py={2}>
+          <CardCustom type="UpcomingTrip" data={"Berlin"} />
+        </Box>
+        <Box component="article" py={2}>
+          <LoginButton></LoginButton>
+        </Box>
+      </DrawerCustom>
     </Box>
   );
 }

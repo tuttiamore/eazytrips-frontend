@@ -17,14 +17,7 @@ export default function TripSingleDay() {
   const classes = useCardStyle();
 
   return (
-    <List
-      style={{
-        height: "100%",
-        overflow: "auto",
-        padding: "8px",
-        margin: "auto",
-      }}
-    >
+    <List>
       <Card type={"Accommodation"} data={"Hotel"} />
       {tripData.trip[day - 1].locations.map((element, index) => (
         <Fragment key={index}>

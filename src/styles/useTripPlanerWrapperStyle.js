@@ -7,7 +7,7 @@ const useTripPlanerWrapperStyle = makeStyles((theme) => ({
   contentWrapper: {
     borderRadius: "20px 20px 0 0",
     position: "relative",
-    top: "50vh",
+    top: "35vh",
     // height: "auto",
     zIndex: "1000",
   },
@@ -30,9 +30,10 @@ const useTripPlanerWrapperStyle = makeStyles((theme) => ({
   backgroundWrapper: {
     background:
       "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(63,81,181,1) 35%, rgba(245,0,87,1) 100%)",
-    height: "90vh",
+    height: "50vh",
     position: "absolute",
     top: "0",
+    width: "100%",
   },
 }));
 

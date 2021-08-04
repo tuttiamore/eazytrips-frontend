@@ -8,7 +8,7 @@ const ProtectedRoute = ({ component: Component, me, ...rest }) => {
     <Route
       {...rest}
       render={(props) => {
-        return me ? <SavedTrips {...props} /> : <Redirect to="./" />;
+        return me ? <SavedTrips {...props} me={me} /> : <Redirect to="./" />;
       }}
     />
   );

@@ -17,7 +17,7 @@ client.interceptors.request.use(
     const token = getToken();
     console.log({ token });
     if (token) {
-      req.headers.Authorization = `Bearer ${token}`;
+      req.headers.Authorization = `${token}`;
     }
     return req;
   },

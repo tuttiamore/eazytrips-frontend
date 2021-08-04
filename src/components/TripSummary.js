@@ -91,6 +91,7 @@ export default function TripSummary() {
       tripToSave = tripData;
       await save_trip(tripToSave);
     }
+
     tripData.isStored = true;
     setTripData(tripData);
     setStored(true);

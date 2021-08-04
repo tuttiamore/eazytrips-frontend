@@ -30,7 +30,7 @@ import WavesIcon from "@material-ui/icons/Waves";
 
 //import LocationCityIcon from "@material-ui/icons/LocationCity";
 
-export default function TripCard({ type, data }) {
+export default function TripCard({ type, data, tripStarts, tripEnds }) {
   //console.log(mockData);
   //const time = luxon.DateTime;
   const { DateTime } = require("luxon");
@@ -156,7 +156,7 @@ export default function TripCard({ type, data }) {
 
     return (
       <Card
-        className={classes.landing}
+        className={classes.root}
         onClick={() => handleUpcomingTripSelectClick()}
       >
         <CardHeader

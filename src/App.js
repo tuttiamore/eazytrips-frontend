@@ -25,6 +25,7 @@ function App() {
   const [me, setMe] = useState();
   const { tripDataRaw, tripData } = useTripContext();
   const classes = useAppGridStyle();
+  console.log(tripDataRaw);
 
   const getUserInfo = useCallback(async () => {
     try {

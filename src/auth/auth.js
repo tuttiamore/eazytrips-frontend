@@ -26,7 +26,6 @@ const save_trip = async (tripData) => {
   try {
     console.log(tripData);
     const data = await client.post("/save_trip", tripData);
-
     console.log(data);
   } catch (e) {
     console.log(e);

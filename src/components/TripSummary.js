@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { DateTime } from "luxon";
 import Button from "@material-ui/core/Button";
 // Material UI helper functions
-// import { sizing, palette, spacing } from "@material-ui/system";
 
 // Material UI ICONS
 import { DirectionsWalk, Commute } from "@material-ui/icons";
@@ -21,12 +20,10 @@ import {
 // Customn components and helper functions
 import HighlightCard from "../components/Card";
 import "../styles/tripSummary.css";
-
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
-
 import { useTripContext } from "../context/TripContext";
 import { useHistory } from "react-router-dom";
-import { save_trip, getToken } from "../auth/auth";
+import { save_trip, getToken, get_user_trips } from "../auth/auth";
 
 //////////////////////
 // Define TripSummary
@@ -35,6 +32,8 @@ import { save_trip, getToken } from "../auth/auth";
 export default function TripSummary() {
   const classes = useTripSummaryStyle();
   const { tripData, setTripData } = useTripContext();
+  const [stored, setStored] = useState();
+  const history = useHistory();
 
   console.log(tripData);
   const handleDelete = () => {
@@ -81,7 +80,7 @@ export default function TripSummary() {
       </>
     );
   };
-  const [stored, setStored] = useState();
+
   const handleSaveTrip = async () => {
     let tripToSave = tripData;
     tripData.email = getToken();
@@ -90,14 +89,16 @@ export default function TripSummary() {
     if (tripData.email && !stored && !tripData.isStored) {
       tripToSave = tripData;
       await save_trip(tripToSave);
+      await get_user_trips();
     }
     setTripData({ ...tripData, isStored: true });
     setStored(true);
   };
-  const history = useHistory();
+
   const handleRedirectToLogin = () => {
     history.push("/SignInPage");
   };
+
   return (
     <Box
       width="100%"

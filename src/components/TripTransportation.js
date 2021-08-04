@@ -9,7 +9,7 @@ import useTripTransportationStyle from "../styles/useTripTransportationStyle";
 
 export default function TripTransportation() {
   const { tripDataRaw, setTripDataRaw } = useTripContext();
-  const [transport, setTransport] = useState("");
+  const [transport, setTransport] = useState("walking");
   const classes = useTripTransportationStyle();
 
   return (

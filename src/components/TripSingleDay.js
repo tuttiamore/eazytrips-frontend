@@ -69,7 +69,7 @@ export default function TripSingleDay() {
             <Card type="TripSingleDay" data={element} />
           </Fragment>
         ))}
-      <Divider color="red" className={classes.divide} />
+      <Divider className={classes.divide} />
       {afternoon.length && (
         <Box my={3}>
           <Typography variant="h6" align="center">

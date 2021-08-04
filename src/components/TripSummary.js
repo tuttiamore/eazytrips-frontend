@@ -107,27 +107,29 @@ export default function TripSummary() {
       component="section"
       className={classes.summaryWrapper}
     >
-      {/* show the save /saved button if the user is logged in */}
-      {getToken() && (
-        <Button
-          color="primary"
-          variant={stored || tripData.isStored ? "contained" : "contained"}
-          onClick={handleSaveTrip}
-          disabled={stored || tripData.isStored}
-        >
-          {stored || tripData.isStored ? "Saved" : "Save"}
-        </Button>
-      )}
-      {/* show the login button if the user is not logged in */}
-      {!getToken() && (
-        <Button
-          color="primary"
-          variant="outlined"
-          onClick={handleRedirectToLogin}
-        >
-          Log in to save
-        </Button>
-      )}
+      <Box display="flex" justifyContent="center">
+        {/* show the save /saved button if the user is logged in */}
+        {getToken() && (
+          <Button
+            color="primary"
+            variant={stored || tripData.isStored ? "contained" : "contained"}
+            onClick={handleSaveTrip}
+            disabled={stored || tripData.isStored}
+          >
+            {stored || tripData.isStored ? "Saved" : "Save"}
+          </Button>
+        )}
+        {/* show the login button if the user is not logged in */}
+        {!getToken() && (
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={handleRedirectToLogin}
+          >
+            Log in to save
+          </Button>
+        )}
+      </Box>
       <Box>
         <List component="ul">
           <ListItem>

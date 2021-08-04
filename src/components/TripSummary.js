@@ -61,7 +61,7 @@ export default function TripSummary() {
               icon={<DirectionsWalk></DirectionsWalk>}
               label="Walking"
               // onClick={handleClick}
-              onDelete={handleDelete}
+              // onDelete={handleDelete}
               variant="outlined"
             />
           </Box>
@@ -142,7 +142,7 @@ export default function TripSummary() {
               primaryTypographyProps={{ variant: "h6" }}
               secondaryTypographyProps={{ color: "textPrimary" }}
             />
-            <ListItemText primary="Edit" className={classes.textAlignRight} />
+            {/* <ListItemText primary="Edit" className={classes.textAlignRight} /> */}
           </ListItem>
           <Divider />
           <ListItem>
@@ -152,7 +152,7 @@ export default function TripSummary() {
               primaryTypographyProps={{ variant: "h6" }}
               secondaryTypographyProps={{ color: "textPrimary" }}
             />
-            <ListItemText primary="Edit" className={classes.textAlignRight} />
+            {/* <ListItemText primary="Edit" className={classes.textAlignRight} /> */}
           </ListItem>
           <Divider />
           <ListItem>

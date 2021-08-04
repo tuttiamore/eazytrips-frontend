@@ -73,7 +73,7 @@ const useCardStyle = makeStyles((theme) => ({
     margin: "8px 0",
   },
   divide: {
-    margin: "32px",
+    margin: theme.spacing(5),
 
     backgroundColor: theme.palette.primary.dark,
   },

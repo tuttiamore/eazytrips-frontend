@@ -80,6 +80,17 @@ export default function SignIn({ me, setMe }) {
   return (
     <Box p={3}>
       <div className={classes.paper}>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>

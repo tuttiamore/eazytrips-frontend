@@ -41,6 +41,7 @@ function App() {
 
   useEffect(() => {
     if (getToken()) {
+      setMe("bla");
       getUserInfo();
     }
   }, [history, getUserInfo]);

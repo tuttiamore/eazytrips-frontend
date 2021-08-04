@@ -7,25 +7,29 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 export default function BottomNav() {
   const history = useHistory();
-  const handleClick = (event) => {
-    history.push("/signInPage");
-    // console.log(event);
+  const handleClickSignIn = (event) => {
+    if (history.location.pathname === "/signInPage") {
+      return history.goBack();
+    }
+    return history.push("/signInPage");
   };
   return (
     <BottomNavigation showLabels>
       <BottomNavigationAction
         label="Discover"
         icon={<SearchIcon></SearchIcon>}
-        onClick={() => history.push("/")}
+        name="discover"
+        onClick={(e) => history.push("/")}
       />
       <BottomNavigationAction
         label="Saved Trips"
         icon={<BookmarkBorderIcon />}
-        onClick={() => history.push("/savedtrips")}
+        onClick={(e) => history.push("/savedtrips")}
       />
       <BottomNavigationAction
         label="Profile"
-        icon={<AccountCircleIcon onClick={() => handleClick("/userAccount")} />}
+        icon={<AccountCircleIcon />}
+        onClick={handleClickSignIn}
       />
     </BottomNavigation>
   );

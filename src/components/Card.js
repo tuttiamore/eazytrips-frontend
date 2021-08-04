@@ -47,9 +47,9 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
     // console.log(chosenDay);
     history.push(`/tripsingleday/${chosenDay}`);
   };
-  const handleUpcomingTripSelectClick = () => {
-    history.push(`/tripSummary`);
-  };
+  // const handleUpcomingTripSelectClick = () => {
+  //   history.push(`/tripSummary`);
+  // };
   const convertTime = (Ztime) => {
     const time = Ztime.substring(0, Ztime.length - 1);
     return DateTime.fromISO(time).toLocaleString(DateTime.TIME_SIMPLE);
@@ -157,7 +157,7 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
     return (
       <Card
         className={classes.root}
-        onClick={() => handleUpcomingTripSelectClick()}
+        // onClick={() => handleUpcomingTripSelectClick()}
       >
         <CardHeader
           avatar={

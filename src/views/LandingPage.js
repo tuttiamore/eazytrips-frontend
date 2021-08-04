@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { Box, List, ListItem, Typography } from "@material-ui/core";
 
@@ -7,14 +7,20 @@ import DrawerCustom from "../components/DrawerCustom";
 import useLandingPageStyle from "../styles/useLandingPageStyle";
 import CardCustom from "../components/Card";
 import LoginButton from "../components/LoginButton";
+import SavedTripsList from "../components/SavedTripsList";
+
 import { getToken } from "../auth/auth";
 import { useTripContext } from "../context/TripContext";
 
 export default function LandingPage() {
   const classes = useLandingPageStyle();
-  const { savedTrips } = useTripContext();
+  const { savedTrips, setTripData } = useTripContext();
+  const history = useHistory();
 
-  const handleTripSelect = (tripId) => {};
+  const handleTripSelect = (tripId) => {
+    setTripData(savedTrips.data.find((trip) => trip.tripId === tripId));
+    history.push(`/tripsummary`);
+  };
 
   return (
     <Box className={classes.searchBarContainer}>
@@ -45,22 +51,7 @@ export default function LandingPage() {
 
       {/* Conditional render based on logged in state */}
       <DrawerCustom heading="Upcoming trips">
-        {getToken() && savedTrips && (
-          <List>
-            {savedTrips.data.map((trip) => {
-              return (
-                <ListItem onClick={handleTripSelect}>
-                  <CardCustom
-                    type="UpcomingTrip"
-                    data={"Berlin"}
-                    tripStarts={trip.tripStarts}
-                    tripEnds={trip.tripEnds}
-                  />
-                </ListItem>
-              );
-            })}
-          </List>
-        )}
+        {getToken() && savedTrips && <SavedTripsList></SavedTripsList>}
 
         {getToken() && !savedTrips && (
           <Typography align="center" variant="body1">

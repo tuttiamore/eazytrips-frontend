@@ -39,7 +39,7 @@ export default function TripSingleDay() {
   // }
   return (
     <List>
-      {morning.length && (
+      {morning.length !== 0 && (
         <Box my={3}>
           <Typography variant="h6" align="center">
             Suggested sights: Morning
@@ -47,7 +47,7 @@ export default function TripSingleDay() {
         </Box>
       )}
       <Card type={"Accommodation"} data={"Hotel"} />
-      {morning.length &&
+      {morning.length !== 0 &&
         morning.map((element, index) => (
           <Fragment key={index}>
             <div className={classes.div}>
@@ -70,14 +70,14 @@ export default function TripSingleDay() {
           </Fragment>
         ))}
       <Divider className={classes.divide} />
-      {afternoon.length && (
+      {afternoon.length !== 0 && (
         <Box my={3}>
           <Typography variant="h6" align="center">
             Suggested sights: Afternoon
           </Typography>
         </Box>
       )}
-      {afternoon.length &&
+      {afternoon.length !== 0 &&
         afternoon.map((element, index) => (
           <Fragment key={index}>
             <div className={classes.div}>

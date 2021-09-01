@@ -14,6 +14,7 @@ const useAppGridStyle = makeStyles((theme) => {
     app: {
       height: "100vh",
       margin: "0 auto",
+      overflow: "hidden",
     },
     widthBreakpointLg: {
       width: "100%",

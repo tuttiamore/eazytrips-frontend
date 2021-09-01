@@ -15,6 +15,7 @@ const useTripPlanerWrapperStyle = makeStyles((theme) => ({
     background:
       "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(63,81,181,1) 35%, rgba(245,0,87,1) 100%)",
     width: "100%",
+    position: "relative",
     // height: "100%",
   },
   headingContainer: {

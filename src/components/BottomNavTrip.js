@@ -63,7 +63,7 @@ export default function BottomNavTrip() {
   };
 
   return (
-    <Box p={3}>
+    <Box p={2}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box>
           <Button

@@ -33,13 +33,7 @@ ReactDOM.render(
   <Router>
     <TripProvider>
       <ThemeProvider theme={theme}>
-        <Box
-          style={{
-            height: "100vh",
-          }}
-        >
-          <App />
-        </Box>
+        <App />
       </ThemeProvider>
     </TripProvider>
   </Router>,

@@ -1,16 +1,23 @@
 import { Switch, Route, useHistory, Redirect } from "react-router-dom";
 import React, { useState, useCallback, useEffect } from "react";
+import clsx from "clsx";
+
+import { Box } from "@material-ui/core";
+
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import LandingPage from "../src/views/LandingPage";
+import LandingPage from "./views/LandingPage";
 import TripSummary from "./components/TripSummary";
 import TripSingleDay from "./components/TripSingleDay";
 import TripResultsWrapper from "./views/TripResultsWrapper";
 import SavedTrips from "./components/SavedTrips";
-import useAppGridStyle from "../src/styles/useAppGridStyle";
 import TripPlanerWrapper from "./views/TripPlanerWrapper";
-import SignUpPage from "../src/views/SignUpPage";
-import SignInPage from "../src/views/SignInPage";
+import SignUpPage from "./views/SignUpPage";
+import SignInPage from "./views/SignInPage";
+
+import useAppGridStyle from "./styles/useAppGridStyle";
+import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import "./App.css";
 
 import { useTripContext } from "./context/TripContext";
@@ -21,11 +28,13 @@ import client from "./auth/client";
 import { getToken } from "./auth/auth";
 
 function App() {
+  const classes = useAppGridStyle();
+  const theme = useTheme();
+  console.log(theme);
+  const isBreakpointSm = useMediaQuery(theme.breakpoints.up("sm"));
   let history = useHistory();
   const [me, setMe] = useState();
   const { tripDataRaw, tripData } = useTripContext();
-  const classes = useAppGridStyle();
-  console.log(tripDataRaw);
 
   const getUserInfo = useCallback(async () => {
     try {
@@ -47,7 +56,13 @@ function App() {
   }, [history, getUserInfo]);
 
   return (
-    <>
+    <Box
+      className={clsx(classes.app, {
+        [classes.widthBreakpointLg]: isBreakpointSm === false,
+        [classes.widthBreakpointSm]: isBreakpointSm === true,
+        [classes.dropShadow]: isBreakpointSm === true,
+      })}
+    >
       <Main>
         <Switch>
           <Route path="/plantrip/:stage">
@@ -83,9 +98,8 @@ function App() {
           </Route>
         </Switch>
       </Main>
-
       <Footer className={classes.footer}></Footer>
-    </>
+    </Box>
   );
 }
 

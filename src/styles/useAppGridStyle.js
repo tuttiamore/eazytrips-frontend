@@ -22,7 +22,7 @@ const useAppGridStyle = makeStyles((theme) => {
       width: "50%",
     },
     dropShadow: {
-      boxShadow: "5px 5px 5px grey;",
+      boxShadow: "3px 3px 3px 3px lightgrey;",
     },
   };
 });

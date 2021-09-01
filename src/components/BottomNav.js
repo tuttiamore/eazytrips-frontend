@@ -5,7 +5,10 @@ import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
+import useAppGridStyle from "../styles/useAppGridStyle";
+
 export default function BottomNav() {
+  const classes = useAppGridStyle();
   const history = useHistory();
   const handleClickSignIn = (event) => {
     if (history.location.pathname === "/signInPage") {
@@ -14,7 +17,7 @@ export default function BottomNav() {
     return history.push("/signInPage");
   };
   return (
-    <BottomNavigation showLabels>
+    <BottomNavigation showLabels className={classes.footer}>
       <BottomNavigationAction
         label="Discover"
         icon={<SearchIcon></SearchIcon>}

@@ -5,7 +5,6 @@ import { Box, List, ListItem, Typography } from "@material-ui/core";
 import AutocompletePlaces from "../components/AutocompletePlaces";
 import DrawerCustom from "../components/DrawerCustom";
 import useLandingPageStyle from "../styles/useLandingPageStyle";
-import CardCustom from "../components/Card";
 import LoginButton from "../components/LoginButton";
 import SavedTripsList from "../components/SavedTripsList";
 
@@ -14,6 +13,7 @@ import { useTripContext } from "../context/TripContext";
 
 export default function LandingPage() {
   const classes = useLandingPageStyle();
+
   const { savedTrips, setTripData } = useTripContext();
   const history = useHistory();
 

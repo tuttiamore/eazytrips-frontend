@@ -271,7 +271,12 @@ export default function Map({ trip, type, isSelected }) {
     <Box
       ref={mapContainer}
       className="map-container"
-      style={{ height: "90vh", width: "100%", position: "absolute", top: "0" }}
+      style={{
+        height: "90vh",
+        width: "100%",
+        position: "absolute",
+        top: "0",
+      }}
     ></Box>
   );
 }

@@ -2,6 +2,8 @@ import { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { Drawer, Button, Typography, Box } from "@material-ui/core";
+import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -36,10 +38,20 @@ const useStyles = makeStyles((theme) => ({
     overflowY: "hidden",
     height: "6rem",
   },
+  widthBreakpointLg: {
+    width: "100%",
+  },
+  widthBreakpointSm: {
+    width: "50%",
+    margin: "0 auto",
+  },
 }));
 
 export default function DrawerCustom({ children, heading }) {
   const classes = useStyles();
+  const theme = useTheme();
+  const isBreakpointSm = useMediaQuery(theme.breakpoints.up("sm"));
+
   const [toggleOpen, setToggleOpen] = useState(false);
 
   return (
@@ -61,6 +73,8 @@ export default function DrawerCustom({ children, heading }) {
           paper: clsx(classes.paper, {
             [classes.drawerOpen]: toggleOpen === true,
             [classes.drawerClose]: toggleOpen === false,
+            [classes.widthBreakpointLg]: isBreakpointSm === false,
+            [classes.widthBreakpointSm]: isBreakpointSm === true,
           }),
         }}
       >

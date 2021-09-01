@@ -24,7 +24,7 @@ export default function TripPlanerWrapper() {
         flexDirection="column"
         justifyContent="center"
         bgcolor="primary.main"
-        className={classes.headerWrapper}
+        className={classes.planerWrapper}
       >
         <Box className={classes.backgroundWrapper}></Box>
         {stage === "suggestions" && <Map type="SuggestedPlaces" />}

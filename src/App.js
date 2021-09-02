@@ -18,6 +18,7 @@ import SignInPage from "./views/SignInPage";
 import useAppGridStyle from "./styles/useAppGridStyle";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import Div100vh from "react-div-100vh";
 import "./App.css";
 
 import { useTripContext } from "./context/TripContext";
@@ -30,7 +31,8 @@ import { getToken } from "./auth/auth";
 
 function App() {
   // styles
-  const classes = useWindowSize();
+  const classes = useAppGridStyle();
+
   console.log(classes);
   const theme = useTheme();
   const isBreakpointSm = useMediaQuery(theme.breakpoints.up("sm"));
@@ -62,50 +64,53 @@ function App() {
   }, [history, getUserInfo]);
 
   return (
-    <Box
-      className={clsx(classes.app, {
-        [classes.widthBreakpointLg]: isBreakpointSm === false,
-        [classes.widthBreakpointSm]: isBreakpointSm === true,
-        [classes.dropShadow]: isBreakpointSm === true,
-      })}
-    >
-      <Main>
-        <Switch>
-          <Route path="/plantrip/:stage">
-            {!tripDataRaw ? <Redirect to="/" /> : <TripPlanerWrapper />}
-          </Route>
-          <Route path="/tripsingleday/:day">
-            {!tripData ? (
-              <Redirect to="/" />
-            ) : (
-              <TripResultsWrapper>
-                <TripSingleDay></TripSingleDay>
-              </TripResultsWrapper>
-            )}
-          </Route>
-          <Route path="/tripsummary">
-            {!tripData ? (
-              <Redirect to="/" />
-            ) : (
-              <TripResultsWrapper>
-                <TripSummary></TripSummary>
-              </TripResultsWrapper>
-            )}
-          </Route>
-          <ProtectedRoute path="/savedtrips" component={SavedTrips} me={me} />
-          <Route path="/signUpPage">
-            <SignUpPage />
-          </Route>
-          <Route path="/signInPage">
-            <SignInPage me={me} setMe={setMe} />
-          </Route>
-          <Route path="/" exact>
-            <LandingPage />
-          </Route>
-        </Switch>
-      </Main>
-      <Footer className={classes.footer}></Footer>
-    </Box>
+    <Div100vh>
+      {" "}
+      <Box
+        className={clsx(classes.app, {
+          [classes.widthBreakpointLg]: isBreakpointSm === false,
+          [classes.widthBreakpointSm]: isBreakpointSm === true,
+          [classes.dropShadow]: isBreakpointSm === true,
+        })}
+      >
+        <Main>
+          <Switch>
+            <Route path="/plantrip/:stage">
+              {!tripDataRaw ? <Redirect to="/" /> : <TripPlanerWrapper />}
+            </Route>
+            <Route path="/tripsingleday/:day">
+              {!tripData ? (
+                <Redirect to="/" />
+              ) : (
+                <TripResultsWrapper>
+                  <TripSingleDay></TripSingleDay>
+                </TripResultsWrapper>
+              )}
+            </Route>
+            <Route path="/tripsummary">
+              {!tripData ? (
+                <Redirect to="/" />
+              ) : (
+                <TripResultsWrapper>
+                  <TripSummary></TripSummary>
+                </TripResultsWrapper>
+              )}
+            </Route>
+            <ProtectedRoute path="/savedtrips" component={SavedTrips} me={me} />
+            <Route path="/signUpPage">
+              <SignUpPage />
+            </Route>
+            <Route path="/signInPage">
+              <SignInPage me={me} setMe={setMe} />
+            </Route>
+            <Route path="/" exact>
+              <LandingPage />
+            </Route>
+          </Switch>
+        </Main>
+        <Footer className={classes.footer}></Footer>
+      </Box>
+    </Div100vh>
   );
 }
 

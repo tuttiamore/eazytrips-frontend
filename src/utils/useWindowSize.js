@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default function useAppGridStyle() {
+export default function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState({
@@ -26,34 +26,5 @@ export default function useAppGridStyle() {
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
 
-  const createAppClasses = makeStyles((theme) => {
-    return {
-      main: {
-        height: "90%",
-        maxHeight: "100%",
-        overflow: "auto",
-        boxSizing: "border-box",
-      },
-      footer: {
-        height: "10%",
-      },
-      app: {
-        height: !windowSize ? "100vh" : `${windowSize.height}px`,
-        margin: "0 auto",
-        overflow: "hidden",
-        position: "relative",
-      },
-      widthBreakpointLg: {
-        width: "100%",
-      },
-      widthBreakpointSm: {
-        width: "50%",
-      },
-      dropShadow: {
-        boxShadow: "3px 3px 3px 3px lightgrey;",
-      },
-    };
-  });
-
-  return createAppClasses();
+  return windowSize;
 }

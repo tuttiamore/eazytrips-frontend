@@ -3,13 +3,17 @@ import { makeStyles } from "@material-ui/core/styles";
 const useAppGridStyle = makeStyles((theme) => {
   return {
     main: {
-      height: "90%",
+      height: "85%",
       maxHeight: "100%",
       overflow: "auto",
       boxSizing: "border-box",
     },
     footer: {
-      height: "10%",
+      height: "15%",
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      backgroundColor: "white",
     },
     app: {
       height: "100%",

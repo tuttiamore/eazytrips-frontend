@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import Box from "@material-ui/core/Box";
 import { useTripContext } from "../context/TripContext";
 import { useTheme } from "@material-ui/styles";
+
 import axios from "axios";
 //import geojsonMock from "../mockRoute.json";
 //const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
@@ -272,7 +273,7 @@ export default function Map({ trip, type, isSelected }) {
       ref={mapContainer}
       className="map-container"
       style={{
-        height: "90vh",
+        height: "90%",
         width: "100%",
         position: "absolute",
         top: "0",

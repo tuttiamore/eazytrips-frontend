@@ -21,6 +21,7 @@ import { useTheme } from "@material-ui/core/styles";
 import "./App.css";
 
 import { useTripContext } from "./context/TripContext";
+import useWindowSize from "./utils/useWindowSize";
 
 // AUTH
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -28,11 +29,16 @@ import client from "./auth/client";
 import { getToken } from "./auth/auth";
 
 function App() {
-  const classes = useAppGridStyle();
+  // styles
+  const classes = useWindowSize();
+  console.log(classes);
   const theme = useTheme();
-  console.log(theme);
   const isBreakpointSm = useMediaQuery(theme.breakpoints.up("sm"));
+
+  // routing
   let history = useHistory();
+
+  // state
   const [me, setMe] = useState();
   const { tripDataRaw, tripData } = useTripContext();
 

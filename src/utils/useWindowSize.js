@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 
 export default function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match

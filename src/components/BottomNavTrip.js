@@ -63,7 +63,7 @@ export default function BottomNavTrip() {
   };
 
   return (
-    <Box p={2}>
+    <Box p={2} bgColor="bg-white">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box>
           <Button

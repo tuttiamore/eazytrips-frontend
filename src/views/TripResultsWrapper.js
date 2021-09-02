@@ -16,22 +16,13 @@ export default function TripResultsWrapper({ children }) {
         flexDirection="column"
         justifyContent="center"
         bgcolor="primary.main"
-        className={classes.headerWrapper}
+        className={classes.contentWrapper}
       >
-        <Box
-          className={classes.MapContainer}
-          id="heading-container"
-          component="section"
-          //   bgcolor="primary.main"
-          width="100%"
-          boxSizing="border-box"
-        >
-          {pathname.includes("tripsummary") ? (
-            <Map type="TripSummary" />
-          ) : (
-            <Map type="SingleDay" />
-          )}
-        </Box>
+        {pathname.includes("tripsummary") ? (
+          <Map type="TripSummary" />
+        ) : (
+          <Map type="SingleDay" />
+        )}
 
         <DrawerCustom heading="Trip Summary">
           <Box id="stepper-nav" component="section">

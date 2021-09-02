@@ -8,7 +8,6 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import useAppGridStyle from "../styles/useAppGridStyle";
 
 export default function BottomNav() {
-  const classes = useAppGridStyle();
   const history = useHistory();
   const handleClickSignIn = (event) => {
     if (history.location.pathname === "/signInPage") {
@@ -17,7 +16,7 @@ export default function BottomNav() {
     return history.push("/signInPage");
   };
   return (
-    <BottomNavigation showLabels className={classes.footer}>
+    <BottomNavigation showLabels>
       <BottomNavigationAction
         label="Discover"
         icon={<SearchIcon></SearchIcon>}

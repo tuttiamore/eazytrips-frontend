@@ -273,7 +273,7 @@ export default function Map({ trip, type, isSelected }) {
       ref={mapContainer}
       className="map-container"
       style={{
-        height: "90%",
+        height: "85%",
         width: "100%",
         position: "absolute",
         top: "0",

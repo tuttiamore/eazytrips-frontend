@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { DateTime } from "luxon";
-import Button from "@material-ui/core/Button";
-// Material UI helper functions
-
-// Material UI ICONS
 import { DirectionsWalk, Commute } from "@material-ui/icons";
 
-// Material UI CORE components
 import {
   Box,
   Typography,
@@ -15,19 +10,18 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  Button,
 } from "@material-ui/core";
-
-// Customn components and helper functions
 import HighlightCard from "../components/Card";
+
 import "../styles/tripSummary.css";
 import useTripSummaryStyle from "../styles/useTripSummaryStyle";
-import { useTripContext } from "../context/TripContext";
-import { useHistory } from "react-router-dom";
-import { save_trip, getToken, get_user_trips } from "../auth/auth";
 
-//////////////////////
-// Define TripSummary
-//////////////////////
+import { useTripContext } from "../context/TripContext";
+
+import { useHistory } from "react-router-dom";
+
+import { save_trip, getToken, get_user_trips } from "../auth/auth";
 
 export default function TripSummary() {
   const classes = useTripSummaryStyle();
@@ -35,7 +29,6 @@ export default function TripSummary() {
   const [stored, setStored] = useState();
   const history = useHistory();
 
-  console.log(tripData);
   const handleDelete = () => {
     console.info("You clicked the delete icon.");
   };
@@ -142,7 +135,6 @@ export default function TripSummary() {
               primaryTypographyProps={{ variant: "h6" }}
               secondaryTypographyProps={{ color: "textPrimary" }}
             />
-            {/* <ListItemText primary="Edit" className={classes.textAlignRight} /> */}
           </ListItem>
           <Divider />
           <ListItem>
@@ -152,7 +144,6 @@ export default function TripSummary() {
               primaryTypographyProps={{ variant: "h6" }}
               secondaryTypographyProps={{ color: "textPrimary" }}
             />
-            {/* <ListItemText primary="Edit" className={classes.textAlignRight} /> */}
           </ListItem>
           <Divider />
           <ListItem>

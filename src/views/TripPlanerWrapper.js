@@ -2,13 +2,13 @@ import React from "react";
 import { useParams } from "react-router";
 
 import { Box, Typography } from "@material-ui/core";
-
-import { useTripContext } from "../context/TripContext";
 import TripDates from "../components/TripDates";
 import TripAccomodation from "../components/TripAccomodation";
 import TripTransportation from "../components/TripTransportation";
 import TripSuggestions from "../components/TripSuggestions";
 import Map from "../components/Map";
+
+import { useTripContext } from "../context/TripContext";
 
 import useTripPlanerWrapperStyle from "../styles/useTripPlanerWrapperStyle";
 
@@ -26,7 +26,6 @@ export default function TripPlanerWrapper() {
         className={classes.headingContainer}
         id="heading-container"
         component="section"
-        //   bgcolor="primary.main"
         width="100%"
         padding={3}
         boxSizing="border-box"

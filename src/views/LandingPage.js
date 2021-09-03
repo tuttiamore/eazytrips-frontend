@@ -1,26 +1,20 @@
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { Box, List, ListItem, Typography } from "@material-ui/core";
-
+import { Box, Typography } from "@material-ui/core";
 import AutocompletePlaces from "../components/AutocompletePlaces";
 import DrawerCustom from "../components/DrawerCustom";
-import useLandingPageStyle from "../styles/useLandingPageStyle";
 import LoginButton from "../components/LoginButton";
 import SavedTripsList from "../components/SavedTripsList";
 
-import { getToken } from "../auth/auth";
+import useLandingPageStyle from "../styles/useLandingPageStyle";
+
 import { useTripContext } from "../context/TripContext";
+
+import { getToken } from "../auth/auth";
 
 export default function LandingPage() {
   const classes = useLandingPageStyle();
-
-  const { savedTrips, setTripData } = useTripContext();
-  const history = useHistory();
-
-  const handleTripSelect = (tripId) => {
-    setTripData(savedTrips.data.find((trip) => trip.tripId === tripId));
-    history.push(`/tripsummary`);
-  };
+  const { savedTrips } = useTripContext();
 
   return (
     <Box className={classes.searchBarContainer}>

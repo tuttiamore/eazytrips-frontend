@@ -5,9 +5,9 @@ import { useTripContext } from "../context/TripContext";
 import { useTheme } from "@material-ui/styles";
 
 import axios from "axios";
-//import geojsonMock from "../mockRoute.json";
-//const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 export default function Map({ trip, type, isSelected }) {
@@ -93,7 +93,6 @@ export default function Map({ trip, type, isSelected }) {
           const rawDataEquivalent = tripData.rawDataPlaces.find(
             (item) => item.place_id === tripData.trip[day].highlight.place_id
           );
-          console.log(rawDataEquivalent);
 
           markerCoordinates.push({
             lng: rawDataEquivalent.geometry.location.lng,
@@ -119,7 +118,6 @@ export default function Map({ trip, type, isSelected }) {
       );
       apiEndpoint +=
         "?steps=true&geometries=geojson&access_token=" + mapboxgl.accessToken;
-      console.log(apiEndpoint);
       try {
         const retrievedRoute = await axios.get(apiEndpoint);
 
@@ -206,7 +204,6 @@ export default function Map({ trip, type, isSelected }) {
           .setLngLat(accommodationLngLat)
           .setPopup(new mapboxgl.Popup().setHTML("Accommodation"))
           .addTo(map.current);
-        console.log(marker);
         for (let item in markerCoordinates) {
           let markerColor = theme.palette.primary.light;
           if (type === "SuggestedPlaces") {
@@ -239,9 +236,7 @@ export default function Map({ trip, type, isSelected }) {
               title: markerTitles[item],
             },
           });
-          console.log(marker);
         }
-        console.log(marker);
       };
 
       addAndSetMarkers();

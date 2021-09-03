@@ -1,26 +1,30 @@
 import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
-import { List, Box } from "@material-ui/core/";
+
+import { List, Box, Typography, Divider } from "@material-ui/core/";
 import Card from "../components/Card";
-//import mockData from "../dataFranz/mockBackend.json";
-import useCardStyle from "../styles/useCardStyle";
+
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
-import Typography from "@material-ui/core/Typography";
+
+import useCardStyle from "../styles/useCardStyle";
+
 import { useTripContext } from "../context/TripContext";
-import Divider from "@material-ui/core/Divider";
+
 export default function TripSingleDay() {
   const { tripData } = useTripContext();
 
   const { day } = useParams();
+
   const morning = tripData.trip[day - 1].locations.filter(
     (element) => element.period === "morning"
   );
+
   const afternoon = tripData.trip[day - 1].locations.filter(
     (element) => element.period === "afternoon"
   );
-  //console.log(tripData.trip[day - 1].locations[1].period);
+
   const classes = useCardStyle();
 
   if (morning.length === 0 && afternoon.length === 0) {
@@ -32,11 +36,6 @@ export default function TripSingleDay() {
     );
   }
 
-  // if (tripData.trip[day - 1].locations < 1) {
-  //   return (
-  //     <Card type={"Accommodation"} data={"Arriving. Trip starts tomorrow"} />
-  //   );
-  // }
   return (
     <List>
       {morning.length !== 0 && (
@@ -48,15 +47,12 @@ export default function TripSingleDay() {
       )}
       <Card type={"Accommodation"} data={"Hotel"} />
       {morning.length !== 0 &&
-        morning.map((element, index) => (
+        morning.map((location, index) => (
           <Fragment key={index}>
             <div className={classes.div}>
               <span className={classes.span} />
               <Typography className={classes.distance} variant="body1">
-                {Math.round(
-                  tripData.trip[day - 1].locations[index].travelTo / 60
-                )}{" "}
-                min
+                {Math.round(location.travelTo / 60)} min
               </Typography>
               {tripData.transportation.public ? (
                 <DriveEtaIcon fontSize="large" />
@@ -66,7 +62,7 @@ export default function TripSingleDay() {
                 <DirectionsWalkIcon fontSize="large" />
               )}
             </div>
-            <Card type="TripSingleDay" data={element} />
+            <Card type="TripSingleDay" data={location} />
           </Fragment>
         ))}
       <Divider className={classes.divide} />
@@ -78,15 +74,12 @@ export default function TripSingleDay() {
         </Box>
       )}
       {afternoon.length !== 0 &&
-        afternoon.map((element, index) => (
+        afternoon.map((location, index) => (
           <Fragment key={index}>
             <div className={classes.div}>
               <span className={classes.span} />
               <Typography className={classes.distance} variant="body1">
-                {Math.round(
-                  tripData.trip[day - 1].locations[index].travelTo / 60
-                )}{" "}
-                min
+                {Math.round(location.travelTo / 60)} min
               </Typography>
               {tripData.transportation.public ? (
                 <DriveEtaIcon fontSize="large" />
@@ -96,7 +89,7 @@ export default function TripSingleDay() {
                 <DirectionsWalkIcon fontSize="large" />
               )}
             </div>
-            <Card type="TripSingleDay" data={element} />
+            <Card type="TripSingleDay" data={location} />
           </Fragment>
         ))}
     </List>

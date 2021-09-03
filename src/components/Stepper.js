@@ -1,7 +1,4 @@
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import Box from "@material-ui/core/Box";
+import { Stepper, Step, StepLabel, Box } from "@material-ui/core";
 import Grain from "@material-ui/icons/Grain";
 import TripOrigin from "@material-ui/icons/TripOrigin";
 
@@ -65,7 +62,6 @@ const useGetSteps = () => {
 const IconComponent = (props) => {
   const { active, icon } = props;
 
-  // alternative icons for summary: flair,
   const icons = {
     1: <Grain />,
     2: <TripOrigin />,

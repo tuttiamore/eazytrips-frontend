@@ -1,8 +1,8 @@
 import { useHistory } from "react-router-dom";
 
-import { List, ListItem, Typography } from "@material-ui/core";
-
+import { List, ListItem } from "@material-ui/core";
 import CardCustom from "../components/Card";
+
 import { useTripContext } from "../context/TripContext";
 
 export default function SavedTripsList() {
@@ -10,12 +10,6 @@ export default function SavedTripsList() {
   const history = useHistory();
 
   const handleTripSelect = (tripId) => {
-    console.log("tripId from card is", tripId);
-    console.log(
-      "found trip is",
-      savedTrips.data.find((trip) => trip.tripId === tripId)
-    );
-
     setTripData(savedTrips.data.find((trip) => trip.tripId === tripId));
     history.push("/tripsummary");
   };

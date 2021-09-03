@@ -1,20 +1,14 @@
 import { useState } from "react";
-
 import { Box, TextField, Typography } from "@material-ui/core";
-
 import { useTripContext } from "../context/TripContext";
 import useTripDatesStyle from "../styles/useTripPlanerWrapperStyle";
 
-// GET PICTURES HERE :https://api.teleport.org/api/urban_areas/slug:berlin/images
-
 export default function TripDates() {
   const { tripDataRaw, setTripDataRaw } = useTripContext();
-
   const [tripUserInput, setTripUserInput] = useState({});
-
   const classes = useTripDatesStyle();
 
-  const handleChange = (event) => {
+  const handleEnterDate = (event) => {
     setTripDataRaw({
       ...tripDataRaw,
       [event.target.name]: event.target.value,
@@ -50,7 +44,7 @@ export default function TripDates() {
           }}
           margin="normal"
           name="tripStarts"
-          onChange={handleChange}
+          onChange={handleEnterDate}
           value={tripUserInput.tripStarts}
           required
         />
@@ -75,7 +69,7 @@ export default function TripDates() {
           }}
           margin="normal"
           name="tripEnds"
-          onChange={handleChange}
+          onChange={handleEnterDate}
           value={tripUserInput.tripEnds}
           required
         />

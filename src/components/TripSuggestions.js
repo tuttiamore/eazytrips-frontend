@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import useSuggestedPlacesStyle from "../styles/useSuggestedPlacesStyle";
+
 import Suggested from "../components/Card";
-import { useTripContext } from "../context/TripContext";
 import {
   Box,
   Typography,
@@ -11,13 +10,16 @@ import {
   TextField,
 } from "@material-ui/core";
 
+import { useTripContext } from "../context/TripContext";
+
+import useSuggestedPlacesStyle from "../styles/useSuggestedPlacesStyle";
+
 export default function TripSuggestions() {
+  const classes = useSuggestedPlacesStyle();
   const [isSelected, setIsSelected] = useState({});
   const { tripDataRaw, setTripDataRaw } = useTripContext();
 
   const handleChange = (e) => {
-    // on Click: toggle selected status
-    // set value of the checkbox to the opposite value of now
     setIsSelected({
       ...isSelected,
       [e.target.name]: !isSelected[e.target.name],
@@ -25,15 +27,12 @@ export default function TripSuggestions() {
   };
 
   useEffect(() => {
-    console.log("suggestions rerendered");
     const selectedPlaces = Object.keys(isSelected).filter((placeId) => {
       return isSelected[placeId];
     });
     setTripDataRaw({ ...tripDataRaw, userLocations: selectedPlaces });
     // eslint-disable-next-line
   }, [isSelected]);
-
-  const classes = useSuggestedPlacesStyle();
 
   return (
     <>

@@ -1,11 +1,13 @@
 import { useState } from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
+
 import { Drawer, Button, Typography, Box } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
+import clsx from "clsx";
+import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const drawerHeight = 70;
 
@@ -13,13 +15,10 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     height: drawerHeight,
     borderRadius: "20px 20px 0 0",
-    // flexShrink: 0,
-    // whiteSpace: "nowrap",
   },
   paper: {
     boxSizing: "border-box",
     borderRadius: "20px 20px 0 0",
-    // padding: `0 ${theme.spacing(2)}px 0 ${theme.spacing(2)}px`,
     bottom: "15%",
   },
 

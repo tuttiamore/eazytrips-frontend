@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   Box,
   Button,
@@ -7,20 +8,21 @@ import {
   Checkbox,
   Link,
   Grid,
-  Typography,
-  Container,
   Avatar,
   makeStyles,
 } from "@material-ui/core";
-
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
 import { useHistory } from "react-router-dom";
+
 import { login, logout, get_user_trips, getToken } from "../auth/auth";
-import { ToastContainer, toast } from "react-toastify";
+
 import { useTripContext } from "../context/TripContext";
 
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// styles
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -47,15 +49,12 @@ export default function SignIn({ me, setMe }) {
   const { tripData, setSavedTrips } = useTripContext();
   const token = getToken();
   const history = useHistory();
-  // console.log(history);
   const handleClick = (event) => {
-    // console.log(e);
     history.push("/SignUpPage");
   };
   const [formData, setFormData] = useState({ email: "", password: "" });
   const handleInputChange = (e) => {
     e.preventDefault();
-    console.log(formData);
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   const handleFormSubmit = async (e) => {
@@ -67,7 +66,6 @@ export default function SignIn({ me, setMe }) {
       const data = await get_user_trips();
       setSavedTrips(data);
       setMe(data);
-      console.log(data); // fetch saved trips, put into TripContext
     } else {
       toast.error("Invalid username or password!");
     }

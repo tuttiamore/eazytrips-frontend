@@ -1,8 +1,6 @@
-import { Switch, Route, useHistory, Redirect } from "react-router-dom";
 import React, { useState, useCallback, useEffect } from "react";
-import clsx from "clsx";
 
-import { Box } from "@material-ui/core";
+import { Switch, Route, useHistory, Redirect } from "react-router-dom";
 
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -14,33 +12,27 @@ import SavedTrips from "./components/SavedTrips";
 import TripPlanerWrapper from "./views/TripPlanerWrapper";
 import SignUpPage from "./views/SignUpPage";
 import SignInPage from "./views/SignInPage";
+import { Box } from "@material-ui/core";
 
 import useAppGridStyle from "./styles/useAppGridStyle";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import Div100vh from "react-div-100vh";
-import "./App.css";
+import clsx from "clsx";
 
 import { useTripContext } from "./context/TripContext";
-import useWindowSize from "./utils/useWindowSize";
 
-// AUTH
 import ProtectedRoute from "./components/ProtectedRoute";
 import client from "./auth/client";
 import { getToken } from "./auth/auth";
 
 function App() {
-  // styles
   const classes = useAppGridStyle();
-
-  console.log(classes);
   const theme = useTheme();
   const isBreakpointSm = useMediaQuery(theme.breakpoints.up("sm"));
 
-  // routing
   let history = useHistory();
 
-  // state
   const [me, setMe] = useState();
   const { tripDataRaw, tripData } = useTripContext();
 

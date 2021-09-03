@@ -1,20 +1,21 @@
 import { useHistory } from "react-router";
 
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
+
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-import useAppGridStyle from "../styles/useAppGridStyle";
-
 export default function BottomNav() {
   const history = useHistory();
+
   const handleClickSignIn = (event) => {
     if (history.location.pathname === "/signInPage") {
       return history.goBack();
     }
     return history.push("/signInPage");
   };
+
   return (
     <BottomNavigation showLabels>
       <BottomNavigationAction

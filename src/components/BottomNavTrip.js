@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { Button, Box } from "@material-ui/core";
-
 import { useTripContext } from "../context/TripContext";
 
 export default function BottomNavTrip() {
@@ -9,6 +8,7 @@ export default function BottomNavTrip() {
   const {
     params: { stage },
   } = useRouteMatch("/plantrip/:stage");
+
   const { tripDataRaw, setTripDataRaw, setTripData } = useTripContext();
 
   const nextDeactivated =
@@ -23,21 +23,17 @@ export default function BottomNavTrip() {
   const handleClickNext = async (nextPath, stage) => {
     // get suggestions from google places after entering transportation
     if (stage === "transportation") {
-      console.log(tripDataRaw);
-
       const req = {
         ...tripDataRaw,
         tripName: `Trip to ${tripDataRaw.destination}`,
       };
 
       // //fetch sight suggestions for destination and store them in context
-
       try {
         const { data } = await axios.post(
           "https://eazytrips-backend.herokuapp.com/gettrip",
           req
         );
-        console.log(data);
         setTripDataRaw(data);
         history.push("/plantrip/suggestions");
       } catch (err) {
@@ -51,7 +47,6 @@ export default function BottomNavTrip() {
           "https://eazytrips-backend.herokuapp.com/gettrip",
           tripDataRaw
         );
-        console.log("received trip:", data);
         setTripData(data);
         history.push("/tripsummary");
       } catch (err) {

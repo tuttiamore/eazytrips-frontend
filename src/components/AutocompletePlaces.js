@@ -8,6 +8,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { Autocomplete } from "@material-ui/lab";
 
 import { useTripContext } from "../context/TripContext";
+
 import useAutocompleteStyle from "../styles/useAutocompleteStyle";
 
 export default function AutocompletePlaces({
@@ -26,22 +27,17 @@ export default function AutocompletePlaces({
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log(tripDataRaw);
-
     if (tripDataRaw && tripDataRaw.destination) {
       history.push(nextPath);
     }
   };
 
   const handleFinalSelection = (e, newValue) => {
-    console.log("value changed");
     setDestination(newValue);
   };
 
   // use effect for suggestions
   useEffect(() => {
-    console.log("use effect inputValue fired");
-
     const getCitySuggestions = async (sessionToken, prefix) => {
       try {
         const body = {
@@ -53,7 +49,6 @@ export default function AutocompletePlaces({
           "https://eazytrips-backend.herokuapp.com/autocomplete",
           body
         );
-        console.log(data);
         setCitySuggestions(data.predictions || []);
       } catch (err) {
         console.log(err);
@@ -72,9 +67,6 @@ export default function AutocompletePlaces({
         const place_id = citySuggestions.find(
           (city) => destination === city.description
         ).place_id;
-
-        console.log("place_id is", place_id);
-
         const { data } = await axios.get(
           `https://eazytrips-backend.herokuapp.com/autocomplete/${place_id}`
         );
@@ -97,15 +89,12 @@ export default function AutocompletePlaces({
             accommodationCoords: data.placeCoords,
           });
         }
-
-        console.log(data);
       } catch (err) {
         console.log(err);
       }
     };
     if (destination) {
       getPlacesDetails();
-      console.log("submitted");
     }
     // eslint-disable-next-line
   }, [destination]);
@@ -119,7 +108,7 @@ export default function AutocompletePlaces({
     <form onSubmit={handleSearchSubmit}>
       <Autocomplete
         freeSolo
-        id="free-solo-2-demo"
+        id="autocomplete-places-search"
         disableClearable
         options={citySuggestions.map((city) => city.description)}
         renderInput={(params) => (
@@ -153,7 +142,6 @@ export default function AutocompletePlaces({
         )}
         onChange={(e, newValue) => handleFinalSelection(e, newValue)}
         onInputChange={(e, newValue) => {
-          console.log("input changed");
           setInputValue(newValue);
         }}
       />

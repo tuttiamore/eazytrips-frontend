@@ -1,54 +1,44 @@
 import React from "react";
-//import { animateScroll as scroll } from "react-scroll";
 import clsx from "clsx";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Collapse,
+  Avatar,
+  IconButton,
+  Typography,
+} from "@material-ui/core";
 
-import examplePicture from "../media/sampleCardPic.jpg";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { useHistory } from "react-router";
-import useCardStyle from "../styles/useCardStyle";
-
-import mockData from "../dataFranz/mockBerlin.json";
-import { useTripContext } from "../context/TripContext";
 import MuseumIcon from "@material-ui/icons/Museum";
-//import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
-//import BeachAccessIcon from "@material-ui/icons/BeachAccess";
-//import DirectionsIcon from "@material-ui/icons/Directions";
 import LandscapeIcon from "@material-ui/icons/Landscape";
 import HotelIcon from "@material-ui/icons/Hotel";
-//import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
 import NaturePeopleIcon from "@material-ui/icons/NaturePeople";
 import WavesIcon from "@material-ui/icons/Waves";
 
-//import LocationCityIcon from "@material-ui/icons/LocationCity";
+import examplePicture from "../media/sampleCardPic.jpg";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
+import { useHistory } from "react-router";
+
+import useCardStyle from "../styles/useCardStyle";
+
+import { useTripContext } from "../context/TripContext";
 
 export default function TripCard({ type, data, tripStarts, tripEnds }) {
-  //console.log(mockData);
-  //const time = luxon.DateTime;
   const { DateTime } = require("luxon");
   const classes = useCardStyle();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
-    // scroll.scrollToBottom();
-    // scroll.scrollMore(5000);
   };
   let history = useHistory();
   const handleDaySelectClick = (chosenDay) => {
-    // console.log(chosenDay);
     history.push(`/tripsingleday/${chosenDay}`);
   };
-  // const handleUpcomingTripSelectClick = () => {
-  //   history.push(`/tripSummary`);
   // };
   const convertTime = (Ztime) => {
     if (type === "UpcomingTrip") {
@@ -74,12 +64,10 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
   const avatarImage = examplePicture;
   const { tripData } = useTripContext();
   if (type === "TripSummary") {
-    console.log(data);
     const place = tripData.rawDataPlaces.find(
       (item) => item.place_id === data.highlight.place_id
     );
-    const tripInfo = data ? data : mockData.trip[0];
-    //console.log(place);
+    const tripInfo = data;
     return (
       <Card
         className={classes.root}
@@ -106,11 +94,8 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
     const place = tripData.rawDataPlaces.find(
       (item) => item.place_id === data.place_id
     );
-    const tripInfo = data ? data : mockData.trip[0];
-    //console.log(tripInfo);
-    // console.log();
+    const tripInfo = data;
 
-    //console.log(tripInfo.arrivalTime);
     return (
       <Card className={classes.outer} onClick={handleExpandClick}>
         <CardHeader
@@ -141,7 +126,6 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
             aria-expanded={expanded}
             aria-label="show more"
           >
-            {" "}
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
@@ -156,13 +140,10 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
     );
   }
   if (type === "UpcomingTrip") {
-    const tripName = data ? data : mockData.trip[0];
+    const tripName = data;
 
     return (
-      <Card
-        className={classes.root}
-        // onClick={() => handleUpcomingTripSelectClick()}
-      >
+      <Card className={classes.root}>
         <CardHeader
           avatar={
             <Avatar
@@ -181,7 +162,7 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
     );
   }
   if (type === "Suggested") {
-    const tripName = data ? data : mockData.trip[0];
+    const tripName = data;
 
     return (
       <Card className={classes.suggested}>
@@ -203,7 +184,7 @@ export default function TripCard({ type, data, tripStarts, tripEnds }) {
     );
   }
   if (type === "Accommodation") {
-    const tripName = data ? data : mockData.trip[0];
+    const tripName = data;
 
     return (
       <Card className={classes.accommodation}>

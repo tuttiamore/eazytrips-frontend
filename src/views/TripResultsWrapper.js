@@ -1,10 +1,12 @@
 import { Box } from "@material-ui/core";
 import { useLocation } from "react-router";
+
 import Map from "../components/Map";
 import NavStepper from "../components/Stepper";
 import DrawerCustom from "../components/DrawerCustom";
 
 import useTripResultsWrapperStyle from "../styles/useTripResultsWrapperStyle";
+
 export default function TripResultsWrapper({ children }) {
   const classes = useTripResultsWrapperStyle();
   const { pathname } = useLocation();

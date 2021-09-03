@@ -1,10 +1,12 @@
 import { useState } from "react";
+
 import { Box, Typography, Select, MenuItem } from "@material-ui/core";
 import DirectionsWalkIcon from "@material-ui/icons/DirectionsWalk";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import DirectionsCarIcon from "@material-ui/icons/DirectionsCar";
 
 import { useTripContext } from "../context/TripContext";
+
 import useTripTransportationStyle from "../styles/useTripTransportationStyle";
 
 export default function TripTransportation() {
